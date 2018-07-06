@@ -1,0 +1,18 @@
+<table>
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Datum</td>
+    <td>Ort</td>
+    <td>Beginn</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let event of events">
+    <td>{{event.name}}</td>
+    <td>{{event.date}}</td>
+    <td>{{event.place}}</td>
+    <td>{{event.time}}</td>
+  </tr>
+  </tbody>
+</table>
