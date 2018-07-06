@@ -7,12 +7,14 @@ import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MembersComponent } from './members/members.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponent,
-    HomeComponent
+    HomeComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,
