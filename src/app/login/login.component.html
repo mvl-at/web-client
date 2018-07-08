@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title">Login</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <!--<label class="col-form-label" for="inputUsername">Benutzername</label>-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">👤</span>
+      </div>
+      <input [(ngModel)]="credentials.username" class="form-control" placeholder="Benutzername" id="inputUsername"
+             type="text" [class.is-invalid]="loginStatus === 403">
+    </div>
+    <!--<label class="col-form-label" for="inputPassword">Passwort</label>-->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">🔑</span>
+      </div>
+      <input [(ngModel)]="credentials.password" class="form-control rounded-right" placeholder="Passwort"
+             id="inputPassword"
+             type="password" [class.is-invalid]="loginStatus === 403">
+      <div class="invalid-feedback">Benutzername oder Passwort falsch.</div>
+    </div>
+    <div class="input-group">
+      <input type="button" class="btn btn-primary btn-block" (click)="login()" value="Login">
+    </div>
+  </div>
+</div>
