@@ -30,6 +30,16 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <a class="nav-link" id="dropdownManagement" ngbDropdownToggle>Verwaltung</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownManagement">
+            <button class="dropdown-item" routerLink="mgr-ev">Termine</button>
+            <button class="dropdown-item" (click)="addEvent()">Termin hinzufügen</button>
+            <button class="dropdown-item">Something else is here</button>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

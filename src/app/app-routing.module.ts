@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {EventsComponent} from './events/events.component';
 import {HomeComponent} from './home/home.component';
 import {MembersComponent} from './members/members.component';

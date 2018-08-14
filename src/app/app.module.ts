@@ -13,6 +13,7 @@ import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {FormsModule} from '@angular/forms';
 import {RolesComponent} from './roles/roles.component';
+import { EventManagementComponent } from './event-management/event-management.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {RolesComponent} from './roles/roles.component';
     LeadersComponent,
     LoginComponent,
     MenuComponent,
-    RolesComponent
+    RolesComponent,
+    EventManagementComponent
   ],
   imports: [
     BrowserModule,

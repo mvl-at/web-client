@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent, logout, UserInfo} from '../login/login.component';
+import {EventManagementComponent} from '../event-management/event-management.component';
 
 @Component({
   selector: 'app-menu',
@@ -18,6 +19,10 @@ export class MenuComponent implements OnInit {
 
   showLogin() {
     this.modalService.open(LoginComponent);
+  }
+
+  addEvent() {
+    this.modalService.open(EventManagementComponent);
   }
 
   userInfo() {

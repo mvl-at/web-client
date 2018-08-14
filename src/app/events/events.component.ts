@@ -17,7 +17,7 @@ export class EventsComponent implements OnInit {
   }
 }
 
-export interface Event {
+export class Event {
   id: number;
   date: string;
   time: string;
