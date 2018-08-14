@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,3 +8,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 }
+
+export abstract class Editor<T> {
+  entity: T;
+  backup: T;
+
+  protected constructor() {
+    this.entity = this.defaults();
+  }
+
+  reset() {
+    this.entity = Object.assign({}, this.backup);
+  }
+
+  abstract defaults(): T;
+
+  add() {
+    console.log(this.entity);
+  }
+}
+

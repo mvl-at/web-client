@@ -6,41 +6,40 @@
 </div>
 <div class="modal-body">
   <div class="form-group">
-    <input [(ngModel)]="event.name" class="form-control" placeholder="Name" id="name" type="text">
+    <input [(ngModel)]="entity.name" class="form-control" placeholder="Name" id="name" type="text">
   </div>
 
   <div class="form-group">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd"
-             name="dp" [(ngModel)]="date" ngbDatepicker #d="ngbDatepicker">
+             name="dp" [(ngModel)]="entity.date" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
           <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
         </button>
       </div>
     </div>
-    {{date | json}}
   </div>
 
   <div class="form-group">
-    <input [(ngModel)]="event.uniform" class="form-control" placeholder="Adjustierung" id="uniform" type="text">
+    <input [(ngModel)]="entity.uniform" class="form-control" placeholder="Adjustierung" id="uniform" type="text">
   </div>
 
   <div class="form-group">
-    <input [(ngModel)]="event.place" [readonly]="event.internal" class="form-control" placeholder="Ort" id="location" type="text">
+    <input [(ngModel)]="entity.place" [readonly]="entity.internal" class="form-control" placeholder="Ort" id="location" type="text">
   </div>
 
   <div class="form-group">
-    <input [(ngModel)]="event.note" class="form-control" placeholder="Notiz" id="note" type="text">
+    <input [(ngModel)]="entity.note" class="form-control" placeholder="Notiz" id="note" type="text">
   </div>
 
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Treffpunkt</h4>
       <div class="form-group">
-        <input [(ngModel)]="event.musicianPlace" class="form-control mb-3" placeholder="Ort" id="locationMusician"
+        <input [(ngModel)]="entity.musicianPlace" class="form-control mb-3" placeholder="Ort" id="locationMusician"
                type="text">
-        <input [(ngModel)]="event.musicianTime" class="form-control mb-3" placeholder="Zeit" id="timeMusician"
+        <input [(ngModel)]="entity.musicianTime" class="form-control mb-3" placeholder="Zeit" id="timeMusician"
                type="text">
       </div>
     </div>
@@ -48,12 +47,12 @@
 
   <div class="form-group">
     <div class="custom-control custom-checkbox">
-      <input [(ngModel)]="event.important" class="custom-control-input" id="important" type="checkbox">
+      <input [(ngModel)]="entity.important" class="custom-control-input" id="important" type="checkbox">
       <label class="custom-control-label" for="important">Wichtig</label>
     </div>
 
     <div class="custom-control custom-checkbox">
-      <input [(ngModel)]="event.internal" class="custom-control-input" id="internal" type="checkbox">
+      <input [(ngModel)]="entity.internal" class="custom-control-input" id="internal" type="checkbox">
       <label class="custom-control-label" for="internal">Intern</label>
     </div>
   </div>

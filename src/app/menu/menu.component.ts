@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent, logout, UserInfo} from '../login/login.component';
-import {EventManagementComponent} from '../event-management/event-management.component';
+import {EventEditorComponent} from '../event-editor/event-editor.component';
 import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.component';
 import {RoleEditorComponent} from '../role-editor/role-editor.component';
 
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   }
 
   addEvent() {
-    this.modalService.open(EventManagementComponent);
+    this.modalService.open(EventEditorComponent);
   }
 
   addInstrument() {

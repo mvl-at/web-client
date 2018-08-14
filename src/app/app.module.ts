@@ -13,7 +13,7 @@ import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {FormsModule} from '@angular/forms';
 import {RolesComponent} from './roles/roles.component';
-import { EventManagementComponent } from './event-management/event-management.component';
+import { EventEditorComponent } from './event-editor/event-editor.component';
 import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
 import { RoleEditorComponent } from './role-editor/role-editor.component';
 
@@ -27,7 +27,7 @@ import { RoleEditorComponent } from './role-editor/role-editor.component';
     LoginComponent,
     MenuComponent,
     RolesComponent,
-    EventManagementComponent,
+    EventEditorComponent,
     InstrumentEditorComponent,
     RoleEditorComponent
   ],
@@ -40,6 +40,6 @@ import { RoleEditorComponent } from './role-editor/role-editor.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventManagementComponent, InstrumentEditorComponent, RoleEditorComponent]
+  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent]
 })
 export class AppModule { }

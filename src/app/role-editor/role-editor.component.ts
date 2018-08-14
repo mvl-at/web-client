@@ -1,28 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {Role} from '../roles/roles.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Editor} from '../app.component';
 
 @Component({
   selector: 'app-role-editor',
   templateUrl: './role-editor.component.html',
   styleUrls: ['./role-editor.component.css']
 })
-export class RoleEditorComponent implements OnInit {
+export class RoleEditorComponent extends Editor<Role> implements OnInit {
 
-  private role: Role = {id: '', name: '', namePlural: '' };
-  private backup: Role;
-
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) {
+    super();
+  }
 
   ngOnInit() {
-    this.backup = Object.assign({}, this.role);
   }
 
-  reset() {
-    this.role = Object.assign({}, this.backup);
-  }
-
-  add() {
-    console.log(this.role);
+  defaults(): Role {
+    return {id: null, name: null, namePlural: null};
   }
 }
