@@ -14,6 +14,7 @@ import {MenuComponent} from './menu/menu.component';
 import {FormsModule} from '@angular/forms';
 import {RolesComponent} from './roles/roles.component';
 import { EventManagementComponent } from './event-management/event-management.component';
+import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EventManagementComponent } from './event-management/event-management.co
     LoginComponent,
     MenuComponent,
     RolesComponent,
-    EventManagementComponent
+    EventManagementComponent,
+    InstrumentEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,6 @@ import { EventManagementComponent } from './event-management/event-management.co
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [LoginComponent, EventManagementComponent, InstrumentEditorComponent]
 })
 export class AppModule { }

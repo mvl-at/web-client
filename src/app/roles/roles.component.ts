@@ -14,7 +14,7 @@ export class RolesComponent implements OnInit {
 
 }
 
-export interface Role {
+export class Role {
   id: string;
   name: string;
   namePlural: string;

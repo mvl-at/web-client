@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">Instrument hinzufügen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <input [(ngModel)]="instrument.name" class="form-control" placeholder="Name" id="name" type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="instrument.namePlural" class="form-control" placeholder="Name Plural" id="uniform" type="text">
+  </div>
+</div>
+
+<div class="modal-footer">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" (click)="add()">Hinzufügen</button>
+    <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('Cross click')">Abbrechen</button>
+  </div>
+</div>
