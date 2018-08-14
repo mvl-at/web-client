@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title">Rolle hinzufügen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="form-group">
+    <input [(ngModel)]="role.id" class="form-control" placeholder="ID" id="id" type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="role.name" class="form-control" placeholder="Name" id="name" type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="role.namePlural" class="form-control" placeholder="Name Plural" id="namePlural" type="text">
+  </div>
+</div>
+
+<div class="modal-footer">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" (click)="add()">Hinzufügen</button>
+    <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('Cross click')">Abbrechen</button>
+  </div>
+</div>

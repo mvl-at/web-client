@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
 import {RolesComponent} from './roles/roles.component';
 import { EventManagementComponent } from './event-management/event-management.component';
 import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
+import { RoleEditorComponent } from './role-editor/role-editor.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InstrumentEditorComponent } from './instrument-editor/instrument-editor
     MenuComponent,
     RolesComponent,
     EventManagementComponent,
-    InstrumentEditorComponent
+    InstrumentEditorComponent,
+    RoleEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,6 @@ import { InstrumentEditorComponent } from './instrument-editor/instrument-editor
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventManagementComponent, InstrumentEditorComponent]
+  entryComponents: [LoginComponent, EventManagementComponent, InstrumentEditorComponent, RoleEditorComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent, logout, UserInfo} from '../login/login.component';
 import {EventManagementComponent} from '../event-management/event-management.component';
 import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.component';
+import {RoleEditorComponent} from '../role-editor/role-editor.component';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +14,8 @@ export class MenuComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {
+  }
 
   ngOnInit() {
   }
@@ -28,6 +30,10 @@ export class MenuComponent implements OnInit {
 
   addInstrument() {
     this.modalService.open(InstrumentEditorComponent);
+  }
+
+  addRole() {
+    this.modalService.open(RoleEditorComponent);
   }
 
   userInfo() {
