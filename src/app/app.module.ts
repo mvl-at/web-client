@@ -16,6 +16,7 @@ import {RolesComponent} from './roles/roles.component';
 import { EventEditorComponent } from './event-editor/event-editor.component';
 import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
 import { RoleEditorComponent } from './role-editor/role-editor.component';
+import { MemberEditorComponent } from './member-editor/member-editor.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RoleEditorComponent } from './role-editor/role-editor.component';
     RolesComponent,
     EventEditorComponent,
     InstrumentEditorComponent,
-    RoleEditorComponent
+    RoleEditorComponent,
+    MemberEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,6 @@ import { RoleEditorComponent } from './role-editor/role-editor.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent]
+  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent]
 })
 export class AppModule { }

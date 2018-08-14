@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title">Mitglied hinzufügen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="form-group">
+    <input [(ngModel)]="entity.firstName" class="form-control" placeholder="Vorname" id="firstName" type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="entity.lastName" class="form-control" placeholder="Nachname" id="lastName" type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="entity.joined" class="form-control" placeholder="Beitritt" id="joined" type="number">
+  </div>
+
+  <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input [(ngModel)]="entity.active" class="custom-control-input" id="active" type="checkbox">
+      <label class="custom-control-label" for="active">Aktiv</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <select class="custom-select">
+      <option *ngFor="let instrument of instruments">{{instrument.name}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" (click)="add()">Hinzufügen</button>
+    <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('Cross click')">Abbrechen</button>
+  </div>
+</div>

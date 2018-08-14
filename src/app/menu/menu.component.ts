@@ -4,6 +4,7 @@ import {LoginComponent, logout, UserInfo} from '../login/login.component';
 import {EventEditorComponent} from '../event-editor/event-editor.component';
 import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.component';
 import {RoleEditorComponent} from '../role-editor/role-editor.component';
+import {MemberEditorComponent} from '../member-editor/member-editor.component';
 
 @Component({
   selector: 'app-menu',
@@ -34,6 +35,10 @@ export class MenuComponent implements OnInit {
 
   addRole() {
     this.modalService.open(RoleEditorComponent);
+  }
+
+  addMember() {
+    this.modalService.open(MemberEditorComponent);
   }
 
   userInfo() {
