@@ -14,7 +14,7 @@ export class EventsComponent implements OnInit {
   constructor(private http: HttpClient, private service: DataService) { }
 
   ngOnInit() {
-    this.events = this.service.getEvents();
+    this.service.getEvents().subscribe(e => this.events = e);
   }
 }
 

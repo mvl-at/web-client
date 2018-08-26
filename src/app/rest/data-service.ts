@@ -2,45 +2,40 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Instrument, Member} from '../members/members.component';
 import {Event} from '../events/events.component';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
 
-  private cache: Map<string, Array<object>> = new Map<string, Array<object>>();
   private baseUrl = 'http://127.0.0.1:8080/';
 
   constructor(private http: HttpClient) {
   }
 
-  get<T>(name: string): T[] {
+  get<T>(name: string): Observable<T[]> {
 
-    this.fetch(name);
-
-    if (this.cache[name] == null) {
-      this.cache[name] = [];
-    }
-    return this.cache[name];
+    return this.http.get<T[]>(this.url(name));
   }
 
-  fetch(name: string) {
-    this.http.get(this.url(name)).subscribe(i => this.cache[name] = i);
-  }
+  // fetch(name: string) {
+  //   this.http.get(this.url(name)).subscribe(i => this.cache[name] = i);
+  // }
 
   url(name: string): string {
     return this.baseUrl + name;
   }
 
-  getInstruments(): Instrument[] {
+  getInstruments(): Observable<Instrument[]> {
     return this.get<Instrument>('instruments');
   }
 
-  getEvents(): Event[] {
+  getEvents(): Observable<Event[]> {
     return this.get<Event>('events');
   }
 
-  getMembers(): Member[] {
+  getMembers(): Observable<Member[]> {
     return this.get<Member>('members');
   }
 }
