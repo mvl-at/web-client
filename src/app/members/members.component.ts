@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {DataService} from '../rest/data-service';
 
 @Component({
   selector: 'app-members',
@@ -11,11 +12,11 @@ export class MembersComponent implements OnInit {
   private members: Member[] = [];
   private instruments: Instrument[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: DataService) { }
 
   ngOnInit() {
-    this.http.get<Member[]>('http://127.0.0.1:8080/members').subscribe(m => this.members = m);
-    this.http.get<Instrument[]>('http://127.0.0.1:8080/instruments').subscribe(i => this.instruments = i);
+    this.members = this.service.getMembers();
+    this.instruments = this.service.getInstruments();
   }
 
   membersByInstrument(instrument: Instrument) {
