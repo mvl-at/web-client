@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DataService} from '../rest/data-service';
+import {Utils} from '../utils';
 
 @Component({
   selector: 'app-events',
@@ -11,7 +12,7 @@ export class EventsComponent implements OnInit {
 
   private events: Event[];
 
-  constructor(private http: HttpClient, private service: DataService) { }
+  constructor(private http: HttpClient, private service: DataService, private utils: Utils) { }
 
   ngOnInit() {
     this.service.getEvents().subscribe(e => this.events = e);

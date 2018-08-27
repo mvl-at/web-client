@@ -2,7 +2,7 @@
   <thead>
   <tr>
     <td>Name</td>
-    <td>Datum</td>
+    <td>Treffpunkt</td>
     <td>Ort</td>
     <td>Beginn</td>
   </tr>
@@ -10,9 +10,9 @@
   <tbody>
   <tr *ngFor="let event of events">
     <td>{{event.name}}</td>
-    <td>{{event.date}}</td>
+    <td>{{utils.formatDate(event.date, event.musicianTime)}}</td>
     <td>{{event.place}}</td>
-    <td>{{event.time}}</td>
+    <td>{{utils.formatDate(event.date, event.time)}}</td>
   </tr>
   </tbody>
 </table>
