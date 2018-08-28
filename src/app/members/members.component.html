@@ -1,6 +1,6 @@
 <div *ngFor="let instrument of instruments">
   <div class="container-fluid mt-3">
-    <h2>{{instrument.name}}</h2>
+    <h2>{{ membersByInstrument(instrument).length > 1 ? instrument.namePlural : instrument.name}}</h2>
     <div class="row">
       <div class="col-xs-4 ml-5 mt-3" *ngFor="let member of membersByInstrument(instrument)">
         <div class="well" style="display:flex; align-items: center">
