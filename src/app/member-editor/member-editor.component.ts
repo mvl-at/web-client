@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Editor} from '../app.component';
 import {Member} from '../members/members.component';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {DataService} from '../rest/data-service';
 
 @Component({
   selector: 'app-member-editor',
@@ -9,8 +11,8 @@ import {Member} from '../members/members.component';
 })
 export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
-  constructor() {
-    super();
+  constructor(public activeModal: NgbActiveModal, public service: DataService) {
+    super(activeModal, service);
   }
 
   ngOnInit() {
@@ -19,5 +21,13 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   defaults(): Member {
     return {id: null, lastName: null, firstName: null, instrumentId: null,
       active: true, deleted: false, loginAllowed: true, picture: null, joined: null};
+  }
+
+  processedEntity(): Member {
+    return this.entity;
+  }
+
+  url(): string {
+    return 'members';
   }
 }

@@ -1,8 +1,9 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Instrument, Member} from '../members/members.component';
 import {Event} from '../events/events.component';
 import {Observable} from 'rxjs';
+import {AccessToken} from '../login/login.component';
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +20,9 @@ export class DataService {
     return this.http.get<T[]>(this.url(name));
   }
 
-  // fetch(name: string) {
-  //   this.http.get(this.url(name)).subscribe(i => this.cache[name] = i);
-  // }
+  post<T>(entity: T, name: string): Observable<HttpResponse<object>> {
+    return this.http.post(this.url(name), entity, {headers: {'Access-Token': AccessToken}, observe: 'response'});
+  }
 
   url(name: string): string {
     return this.baseUrl + name;
@@ -29,6 +30,10 @@ export class DataService {
 
   getInstruments(): Observable<Instrument[]> {
     return this.get<Instrument>('instruments');
+  }
+
+  postInstrument(instrument: Instrument) {
+    this.post<Instrument>(instrument, 'instruments');
   }
 
   getEvents(): Observable<Event[]> {

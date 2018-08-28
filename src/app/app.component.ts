@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {DataService} from './rest/data-service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export abstract class Editor<T> {
   entity: T;
   backup: T;
 
-  protected constructor() {
+  protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
     this.entity = this.defaults();
   }
 
@@ -25,6 +27,19 @@ export abstract class Editor<T> {
 
   add() {
     console.log(this.entity);
+    this.service.post(this.processedEntity(), this.url()).subscribe(resp => {
+      if (resp.status === 200) {
+        this.close();
+      }
+    });
   }
+
+  close() {
+    this.activeModal.dismiss('close-button');
+  }
+
+  abstract url(): string;
+
+  abstract processedEntity(): T;
 }
 
