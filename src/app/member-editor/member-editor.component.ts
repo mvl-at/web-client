@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Editor} from '../app.component';
-import {Member} from '../members/members.component';
+import {Instrument, Member} from '../members/members.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
+import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-member-editor',
@@ -11,11 +12,15 @@ import {DataService} from '../rest/data-service';
 })
 export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
+  private instruments: Instrument[];
+  private instrumentId: string;
+
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
   }
 
   ngOnInit() {
+    this.service.getInstruments().subscribe(i => this.instruments = i);
   }
 
   defaults(): Member {
@@ -24,6 +29,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   }
 
   processedEntity(): Member {
+    this.entity.instrumentId = parseInt(this.instrumentId, 10);
     return this.entity;
   }
 
