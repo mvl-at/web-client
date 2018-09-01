@@ -25,7 +25,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   defaults(): Member {
     return {id: null, lastName: null, firstName: null, instrumentId: null,
-      active: true, deleted: false, loginAllowed: true, picture: null, joined: null};
+      active: true, deleted: false, loginAllowed: true, picture: null, joined: new Date(Date.now()).getFullYear()};
   }
 
   processedEntity(): Member {
