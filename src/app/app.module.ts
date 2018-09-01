@@ -17,6 +17,7 @@ import { EventEditorComponent } from './event-editor/event-editor.component';
 import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
 import { RoleEditorComponent } from './role-editor/role-editor.component';
 import { MemberEditorComponent } from './member-editor/member-editor.component';
+import { MemberViewComponent } from './member-view/member-view.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MemberEditorComponent } from './member-editor/member-editor.component';
     EventEditorComponent,
     InstrumentEditorComponent,
     RoleEditorComponent,
-    MemberEditorComponent
+    MemberEditorComponent,
+    MemberViewComponent
   ],
   imports: [
     BrowserModule,
