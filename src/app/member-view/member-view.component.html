@@ -7,7 +7,8 @@
     <div style="height: auto">
       <ul style="vertical-align: middle; list-style: none">
         <li><strong>{{member.firstName}} {{member.lastName}}</strong></li>
-        <li>Beitritt {{member.joined}}</li>
+        <li *ngIf="leader === null || leader === undefined">Beitritt {{member.joined}}</li>
+        <li *ngIf="leader !== null && leader !== undefined">{{leader.leaderRole.name}}<span *ngIf="leader.priority > 0"> Stellvertreter</span></li>
       </ul>
     </div>
   </div>

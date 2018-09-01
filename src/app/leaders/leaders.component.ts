@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Member} from '../members/members.component';
+import {DataService} from '../rest/data-service';
 
 @Component({
   selector: 'app-leaders',
@@ -9,11 +10,12 @@ import {Member} from '../members/members.component';
 })
 export class LeadersComponent implements OnInit {
 
-  private members: Member[];
+  private leaders: LeaderRoleMember[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: DataService) { }
 
   ngOnInit() {
+    this.service.get<LeaderRoleMember>('leaderRolesMembers').subscribe(l => this.leaders = l);
   }
 
 }
@@ -28,4 +30,7 @@ export interface LeaderRoleMember {
   id: number;
   leaderRoleId: number;
   memberId: number;
+  priority: number;
+  leaderRole: LeaderRole;
+  member: Member;
 }
