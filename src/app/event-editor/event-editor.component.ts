@@ -55,4 +55,8 @@ export class EventEditorComponent extends Editor<Event> implements OnInit {
   url(): string {
     return 'events';
   }
+
+  entityName(): string {
+    return 'Termin';
+  }
 }

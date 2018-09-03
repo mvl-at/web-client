@@ -29,4 +29,8 @@ export class RoleEditorComponent extends Editor<Role> implements OnInit {
   url(): string {
     return 'roles';
   }
+
+  entityName(): string {
+    return 'Rolle';
+  }
 }

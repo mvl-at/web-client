@@ -29,4 +29,8 @@ export class InstrumentEditorComponent extends Editor<Instrument> implements OnI
   url(): string {
     return 'instruments';
   }
+
+  entityName(): string {
+    return 'Instrument';
+  }
 }

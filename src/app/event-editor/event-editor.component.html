@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Termin hinzufügen</h4>
+  <h4 class="modal-title">{{title()}}</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -30,7 +30,8 @@
   </div>
 
   <div class="form-group">
-    <input [(ngModel)]="entity.place" [readonly]="entity.internal" class="form-control" placeholder="Ort" id="location" type="text">
+    <input [(ngModel)]="entity.place" [readonly]="entity.internal" class="form-control" placeholder="Ort" id="location"
+           type="text">
   </div>
 
   <div class="form-group">
@@ -44,7 +45,7 @@
         <input [(ngModel)]="entity.musicianPlace" class="form-control mb-3" placeholder="Ort" id="locationMusician"
                type="text">
         <!--<input [(ngModel)]="entity.musicianTime" class="form-control mb-3" placeholder="Zeit" id="timeMusician"-->
-               <!--type="text">-->
+        <!--type="text">-->
         <ngb-timepicker [(ngModel)]="entity.musicianTime" [spinners]="false"></ngb-timepicker>
       </div>
     </div>

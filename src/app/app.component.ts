@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 
@@ -15,8 +15,14 @@ export abstract class Editor<T> {
   entity: T;
   backup: T;
 
+  @Input() edit: T;
+
   protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
-    this.entity = this.defaults();
+    if (this.edit === undefined || this.edit === null) {
+      this.entity = this.defaults();
+    } else {
+      this.entity = this.edit;
+    }
   }
 
   reset() {
@@ -33,6 +39,16 @@ export abstract class Editor<T> {
       }
     });
   }
+
+  title(): string {
+    let title = 'hinzufügen';
+    if (this.edit !== undefined && this.edit !== null) {
+      title = 'bearbeiten';
+    }
+    return this.entityName() + ' ' + title;
+  }
+
+  abstract entityName(): string;
 
   close() {
     this.activeModal.dismiss('close-button');

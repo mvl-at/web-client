@@ -36,4 +36,8 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   url(): string {
     return 'members';
   }
+
+  entityName(): string {
+    return 'Mitglied';
+  }
 }
