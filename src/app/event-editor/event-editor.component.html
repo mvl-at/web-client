@@ -12,13 +12,17 @@
   <div class="form-group">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd"
-             name="dp" [(ngModel)]="date" ngbDatepicker #d="ngbDatepicker">
+             name="dp" [(ngModel)]="entity.date" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
           <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
         </button>
       </div>
     </div>
+  </div>
+
+  <div class="form-group">
+    <ngb-timepicker [(ngModel)]="entity.time" [spinners]="false"></ngb-timepicker>
   </div>
 
   <div class="form-group">
@@ -39,8 +43,9 @@
       <div class="form-group">
         <input [(ngModel)]="entity.musicianPlace" class="form-control mb-3" placeholder="Ort" id="locationMusician"
                type="text">
-        <input [(ngModel)]="entity.musicianTime" class="form-control mb-3" placeholder="Zeit" id="timeMusician"
-               type="text">
+        <!--<input [(ngModel)]="entity.musicianTime" class="form-control mb-3" placeholder="Zeit" id="timeMusician"-->
+               <!--type="text">-->
+        <ngb-timepicker [(ngModel)]="entity.musicianTime" [spinners]="false"></ngb-timepicker>
       </div>
     </div>
   </div>
