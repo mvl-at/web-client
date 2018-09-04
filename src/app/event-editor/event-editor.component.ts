@@ -1,6 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Event} from '../events/events.component';
-import {NgbActiveModal, NgbDateAdapter, NgbDateNativeAdapter, NgbTimeAdapter, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbActiveModal,
+  NgbDateAdapter,
+  NgbDateNativeAdapter,
+  NgbDateStruct,
+  NgbTimeAdapter,
+  NgbTimeStruct
+} from '@ng-bootstrap/ng-bootstrap';
 import {Editor} from '../app.component';
 import {DataService} from '../rest/data-service';
 import {NgbDate} from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date';
@@ -20,10 +27,32 @@ export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
 
   toModel(time: NgbTimeStruct): Date {
     const date = new Date();
-    if (time != null) {
+    if (time !== null) {
       date.setHours(time.hour, time.minute, time.second);
     }
     return date;
+  }
+
+}
+
+export class JSONDateAdapter extends NgbDateAdapter<Date> {
+
+  fromModel(value: Date): NgbDateStruct {
+    console.log(value);
+    let date = null;
+    if (value !== null) {
+      const parsedValue = new Date(Date.parse(value.toString()));
+      date = {year: parsedValue.getFullYear(), month: parsedValue.getMonth(), day: parsedValue.getDay()};
+    }
+    return date;
+  }
+
+  toModel(date: NgbDateStruct): Date {
+    const cDate = new Date();
+    if (date !== null) {
+      cDate.setFullYear(date.year, date.month, date.day);
+    }
+    return cDate;
   }
 
 }
@@ -32,7 +61,7 @@ export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
   selector: 'app-event-management',
   templateUrl: './event-editor.component.html',
   styleUrls: ['./event-editor.component.css'],
-  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}, {provide: NgbTimeAdapter, useClass: JSONTimeAdapter}]
+  providers: [{provide: NgbDateAdapter, useClass: JSONDateAdapter}, {provide: NgbTimeAdapter, useClass: JSONTimeAdapter}]
 })
 export class EventEditorComponent extends Editor<Event> implements OnInit {
 
