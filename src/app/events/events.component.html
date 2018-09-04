@@ -9,7 +9,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let event of events">
-    <td>{{event.name}}</td>
+    <td>{{event.name}} <a (click)="edit(event)">Bearbeiten</a></td>
     <td>{{utils.formatDate(event.date, event.musicianTime)}}</td>
     <td>{{event.place}}</td>
     <td>{{utils.formatDate(event.date, event.time)}}</td>

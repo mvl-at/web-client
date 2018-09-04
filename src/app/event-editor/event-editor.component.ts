@@ -10,8 +10,10 @@ export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
 
   fromModel(value: Date): NgbTimeStruct {
     let time = null;
+    console.log(value);
     if (value !== null) {
-      time = {hour: value.getHours(), minute: value.getMinutes(), second: value.getSeconds()};
+      const parsedValue = new Date(Date.parse(value.toString()));
+      time = {hour: parsedValue.getHours(), minute: parsedValue.getMinutes(), second: parsedValue.getSeconds()};
     }
     return time;
   }

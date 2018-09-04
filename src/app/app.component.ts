@@ -15,7 +15,7 @@ export abstract class Editor<T> {
   entity: T;
   backup: T;
 
-  @Input() edit: T;
+  edit: T;
 
   protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
     if (this.edit === undefined || this.edit === null) {
@@ -57,5 +57,10 @@ export abstract class Editor<T> {
   abstract url(): string;
 
   abstract processedEntity(): T;
+
+  setEdit(edit: T) {
+    this.edit = edit;
+    this.entity = edit;
+  }
 }
 
