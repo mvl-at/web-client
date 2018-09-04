@@ -17,7 +17,6 @@ export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
 
   fromModel(value: Date): NgbTimeStruct {
     let time = null;
-    console.log(value);
     if (value !== null) {
       const parsedValue = new Date(Date.parse(value.toString()));
       time = {hour: parsedValue.getHours(), minute: parsedValue.getMinutes(), second: parsedValue.getSeconds()};
@@ -38,11 +37,10 @@ export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
 export class JSONDateAdapter extends NgbDateAdapter<Date> {
 
   fromModel(value: Date): NgbDateStruct {
-    console.log(value);
     let date = null;
     if (value !== null) {
       const parsedValue = new Date(Date.parse(value.toString()));
-      date = {year: parsedValue.getFullYear(), month: parsedValue.getMonth(), day: parsedValue.getDay()};
+      date = {year: parsedValue.getFullYear(), month: parsedValue.getMonth() + 1, day: parsedValue.getDate()};
     }
     return date;
   }
@@ -50,7 +48,7 @@ export class JSONDateAdapter extends NgbDateAdapter<Date> {
   toModel(date: NgbDateStruct): Date {
     const cDate = new Date();
     if (date !== null) {
-      cDate.setFullYear(date.year, date.month, date.day);
+      cDate.setFullYear(date.year, date.month - 1, date.day);
     }
     return cDate;
   }
