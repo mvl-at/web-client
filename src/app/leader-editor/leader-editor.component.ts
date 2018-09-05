@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Editor} from '../app.component';
-import {LeaderRoleMember} from '../leaders/leaders.component';
+import {LeaderRole, LeaderRoleMember} from '../leaders/leaders.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
+import {Member} from '../members/members.component';
 
 @Component({
   selector: 'app-leader-editor',
@@ -11,15 +12,23 @@ import {DataService} from '../rest/data-service';
 })
 export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements OnInit {
 
+  private members: Member[];
+  private leaderRoles: LeaderRole[];
+
+  private member: string;
+  private leaderRole: string;
+
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
+    this.service.get<Member>('members').subscribe(m => this.members = m);
+    this.service.get<LeaderRole>('leaderRoles').subscribe(l => this.leaderRoles = l);
   }
 
   ngOnInit() {
   }
 
   defaults(): LeaderRoleMember {
-    return undefined;
+    return {id: undefined, member: null, memberId: undefined, leaderRole: null, leaderRoleId: undefined, priority: undefined};
   }
 
   entityName(): string {
@@ -27,6 +36,8 @@ export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements O
   }
 
   processedEntity(): LeaderRoleMember {
+    this.entity.memberId = parseInt(this.member, 10);
+    this.entity.leaderRoleId = parseInt(this.leaderRole, 10);
     return this.entity;
   }
 

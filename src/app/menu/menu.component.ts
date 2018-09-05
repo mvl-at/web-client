@@ -6,6 +6,7 @@ import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.
 import {RoleEditorComponent} from '../role-editor/role-editor.component';
 import {MemberEditorComponent} from '../member-editor/member-editor.component';
 import {LeaderRoleEditorComponent} from '../leader-role-editor/leader-role-editor.component';
+import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 
 @Component({
   selector: 'app-menu',
@@ -44,6 +45,10 @@ export class MenuComponent implements OnInit {
 
   addLeaderRole() {
     this.modalService.open(LeaderRoleEditorComponent);
+  }
+
+  addLeader() {
+    this.modalService.open(LeaderEditorComponent);
   }
 
   userInfo() {
