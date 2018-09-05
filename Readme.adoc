@@ -34,3 +34,33 @@ http://www.protractortest.org/[Protractor].
 To get more help on the Angular CLI use `ng help` or go check out the
 https://github.com/angular/angular-cli/blob/master/README.md[Angular CLI
 README].
+
+=== Todos
+
+Here some features and fixes which will be implemented.
+
+==== Production
+
+These one are neccessary for the very first release.
+
+* improve event view
+* fetch member pictures
+* update member pictures
+* update title picture
+* update favicon
+* update username and password
+* home page
+* configuration files
+* add impressum
+** show license
+** show instance information
+** show roles
+* add eastereggs
+
+==== Running
+
+These features will be implemented after the first deployment.
+
+* integration with docs
+* integration with calendar subscription
+* add birthdate
