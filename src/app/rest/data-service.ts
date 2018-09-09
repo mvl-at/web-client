@@ -11,6 +11,7 @@ import {AccessToken} from '../login/login.component';
 export class DataService {
 
   private baseUrl = 'http://127.0.0.1:8080/';
+  private assetUrl = 'http://127.0.0.1:7302/';
 
   constructor(private http: HttpClient) {
   }
@@ -42,5 +43,9 @@ export class DataService {
 
   getMembers(): Observable<Member[]> {
     return this.get<Member>('members');
+  }
+
+  getMemberPicture(picture: string): string {
+    return this.assetUrl + 'member/' + picture;
   }
 }
