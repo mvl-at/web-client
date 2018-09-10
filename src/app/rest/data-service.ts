@@ -48,4 +48,8 @@ export class DataService {
   getMemberPicture(picture: string): string {
     return this.assetUrl + 'member/' + picture;
   }
+
+  getTitleImage(): string {
+    return this.assetUrl + '/title';
+  }
 }
