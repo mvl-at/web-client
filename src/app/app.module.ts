@@ -20,6 +20,7 @@ import { MemberEditorComponent } from './member-editor/member-editor.component';
 import { MemberViewComponent } from './member-view/member-view.component';
 import { LeaderRoleEditorComponent } from './leader-role-editor/leader-role-editor.component';
 import { LeaderEditorComponent } from './leader-editor/leader-editor.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LeaderEditorComponent } from './leader-editor/leader-editor.component';
     MemberEditorComponent,
     MemberViewComponent,
     LeaderRoleEditorComponent,
-    LeaderEditorComponent
+    LeaderEditorComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,6 @@ import { LeaderEditorComponent } from './leader-editor/leader-editor.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent]
+  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent, PreferencesComponent]
 })
 export class AppModule { }

@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title">Einstellungen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input class="custom-file-input" id="inputGroupFile02" type="file" (change)="titleChange($event)">
+        <label class="custom-file-label" for="inputGroupFile02">Auswählen</label>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text" id="">OK</span>
+      </div>
+    </div>
+  </div>
+</div>
