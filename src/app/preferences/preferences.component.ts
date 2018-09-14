@@ -23,7 +23,7 @@ export class PreferencesComponent implements OnInit {
       const file: File = fileList[0];
       const formData: FormData = new FormData();
       formData.append('file', file, file.name);
-      const head = new HttpHeaders();
+      const head = new HttpHeaders({'access-token': AccessToken});
       head.set('access-token', AccessToken);
       const req = new HttpRequest('POST', 'http://127.0.0.1:7302/title', file, {
         reportProgress: true,
