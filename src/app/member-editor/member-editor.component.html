@@ -30,6 +30,13 @@
         <option *ngFor="let instrument of instruments" [value]="instrument.id">{{instrument.name}}</option>
       </select>
   </div>
+
+  <div class="input-group mb-3">
+    <div class="custom-file">
+      <input class="custom-file-input" id="inputGroupFile02" type="file" (change)="memberPictureChange($event)">
+      <label class="custom-file-label input-group-append" for="inputGroupFile02">{{currentFileName}}</label>
+    </div>
+  </div>
 </div>
 
 <div class="modal-footer">

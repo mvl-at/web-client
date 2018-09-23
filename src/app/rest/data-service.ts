@@ -1,8 +1,8 @@
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Instrument, Member} from '../members/members.component';
 import {Event} from '../events/events.component';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {AccessToken} from '../login/login.component';
 
 @Injectable({
@@ -51,5 +51,23 @@ export class DataService {
 
   getTitleImage(): string {
     return this.assetUrl + '/title';
+  }
+
+  postPicture(file: File, url: string) {
+    const head = new HttpHeaders({'access-token': AccessToken});
+    head.set('access-token', AccessToken);
+    const req = new HttpRequest('POST', this.assetUrl + url, file, {
+      reportProgress: true,
+      headers: head
+    });
+    const progress = new Subject<number>();
+    this.http.request(req).subscribe(e => {
+      if (e.type === HttpEventType.UploadProgress) {
+        const percentDone = Math.round(100 * e.loaded / e.total);
+        progress.next(percentDone);
+      } else if (e instanceof HttpResponse) {
+        progress.complete();
+      }
+    });
   }
 }

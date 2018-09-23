@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Editor} from '../app.component';
 import {Instrument, Member} from '../members/members.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +14,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   private instruments: Instrument[];
   private instrumentId: string;
+  private currentFileName = 'Foto';
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
@@ -24,8 +25,10 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   }
 
   defaults(): Member {
-    return {id: null, lastName: null, firstName: null, instrumentId: null,
-      active: true, deleted: false, loginAllowed: true, picture: null, joined: new Date(Date.now()).getFullYear()};
+    return {
+      id: null, lastName: null, firstName: null, instrumentId: null,
+      active: true, deleted: false, loginAllowed: true, picture: null, joined: new Date(Date.now()).getFullYear()
+    };
   }
 
   processedEntity(): Member {
@@ -39,5 +42,14 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   entityName(): string {
     return 'Mitglied';
+  }
+
+  memberPictureChange(event) {
+    const fileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      this.currentFileName = file.name;
+      this.service.postPicture(file, 'member/' + this.entity.id);
+    }
   }
 }
