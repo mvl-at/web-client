@@ -26,6 +26,7 @@ import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.compo
 import { LeaderListComponent } from './leader-list/leader-list.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { InstrumentListComponent } from './instrument-list/instrument-list.component';
+import { CredentialsComponent } from './credentials/credentials.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { InstrumentListComponent } from './instrument-list/instrument-list.compo
     LeaderRoleListComponent,
     LeaderListComponent,
     EventListComponent,
-    InstrumentListComponent
+    InstrumentListComponent,
+    CredentialsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { InstrumentListComponent } from './instrument-list/instrument-list.compo
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent, PreferencesComponent]
+  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent, PreferencesComponent, CredentialsComponent]
 })
 export class AppModule {
 }

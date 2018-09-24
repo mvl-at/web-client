@@ -9,6 +9,7 @@ import {LeaderRoleEditorComponent} from '../leader-role-editor/leader-role-edito
 import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 import {PreferencesComponent} from '../preferences/preferences.component';
 import {MemberListComponent} from '../member-list/member-list.component';
+import {CredentialsComponent} from '../credentials/credentials.component';
 
 @Component({
   selector: 'app-menu',
@@ -59,6 +60,10 @@ export class MenuComponent implements OnInit {
 
   userInfo() {
     return UserInfo;
+  }
+
+  changePassword() {
+    this.modalService.open(CredentialsComponent).componentInstance.member = UserInfo.member;
   }
 
   preferences() {
