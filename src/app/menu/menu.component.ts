@@ -8,6 +8,7 @@ import {MemberEditorComponent} from '../member-editor/member-editor.component';
 import {LeaderRoleEditorComponent} from '../leader-role-editor/leader-role-editor.component';
 import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 import {PreferencesComponent} from '../preferences/preferences.component';
+import {MemberListComponent} from '../member-list/member-list.component';
 
 @Component({
   selector: 'app-menu',
@@ -50,6 +51,10 @@ export class MenuComponent implements OnInit {
 
   addLeader() {
     this.modalService.open(LeaderEditorComponent);
+  }
+
+  members() {
+    this.modalService.open(MemberListComponent);
   }
 
   userInfo() {

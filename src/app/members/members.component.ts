@@ -39,7 +39,9 @@ export interface Member {
   active: boolean;
   deleted: boolean;
   loginAllowed: boolean;
+  username: string;
   instrumentId: number;
+  instrument: Instrument;
 }
 
 export interface Instrument {
