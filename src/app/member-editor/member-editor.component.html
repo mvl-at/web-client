@@ -26,7 +26,7 @@
   </div>
 
   <div class="form-group">
-      <select class="custom-select" [(ngModel)]="instrumentId">
+      <select class="custom-select" [(ngModel)]="entity.instrumentId">
         <option *ngFor="let instrument of instruments" [value]="instrument.id">{{instrument.name}}</option>
       </select>
   </div>

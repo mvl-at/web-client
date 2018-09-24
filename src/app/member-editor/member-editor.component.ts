@@ -13,7 +13,6 @@ import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_versio
 export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   private instruments: Instrument[];
-  private instrumentId: string;
   private currentFileName = 'Foto';
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
@@ -32,7 +31,8 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   }
 
   processedEntity(): Member {
-    this.entity.instrumentId = parseInt(this.instrumentId, 10);
+    this.entity.instrumentId = parseInt(this.entity.instrumentId.toString(), 10);
+    this.entity.instrument = undefined;
     return this.entity;
   }
 
