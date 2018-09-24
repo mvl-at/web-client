@@ -9,8 +9,13 @@ export class Utils {
   }
 
   formatDate(date: string, time: string): string {
-    const ddate = new Date(Date.parse(date));
     const dtime = new Date(Date.parse(time));
+
+    if (date === undefined || date === null) {
+      return dtime.toLocaleString(undefined, {hour: 'numeric', minute: 'numeric'});
+    }
+
+    const ddate = new Date(Date.parse(date));
     const combinedDate = new Date();
     combinedDate.setFullYear(ddate.getFullYear(), ddate.getMonth(), ddate.getDate());
     combinedDate.setHours(dtime.getHours(), dtime.getMinutes());
