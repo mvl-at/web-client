@@ -13,15 +13,16 @@ import {LoginComponent} from './login/login.component';
 import {MenuComponent} from './menu/menu.component';
 import {FormsModule} from '@angular/forms';
 import {RolesComponent} from './roles/roles.component';
-import { EventEditorComponent } from './event-editor/event-editor.component';
-import { InstrumentEditorComponent } from './instrument-editor/instrument-editor.component';
-import { RoleEditorComponent } from './role-editor/role-editor.component';
-import { MemberEditorComponent } from './member-editor/member-editor.component';
-import { MemberViewComponent } from './member-view/member-view.component';
-import { LeaderRoleEditorComponent } from './leader-role-editor/leader-role-editor.component';
-import { LeaderEditorComponent } from './leader-editor/leader-editor.component';
-import { PreferencesComponent } from './preferences/preferences.component';
-import { MemberListComponent } from './member-list/member-list.component';
+import {EventEditorComponent} from './event-editor/event-editor.component';
+import {InstrumentEditorComponent} from './instrument-editor/instrument-editor.component';
+import {RoleEditorComponent} from './role-editor/role-editor.component';
+import {MemberEditorComponent} from './member-editor/member-editor.component';
+import {MemberViewComponent} from './member-view/member-view.component';
+import {LeaderRoleEditorComponent} from './leader-role-editor/leader-role-editor.component';
+import {LeaderEditorComponent} from './leader-editor/leader-editor.component';
+import {PreferencesComponent} from './preferences/preferences.component';
+import {MemberListComponent} from './member-list/member-list.component';
+import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MemberListComponent } from './member-list/member-list.component';
     LeaderRoleEditorComponent,
     LeaderEditorComponent,
     PreferencesComponent,
-    MemberListComponent
+    MemberListComponent,
+    LeaderRoleListComponent
   ],
   imports: [
     BrowserModule,
@@ -54,4 +56,5 @@ import { MemberListComponent } from './member-list/member-list.component';
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent, PreferencesComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
