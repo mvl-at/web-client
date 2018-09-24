@@ -19,10 +19,6 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.service.getEvents().subscribe(e => this.events = e);
   }
-
-  edit(event: Event) {
-    this.modal.open(EventEditorComponent).componentInstance.entity = event;
-  }
 }
 
 export class Event {

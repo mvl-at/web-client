@@ -1,18 +1,22 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <thead>
   <tr>
-    <td>Name</td>
-    <td>Treffpunkt</td>
-    <td>Ort</td>
-    <td>Beginn</td>
+    <th>Name</th>
+    <th>Datum</th>
+    <th>Treffpunkt</th>
+    <th>Beginn</th>
+    <th>Adjustierung</th>
+    <th>Notiz</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let event of events">
-    <td>{{event.name}} <a (click)="edit(event)">Bearbeiten</a></td>
-    <td>{{utils.formatDate(event.date, event.musicianTime)}}</td>
-    <td>{{event.place}}</td>
-    <td>{{utils.formatDate(event.date, event.time)}}</td>
+  <tr *ngFor="let event of events" [class.table-primary]="event.important">
+    <td>{{event.name}}</td>
+    <td>{{utils.formatDate(event.date, null)}}</td>
+    <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
+    <td>{{utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+    <td>{{event.uniform}}</td>
+    <td>{{event.note}}</td>
   </tr>
   </tbody>
 </table>
