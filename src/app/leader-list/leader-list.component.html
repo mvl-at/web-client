@@ -11,8 +11,8 @@
   <tbody>
   <tr *ngFor="let leader of items">
     <td><a (click)="edit(leader)">Bearbeiten</a></td>
-    <td>{{leader.member.firstName + ' ' + leader.member.lastName}}</td>
-    <td>{{leader.leaderRole.name}}</td>
+    <td>{{leader.member ? leader.member.firstName + ' ' + leader.member.lastName : '-'}}</td>
+    <td>{{leader.leaderRole ? leader.leaderRole.name : '-'}}</td>
     <td>{{leader.priority}}</td>
     <td>{{leader.id}}</td>
   </tr>

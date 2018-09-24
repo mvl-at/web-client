@@ -15,7 +15,7 @@
     <td><a (click)="edit(member)">Bearbeiten</a> <a (click)="delete(member)">Löschen</a></td>
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
-    <td>{{member.instrument.name}}</td>
+    <td>{{member.instrument ? member.instrument.name : '-'}}</td>
     <td>{{member.active}}</td>
     <td>{{member.username}}</td>
     <td>{{member.id}}</td>

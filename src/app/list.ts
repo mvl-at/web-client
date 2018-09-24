@@ -1,5 +1,6 @@
 import {DataService} from './rest/data-service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClient} from '@angular/common/http';
 
 export abstract class List<T> {
 
@@ -17,6 +18,10 @@ export abstract class List<T> {
     this.modal.open(this.editor());
   }
 
+  deleteItem(item: T) {
+    this.service.delete(item, this.urlName()).subscribe(i => console.log(i));
+  }
+
   loadData() {
     this.service.get<T>(this.urlName()).subscribe(i => this.items = i);
     this.loadAdditionalData();
@@ -26,5 +31,6 @@ export abstract class List<T> {
   }
 
   abstract urlName(): string;
+
   abstract editor(): any;
 }
