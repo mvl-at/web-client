@@ -36,8 +36,10 @@ export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements O
   }
 
   processedEntity(): LeaderRoleMember {
-    this.entity.memberId = parseInt(this.member, 10);
-    this.entity.leaderRoleId = parseInt(this.leaderRole, 10);
+    this.entity.memberId = parseInt(this.entity.memberId.toString(), 10);
+    this.entity.leaderRoleId = parseInt(this.entity.leaderRoleId.toString(), 10);
+    this.entity.leaderRole = undefined;
+    this.entity.member = undefined;
     return this.entity;
   }
 

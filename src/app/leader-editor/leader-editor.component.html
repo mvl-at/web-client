@@ -6,12 +6,12 @@
 </div>
 <div class="modal-body">
   <div class="form-group">
-    <select class="custom-select" [(ngModel)]="member">
+    <select class="custom-select" [(ngModel)]="entity.memberId">
       <option *ngFor="let member of members" [value]="member.id">{{member.firstName + ' ' + member.lastName}}</option>
     </select>
   </div>
   <div class="form-group">
-    <select class="custom-select" [(ngModel)]="leaderRole">
+    <select class="custom-select" [(ngModel)]="entity.leaderRoleId">
       <option *ngFor="let leaderRole of leaderRoles" [value]="leaderRole.id">{{leaderRole.name}}</option>
     </select>
   </div>
