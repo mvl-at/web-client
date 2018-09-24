@@ -3,29 +3,27 @@ import {DataService} from '../rest/data-service';
 import {Member} from '../members/members.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemberEditorComponent} from '../member-editor/member-editor.component';
+import {List} from '../list';
 
 @Component({
   selector: 'app-member-list',
   templateUrl: './member-list.component.html',
   styleUrls: ['./member-list.component.css']
 })
-export class MemberListComponent implements OnInit {
+export class MemberListComponent extends List<Member> implements OnInit {
 
-  private members: Member[];
-
-  constructor(private service: DataService, private modal: NgbModal) {
+  constructor(protected service: DataService, protected modal: NgbModal) {
+    super(service, modal);
   }
 
   ngOnInit() {
-    this.service.getMembers().subscribe(m => this.members = m);
   }
 
-  edit(member: Member) {
-    this.modal.open(MemberEditorComponent).componentInstance.entity = member;
+  editor(): any {
+    return MemberEditorComponent;
   }
 
-  delete(member: Member) {
-    member.instrument = undefined;
-    this.service.delete({id: member.id}, 'members').subscribe(m => console.log(m));
+  urlName(): string {
+    return 'members';
   }
 }

@@ -1,26 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../rest/data-service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {LeaderRole, LeaderRoleMember} from '../leaders/leaders.component';
-import {LeaderRoleEditorComponent} from '../leader-role-editor/leader-role-editor.component';
+import {LeaderRoleMember} from '../leaders/leaders.component';
 import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
+import {List} from '../list';
 
 @Component({
   selector: 'app-leader-list',
   templateUrl: './leader-list.component.html',
   styleUrls: ['./leader-list.component.css']
 })
-export class LeaderListComponent implements OnInit {
+export class LeaderListComponent extends List<LeaderRoleMember> implements OnInit {
 
-  private leaders: LeaderRoleMember[];
-
-  constructor(private service: DataService, private modal: NgbModal) { }
-
-  ngOnInit() {
-    this.service.get<LeaderRoleMember>('leaderRolesMembers').subscribe(l => this.leaders = l);
+  constructor(protected service: DataService, protected modal: NgbModal) {
+    super(service, modal);
   }
 
-  edit(leader: LeaderRoleMember) {
-    this.modal.open(LeaderEditorComponent).componentInstance.entity = leader;
+  ngOnInit() {
+  }
+
+  editor(): any {
+    return LeaderEditorComponent;
+  }
+
+  urlName(): string {
+    return 'leaderRolesMembers';
   }
 }

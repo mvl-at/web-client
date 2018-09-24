@@ -8,7 +8,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let instrument of instruments">
+  <tr *ngFor="let instrument of items">
     <td><a (click)="edit(instrument)">Bearbeiten</a> <a (click)="delete(instrument)">Löschen</a></td>
     <td>{{instrument.name}}</td>
     <td>{{instrument.namePlural}}</td>

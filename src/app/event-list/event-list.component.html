@@ -14,7 +14,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let event of events">
+  <tr *ngFor="let event of items">
     <td><a (click)="edit(event)">Bearbeiten</a></td>
     <td>{{event.name}}</td>
     <td>{{utils.formatDate(event.date, null)}}</td>

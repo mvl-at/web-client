@@ -8,7 +8,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let leaderRole of leaderRoles">
+  <tr *ngFor="let leaderRole of items">
     <td><a (click)="edit(leaderRole)">Bearbeiten</a></td>
     <td>{{leaderRole.name}}</td>
     <td>{{leaderRole.namePlural}}</td>

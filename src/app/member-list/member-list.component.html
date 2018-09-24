@@ -11,7 +11,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let member of members">
+  <tr *ngFor="let member of items">
     <td><a (click)="edit(member)">Bearbeiten</a> <a (click)="delete(member)">Löschen</a></td>
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
