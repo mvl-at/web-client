@@ -6,6 +6,7 @@ import {MembersComponent} from './members/members.component';
 import {LeadersComponent} from './leaders/leaders.component';
 import {MemberListComponent} from './member-list/member-list.component';
 import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
+import {LeaderListComponent} from './leader-list/leader-list.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'leader-role-management',
     component: LeaderRoleListComponent
+  },
+  {
+    path: 'leader-management',
+    component: LeaderListComponent
   }
 ];
 

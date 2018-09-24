@@ -23,6 +23,7 @@ import {LeaderEditorComponent} from './leader-editor/leader-editor.component';
 import {PreferencesComponent} from './preferences/preferences.component';
 import {MemberListComponent} from './member-list/member-list.component';
 import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
+import { LeaderListComponent } from './leader-list/leader-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.compo
     LeaderEditorComponent,
     PreferencesComponent,
     MemberListComponent,
-    LeaderRoleListComponent
+    LeaderRoleListComponent,
+    LeaderListComponent
   ],
   imports: [
     BrowserModule,
