@@ -25,6 +25,7 @@ import {MemberListComponent} from './member-list/member-list.component';
 import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
 import { LeaderListComponent } from './leader-list/leader-list.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { InstrumentListComponent } from './instrument-list/instrument-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { EventListComponent } from './event-list/event-list.component';
     MemberListComponent,
     LeaderRoleListComponent,
     LeaderListComponent,
-    EventListComponent
+    EventListComponent,
+    InstrumentListComponent
   ],
   imports: [
     BrowserModule,

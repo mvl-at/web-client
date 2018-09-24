@@ -1,0 +1,18 @@
+<table class="table table-hover table-striped">
+  <thead>
+  <tr>
+    <th><button class="btn btn-success" (click)="add()"><b>+</b></button></th>
+    <th>Name</th>
+    <th>Name Plural</th>
+    <th>ID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let instrument of instruments">
+    <td><a (click)="edit(instrument)">Bearbeiten</a> <a (click)="delete(instrument)">Löschen</a></td>
+    <td>{{instrument.name}}</td>
+    <td>{{instrument.namePlural}}</td>
+    <td>{{instrument.id}}</td>
+  </tr>
+  </tbody>
+</table>

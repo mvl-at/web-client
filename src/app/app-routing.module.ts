@@ -8,6 +8,7 @@ import {MemberListComponent} from './member-list/member-list.component';
 import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
 import {LeaderListComponent} from './leader-list/leader-list.component';
 import {EventListComponent} from './event-list/event-list.component';
+import {InstrumentListComponent} from './instrument-list/instrument-list.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'event-management',
     component: EventListComponent
+  },
+  {
+    path: 'instrument-management',
+    component: InstrumentListComponent
   }
 ];
 
