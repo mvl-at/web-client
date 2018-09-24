@@ -23,4 +23,9 @@ export class MemberListComponent implements OnInit {
   edit(member: Member) {
     this.modal.open(MemberEditorComponent).componentInstance.entity = member;
   }
+
+  delete(member: Member) {
+    member.instrument = undefined;
+    this.service.delete({id: member.id}, 'members').subscribe(m => console.log(m));
+  }
 }

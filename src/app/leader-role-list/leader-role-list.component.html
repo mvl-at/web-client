@@ -1,18 +1,18 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <thead>
   <tr>
-    <td>Name</td>
-    <td>Name Plural</td>
-    <td>ID</td>
-    <td>Verwaltung</td>
+    <th><button class="btn btn-success" (click)="add()"><b>+</b></button></th>
+    <th>Name</th>
+    <th>Name Plural</th>
+    <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let leaderRole of leaderRoles">
+    <td><a (click)="edit(leaderRole)">Bearbeiten</a></td>
     <td>{{leaderRole.name}}</td>
     <td>{{leaderRole.namePlural}}</td>
     <td>{{leaderRole.id}}</td>
-    <td><a (click)="edit(leaderRole)">Bearbeiten</a></td>
   </tr>
   </tbody>
 </table>

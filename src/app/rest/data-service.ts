@@ -25,6 +25,10 @@ export class DataService {
     return this.http.post(this.url(name), entity, {headers: {'Access-Token': AccessToken}, observe: 'response'});
   }
 
+  delete<T>(entity: T, name: string): Observable<HttpResponse<object>> {
+    return this.http.request('delete', this.url(name), {headers: {'Access-Token': AccessToken}, observe: 'response', body: entity});
+  }
+
   url(name: string): string {
     return this.baseUrl + name;
   }

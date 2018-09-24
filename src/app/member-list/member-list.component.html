@@ -1,24 +1,24 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <thead>
   <tr>
-    <td>Name</td>
-    <td>Beitritt</td>
-    <td>Instrument</td>
-    <td>Aktiv</td>
-    <td>Benutzername</td>
-    <td>ID</td>
-    <td>Verwaltung</td>
+    <th><button class="btn btn-success" (click)="add()"><b>+</b></button></th>
+    <th>Name</th>
+    <th>Beitritt</th>
+    <th>Instrument</th>
+    <th>Aktiv</th>
+    <th>Benutzername</th>
+    <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let member of members">
+    <td><a (click)="edit(member)">Bearbeiten</a> <a (click)="delete(member)">Löschen</a></td>
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
     <td>{{member.instrument.name}}</td>
     <td>{{member.active}}</td>
     <td>{{member.username}}</td>
     <td>{{member.id}}</td>
-    <td><a (click)="edit(member)">Bearbeiten</a></td>
   </tr>
   </tbody>
 </table>
