@@ -1,0 +1,4 @@
+{
+  "restHost": "https://rest.example.org",
+  "assetsHost": "https://assets.example.org"
+}
