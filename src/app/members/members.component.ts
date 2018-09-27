@@ -9,8 +9,8 @@ import {DataService} from '../rest/data-service';
 })
 export class MembersComponent implements OnInit {
 
-  private members: Member[] = [];
-  private instruments: Instrument[] = [];
+  members: Member[] = [];
+  instruments: Instrument[] = [];
 
   constructor(private http: HttpClient, private service: DataService) { }
 

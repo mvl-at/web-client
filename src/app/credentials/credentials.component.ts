@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Member} from '../members/members.component';
 import {UserInfo} from '../login/login.component';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-credentials',
@@ -9,11 +10,11 @@ import {UserInfo} from '../login/login.component';
 })
 export class CredentialsComponent implements OnInit {
 
-  private password1: string;
-  private password2: string;
-  private member: Member;
+  password1: string;
+  password2: string;
+  member: Member;
 
-  constructor() {
+  constructor(public activeModal: NgbActiveModal) {
   }
 
   ngOnInit() {
@@ -25,6 +26,9 @@ export class CredentialsComponent implements OnInit {
 
   passwordOk(): boolean {
     return this.password1 && this.password1 === this.password2;
+  }
+
+  ok() {
   }
 }
 

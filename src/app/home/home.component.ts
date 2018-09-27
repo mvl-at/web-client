@@ -8,7 +8,7 @@ import {DataService} from '../rest/data-service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: DataService) { }
+  constructor(public service: DataService) { }
 
   ngOnInit() {
   }

@@ -13,7 +13,7 @@ export class MemberViewComponent implements OnInit {
   @Input() member: Member;
   @Input() leader: LeaderRoleMember;
 
-  constructor(private service: DataService) { }
+  constructor(public service: DataService) { }
 
   ngOnInit() {
     if (this.leader !== null && this.leader !== undefined) {

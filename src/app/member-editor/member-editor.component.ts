@@ -12,8 +12,8 @@ import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_versio
 })
 export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
-  private instruments: Instrument[];
-  private currentFileName = 'Foto';
+  instruments: Instrument[];
+  currentFileName = 'Foto';
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);

@@ -12,7 +12,7 @@ import {EventEditorComponent} from '../event-editor/event-editor.component';
 })
 export class EventsComponent implements OnInit {
 
-  private events: Event[];
+  events: Event[];
 
   constructor(private http: HttpClient, private service: DataService, private utils: Utils, private modal: NgbModal) { }
 

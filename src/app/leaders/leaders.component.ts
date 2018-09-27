@@ -10,7 +10,7 @@ import {DataService} from '../rest/data-service';
 })
 export class LeadersComponent implements OnInit {
 
-  private leaders: LeaderRoleMember[];
+  leaders: LeaderRoleMember[];
 
   constructor(private http: HttpClient, private service: DataService) { }
 

@@ -12,8 +12,8 @@ import {Member} from '../members/members.component';
 })
 export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements OnInit {
 
-  private members: Member[];
-  private leaderRoles: LeaderRole[];
+  members: Member[];
+  leaderRoles: LeaderRole[];
 
   private member: string;
   private leaderRole: string;
