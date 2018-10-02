@@ -4,16 +4,24 @@ import {Instrument, Member} from '../members/members.component';
 import {Event} from '../events/events.component';
 import {Observable, Subject} from 'rxjs';
 import {AccessToken} from '../login/login.component';
+import {AppConfigManager} from '../config.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
 
-  private baseUrl = 'http://127.0.0.1:8080/';
-  private assetUrl = 'http://127.0.0.1:7302/';
+  private baseUrl: string;
+  private assetUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private config: AppConfigManager) {
+    this.loadConfig(config).then();
+  }
+
+  async loadConfig(config: AppConfigManager) {
+    const c = await config.load().toPromise();
+    this.baseUrl = c.restHost;
+    this.assetUrl = c.assetsHost;
   }
 
   get<T>(name: string): Observable<T[]> {
@@ -30,6 +38,7 @@ export class DataService {
   }
 
   url(name: string): string {
+    console.log(this.baseUrl + name);
     return this.baseUrl + name;
   }
 

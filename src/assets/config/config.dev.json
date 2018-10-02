@@ -1,4 +1,4 @@
 {
-  "restHost": "http://127.0.0.1:7301",
-  "assetsHost": "http://127.0.0.1:7302"
+  "restHost": "http://127.0.0.1:7301/",
+  "assetsHost": "http://127.0.0.1:7302/"
 }

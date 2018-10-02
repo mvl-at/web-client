@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -23,10 +23,15 @@ import {LeaderEditorComponent} from './leader-editor/leader-editor.component';
 import {PreferencesComponent} from './preferences/preferences.component';
 import {MemberListComponent} from './member-list/member-list.component';
 import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.component';
-import { LeaderListComponent } from './leader-list/leader-list.component';
-import { EventListComponent } from './event-list/event-list.component';
-import { InstrumentListComponent } from './instrument-list/instrument-list.component';
-import { CredentialsComponent } from './credentials/credentials.component';
+import {LeaderListComponent} from './leader-list/leader-list.component';
+import {EventListComponent} from './event-list/event-list.component';
+import {InstrumentListComponent} from './instrument-list/instrument-list.component';
+import {CredentialsComponent} from './credentials/credentials.component';
+import {AppConfigManager} from './config.model';
+
+export function initializeApp(appConfig: AppConfigManager) {
+  return () => appConfig.load();
+}
 
 @NgModule({
   declarations: [
@@ -60,9 +65,17 @@ import { CredentialsComponent } from './credentials/credentials.component';
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [AppConfigManager,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfigManager],
+      multi: true
+    }],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent, RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent, PreferencesComponent, CredentialsComponent]
+  entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
+    RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
+    PreferencesComponent, CredentialsComponent]
 })
 export class AppModule {
 }
