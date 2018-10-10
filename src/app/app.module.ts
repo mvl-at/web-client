@@ -28,6 +28,9 @@ import {EventListComponent} from './event-list/event-list.component';
 import {InstrumentListComponent} from './instrument-list/instrument-list.component';
 import {CredentialsComponent} from './credentials/credentials.component';
 import {AppConfigManager} from './config.model';
+import { RoleMemberEditorComponent } from './role-member-editor/role-member-editor.component';
+import { RoleMemberListComponent } from './role-member-list/role-member-list.component';
+import { RoleListComponent } from './role-list/role-list.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
@@ -56,7 +59,10 @@ export function initializeApp(appConfig: AppConfigManager) {
     LeaderListComponent,
     EventListComponent,
     InstrumentListComponent,
-    CredentialsComponent
+    CredentialsComponent,
+    RoleMemberEditorComponent,
+    RoleMemberListComponent,
+    RoleListComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +81,7 @@ export function initializeApp(appConfig: AppConfigManager) {
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
-    PreferencesComponent, CredentialsComponent]
+    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent]
 })
 export class AppModule {
 }

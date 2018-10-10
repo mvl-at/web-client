@@ -9,6 +9,8 @@ import {LeaderRoleListComponent} from './leader-role-list/leader-role-list.compo
 import {LeaderListComponent} from './leader-list/leader-list.component';
 import {EventListComponent} from './event-list/event-list.component';
 import {InstrumentListComponent} from './instrument-list/instrument-list.component';
+import {RoleListComponent} from './role-list/role-list.component';
+import {RoleMemberListComponent} from './role-member-list/role-member-list.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,13 @@ const routes: Routes = [
   {
     path: 'instrument-management',
     component: InstrumentListComponent
+  }, {
+    path: 'role-management',
+    component: RoleListComponent
+  },
+  {
+    path: 'role-member-management',
+    component: RoleMemberListComponent
   }
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Member} from '../members/members.component';
 
 @Component({
   selector: 'app-roles',
@@ -14,8 +15,16 @@ export class RolesComponent implements OnInit {
 
 }
 
-export class Role {
+export interface Role {
   id: string;
   name: string;
   namePlural: string;
+}
+
+export interface RoleMember {
+  id: string;
+  roleId: string;
+  memberId: number;
+  role: Role;
+  member: Member;
 }
