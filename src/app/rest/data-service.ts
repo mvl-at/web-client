@@ -11,8 +11,8 @@ import {AppConfigManager} from '../config.model';
 })
 export class DataService {
 
-  private baseUrl: string;
-  private assetUrl: string;
+  public baseUrl: string;
+  public assetUrl: string;
 
   constructor(private http: HttpClient, private config: AppConfigManager) {
     this.loadConfig(config).then();

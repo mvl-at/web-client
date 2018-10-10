@@ -3,6 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Member} from '../members/members.component';
 import {Role} from '../roles/roles.component';
+import {DataService} from '../rest/data-service';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +16,14 @@ export class LoginComponent implements OnInit {
   credentials: Credentials = {username: '', password: ''};
   loginStatus = 0;
 
-  constructor(public activeModal: NgbActiveModal, private http: HttpClient) {
+  constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    this.http.post('http://127.0.0.1:8080/login', JSON.stringify(this.credentials), {observe: 'response'})
+    this.http.post(`${this.service.baseUrl}login`, JSON.stringify(this.credentials), {observe: 'response'})
       .subscribe(resp => {
         this.loginStatus = resp.status;
         AccessToken = resp.headers.get('Access-Token');
@@ -34,8 +35,10 @@ export class LoginComponent implements OnInit {
   }
 
   refreshUserInfo() {
-    this.http.get<UserInfo>('http://127.0.0.1:8080/userinfo', {headers: new HttpHeaders()
-        .set('Access-token', AccessToken)}).subscribe(u => UserInfo = u);
+    this.http.get<UserInfo>(`${this.service.baseUrl}userinfo`, {
+      headers: new HttpHeaders()
+        .set('Access-token', AccessToken)
+    }).subscribe(u => UserInfo = u);
   }
 }
 
