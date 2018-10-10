@@ -4,6 +4,7 @@ import {Member} from '../members/members.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemberEditorComponent} from '../member-editor/member-editor.component';
 import {List} from '../list';
+import {CredentialsComponent} from '../credentials/credentials.component';
 
 @Component({
   selector: 'app-member-list',
@@ -25,5 +26,9 @@ export class MemberListComponent extends List<Member> implements OnInit {
 
   urlName(): string {
     return 'members';
+  }
+
+  changePassword(member: Member) {
+    this.modal.open(CredentialsComponent).componentInstance.member = member;
   }
 }

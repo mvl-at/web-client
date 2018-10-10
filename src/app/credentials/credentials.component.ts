@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Member} from '../members/members.component';
 import {UserInfo} from '../login/login.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Utils} from '../utils';
 
 @Component({
   selector: 'app-credentials',
@@ -13,8 +14,11 @@ export class CredentialsComponent implements OnInit {
   password1: string;
   password2: string;
   member: Member;
+  changePassword = true;
+  utils: Utils;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, utils: Utils) {
+    this.utils = utils;
   }
 
   ngOnInit() {
@@ -29,10 +33,11 @@ export class CredentialsComponent implements OnInit {
   }
 
   ok() {
+    const credentials: Credentials = {memberId: this.member.id, username: this.member.username, password: (this.password1) ? this.password1 : undefined};
   }
 }
 
-interface Credentials {
+export interface Credentials {
   memberId: number;
   username: string;
   password: string;

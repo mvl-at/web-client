@@ -1,4 +1,7 @@
 import {Injectable} from '@angular/core';
+import {UserInfo} from './login/login.component';
+import {Role} from './roles/roles.component';
+import has = Reflect.has;
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +27,15 @@ export class Utils {
     combinedDate.setFullYear(ddate.getFullYear(), ddate.getMonth(), ddate.getDate());
     combinedDate.setHours(dtime.getHours(), dtime.getMinutes());
     return combinedDate.toLocaleString(undefined, {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'});
+  }
+
+  hasRole(role: string): boolean {
+    let hasRole = false;
+    UserInfo.roles.forEach(function (uRole: Role) {
+      if (uRole.id === 'root' || uRole.id === role) {
+        hasRole = true;
+      }
+    });
+    return hasRole;
   }
 }

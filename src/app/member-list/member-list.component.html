@@ -12,7 +12,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let member of items">
-    <td><a (click)="edit(member)">Bearbeiten</a> <a (click)="delete(member)">Löschen</a></td>
+    <td><span><a (click)="edit(member)">Bearbeiten</a></span> <span><a (click)="changePassword(member)">Passwort ändern</a></span> <span><a (click)="delete(member)">Löschen</a></span></td>
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
     <td>{{member.instrument ? member.instrument.name : '-'}}</td>
