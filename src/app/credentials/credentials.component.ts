@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Member} from '../members/members.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Utils} from '../utils';
-import {UserInfoInst} from '../rest/data-service';
+import {DataService, UserInfoInst} from '../rest/data-service';
 
 @Component({
   selector: 'app-credentials',
@@ -17,7 +17,7 @@ export class CredentialsComponent implements OnInit {
   changePassword = true;
   utils: Utils;
 
-  constructor(public activeModal: NgbActiveModal, utils: Utils) {
+  constructor(public activeModal: NgbActiveModal, utils: Utils, private service: DataService) {
     this.utils = utils;
   }
 
@@ -33,7 +33,12 @@ export class CredentialsComponent implements OnInit {
   }
 
   ok() {
-    const credentials: Credentials = {memberId: this.member.id, username: this.member.username, password: (this.password1) ? this.password1 : undefined};
+    const credentials: Credentials = {
+      memberId: this.member.id,
+      username: this.member.username,
+      password: (this.password1) ? this.password1 : undefined
+    };
+    this.service.post(credentials, 'credentials').subscribe(c => this.activeModal.close());
   }
 }
 
