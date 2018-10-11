@@ -30,6 +30,9 @@ export class Utils {
   }
 
   hasRole(role: string): boolean {
+    if (!UserInfoInst) {
+      return false;
+    }
     let hasRole = false;
     UserInfoInst.roles.forEach(function (uRole: Role) {
       if (uRole.id === 'root' || uRole.id === role) {

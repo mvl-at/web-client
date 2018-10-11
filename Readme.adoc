@@ -43,14 +43,11 @@ Here some features and fixes which will be implemented.
 
 These one are neccessary for the very first release.
 
-* improve event view
 * fetch member pictures
 * update member pictures
 * update title picture
 * update favicon
-* update username and password
 * home page
-* configuration files
 * add impressum
 ** show license
 ** show instance information

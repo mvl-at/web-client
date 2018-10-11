@@ -11,6 +11,7 @@ import {PreferencesComponent} from '../preferences/preferences.component';
 import {MemberListComponent} from '../member-list/member-list.component';
 import {CredentialsComponent} from '../credentials/credentials.component';
 import {logout, UserInfoInst} from '../rest/data-service';
+import {Utils} from '../utils';
 
 @Component({
   selector: 'app-menu',
@@ -20,8 +21,10 @@ import {logout, UserInfoInst} from '../rest/data-service';
 export class MenuComponent implements OnInit {
 
   isCollapsed = true;
+  private utils: Utils;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private utils: Utils) {
+    this.utils = utils;
   }
 
   ngOnInit() {

@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-          aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+          aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+          (click)="isCollapsed = !isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -32,25 +33,27 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="userInfo() && userInfo().roles.length > 0">
         <div ngbDropdown class="d-inline-block">
           <a class="nav-link" id="dropdownManagement" ngbDropdownToggle>Verwaltung</a>
           <div ngbDropdownMenu aria-labelledby="dropdownManagement">
-            <button class="dropdown-item" routerLink="mgr-ev">Termine</button>
-            <button class="dropdown-item" (click)="addEvent()">Termin hinzufügen</button>
-            <button class="dropdown-item" (click)="addInstrument()">Instrument hinzufügen</button>
-            <button class="dropdown-item" (click)="addRole()">Rolle hinzufügen</button>
-            <button class="dropdown-item" (click)="addMember()">Mitglied hinzufügen</button>
-            <button class="dropdown-item" (click)="addLeaderRole()">Vorstandsfunktion hinzufügen</button>
-            <button class="dropdown-item" (click)="addLeader()">Vorstand hinzufügen</button>
-            <button class="dropdown-item" (click)="preferences()">Einstellungen</button>
-            <button class="dropdown-item" routerLink="member-management">Mitglieder</button>
-            <button class="dropdown-item" routerLink="leader-role-management">Vorstandsfunktionen</button>
-            <button class="dropdown-item" routerLink="leader-management">Vorstand</button>
-            <button class="dropdown-item" routerLink="event-management">Termine</button>
-            <button class="dropdown-item" routerLink="instrument-management">Instrumente</button>
-            <button class="dropdown-item" routerLink="role-management">Rollen</button>
-            <button class="dropdown-item" routerLink="role-member-management">Rollen Mitglieder</button>
+            <button *ngIf="utils.hasRole('member')" class="dropdown-item" routerLink="member-management">Mitglieder
+            </button>
+            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" routerLink="leader-role-management">
+              Vorstandsfunktionen
+            </button>
+            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" routerLink="leader-management">Vorstand
+            </button>
+            <button *ngIf="utils.hasRole('event')" class="dropdown-item" routerLink="event-management">Termine</button>
+            <button *ngIf="utils.hasRole('instrument')" class="dropdown-item" routerLink="instrument-management">
+              Instrumente
+            </button>
+            <button *ngIf="utils.hasRole('root')" class="dropdown-item" routerLink="role-management">Rollen</button>
+            <button *ngIf="utils.hasRole('root')" class="dropdown-item" routerLink="role-member-management">Rollen
+              Mitglieder
+            </button>
+            <button *ngIf="utils.hasRole('preferences')" class="dropdown-item" (click)="preferences()">Einstellungen
+            </button>
           </div>
         </div>
       </li>
