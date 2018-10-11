@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {LoginComponent, logout, UserInfo} from '../login/login.component';
+import {LoginComponent} from '../login/login.component';
 import {EventEditorComponent} from '../event-editor/event-editor.component';
 import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.component';
 import {RoleEditorComponent} from '../role-editor/role-editor.component';
@@ -10,6 +10,7 @@ import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 import {PreferencesComponent} from '../preferences/preferences.component';
 import {MemberListComponent} from '../member-list/member-list.component';
 import {CredentialsComponent} from '../credentials/credentials.component';
+import {logout, UserInfoInst} from '../rest/data-service';
 
 @Component({
   selector: 'app-menu',
@@ -59,11 +60,11 @@ export class MenuComponent implements OnInit {
   }
 
   userInfo() {
-    return UserInfo;
+    return UserInfoInst;
   }
 
   changePassword() {
-    this.modalService.open(CredentialsComponent).componentInstance.member = UserInfo.member;
+    this.modalService.open(CredentialsComponent).componentInstance.member = UserInfoInst.member;
   }
 
   preferences() {

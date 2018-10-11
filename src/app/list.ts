@@ -1,6 +1,5 @@
 import {DataService} from './rest/data-service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClient} from '@angular/common/http';
 
 export abstract class List<T> {
 

@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Subject} from 'rxjs';
-import {AccessToken} from '../login/login.component';
+import {HttpClient} from '@angular/common/http';
 import {DataService} from '../rest/data-service';
 
 @Component({

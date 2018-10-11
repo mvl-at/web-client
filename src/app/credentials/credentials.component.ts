@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Member} from '../members/members.component';
-import {UserInfo} from '../login/login.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Utils} from '../utils';
+import {UserInfoInst} from '../rest/data-service';
 
 @Component({
   selector: 'app-credentials',
@@ -25,7 +25,7 @@ export class CredentialsComponent implements OnInit {
   }
 
   userInfo() {
-    return UserInfo;
+    return UserInfoInst;
   }
 
   passwordOk(): boolean {

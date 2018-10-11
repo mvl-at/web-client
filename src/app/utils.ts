@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {UserInfo} from './login/login.component';
 import {Role} from './roles/roles.component';
 import has = Reflect.has;
+import {UserInfoInst} from './rest/data-service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class Utils {
 
   hasRole(role: string): boolean {
     let hasRole = false;
-    UserInfo.roles.forEach(function (uRole: Role) {
+    UserInfoInst.roles.forEach(function (uRole: Role) {
       if (uRole.id === 'root' || uRole.id === role) {
         hasRole = true;
       }

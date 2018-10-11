@@ -1,17 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Event} from '../events/events.component';
-import {
-  NgbActiveModal,
-  NgbDateAdapter,
-  NgbDateNativeAdapter,
-  NgbDateStruct,
-  NgbTimeAdapter,
-  NgbTimeStruct
-} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbDateAdapter, NgbDateStruct, NgbTimeAdapter, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {Editor} from '../app.component';
 import {DataService} from '../rest/data-service';
-import {NgbDate} from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date';
-import {NgbTime} from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 
 export class JSONTimeAdapter extends NgbTimeAdapter<Date> {
 

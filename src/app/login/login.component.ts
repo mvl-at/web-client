@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Member} from '../members/members.component';
-import {Role} from '../roles/roles.component';
-import {DataService} from '../rest/data-service';
+import {AccessTokenAssign, AccessTokenInst, DataService, UserInfo, UserInfoAssign, UserInfoInst} from '../rest/data-service';
+import {Credentials} from '../credentials/credentials.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,7 @@ import {DataService} from '../rest/data-service';
 
 export class LoginComponent implements OnInit {
 
-  credentials: Credentials = {username: '', password: ''};
+  credentials: Credentials = {username: '', password: '', memberId: undefined};
   loginStatus = 0;
 
   constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.http.post(`${this.service.baseUrl}login`, JSON.stringify(this.credentials), {observe: 'response'})
       .subscribe(resp => {
         this.loginStatus = resp.status;
-        AccessToken = resp.headers.get('Access-Token');
+        AccessTokenAssign(resp.headers.get('Access-Token'));
         if (this.loginStatus === 200) {
           this.activeModal.close();
           this.refreshUserInfo();
@@ -37,25 +36,8 @@ export class LoginComponent implements OnInit {
   refreshUserInfo() {
     this.http.get<UserInfo>(`${this.service.baseUrl}userinfo`, {
       headers: new HttpHeaders()
-        .set('Access-token', AccessToken)
-    }).subscribe(u => UserInfo = u);
+        .set('Access-token', AccessTokenInst)
+    }).subscribe(u => UserInfoAssign(u));
   }
 }
 
-interface Credentials {
-  username: string;
-  password: string;
-}
-
-interface UserInfo {
-  member: Member;
-  roles: Role[];
-}
-
-export let AccessToken = '';
-export let UserInfo = null;
-
-export function logout() {
-  AccessToken = null;
-  UserInfo = null;
-}

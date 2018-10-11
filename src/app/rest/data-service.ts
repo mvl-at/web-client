@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 import {Instrument, Member} from '../members/members.component';
 import {Event} from '../events/events.component';
 import {Observable, Subject} from 'rxjs';
-import {AccessToken} from '../login/login.component';
 import {AppConfigManager} from '../config.model';
+import {Role} from '../roles/roles.component';
 
 @Injectable({
   providedIn: 'root',
@@ -30,11 +30,11 @@ export class DataService {
   }
 
   post<T>(entity: T, name: string): Observable<HttpResponse<object>> {
-    return this.http.post(this.url(name), entity, {headers: {'Access-Token': AccessToken}, observe: 'response'});
+    return this.http.post(this.url(name), entity, {headers: {'Access-Token': AccessTokenInst}, observe: 'response'});
   }
 
   delete<T>(entity: T, name: string): Observable<HttpResponse<object>> {
-    return this.http.request('delete', this.url(name), {headers: {'Access-Token': AccessToken}, observe: 'response', body: entity});
+    return this.http.request('delete', this.url(name), {headers: {'Access-Token': AccessTokenInst}, observe: 'response', body: entity});
   }
 
   url(name: string): string {
@@ -67,8 +67,8 @@ export class DataService {
   }
 
   postPicture(file: File, url: string) {
-    const head = new HttpHeaders({'access-token': AccessToken});
-    head.set('access-token', AccessToken);
+    const head = new HttpHeaders({'access-token': AccessTokenInst});
+    head.set('access-token', AccessTokenInst);
     const req = new HttpRequest('POST', this.assetUrl + url, file, {
       reportProgress: true,
       headers: head
@@ -83,4 +83,30 @@ export class DataService {
       }
     });
   }
+}
+
+interface Credentials {
+  username: string;
+  password: string;
+}
+
+export interface UserInfo {
+  member: Member;
+  roles: Role[];
+}
+
+export let AccessTokenInst = '';
+export let UserInfoInst = null;
+
+export function logout() {
+  AccessTokenInst = null;
+  UserInfoInst = null;
+}
+
+export function AccessTokenAssign(at: string) {
+  AccessTokenInst = at;
+}
+
+export function UserInfoAssign(ui: UserInfo) {
+  UserInfoInst = ui;
 }

@@ -3,7 +3,6 @@ import {Editor} from '../app.component';
 import {Instrument, Member} from '../members/members.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
-import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-member-editor',
