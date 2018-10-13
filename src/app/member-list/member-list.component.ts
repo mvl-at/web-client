@@ -31,4 +31,16 @@ export class MemberListComponent extends List<Member> implements OnInit {
   changePassword(member: Member) {
     this.modal.open(CredentialsComponent).componentInstance.member = member;
   }
+
+  onLoaded() {
+    this.items.sort((a, b) => {
+      if (a.lastName > b.lastName) {
+        return 1;
+      }
+      if (a.lastName < b.lastName) {
+        return -1;
+      }
+      return (a.firstName < b.firstName) ? -1 : 1;
+    });
+  }
 }

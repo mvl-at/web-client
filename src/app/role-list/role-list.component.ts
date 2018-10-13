@@ -27,4 +27,7 @@ export class RoleListComponent extends List<Role> implements OnInit {
     return 'roles';
   }
 
+  onLoaded() {
+    this.items.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  }
 }

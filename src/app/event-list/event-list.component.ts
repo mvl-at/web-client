@@ -5,6 +5,7 @@ import {Event} from '../events/events.component';
 import {EventEditorComponent} from '../event-editor/event-editor.component';
 import {Utils} from '../utils';
 import {List} from '../list';
+import {dateComparator} from '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-tools';
 
 @Component({
   selector: 'app-event-list',
@@ -26,5 +27,17 @@ export class EventListComponent extends List<Event> implements OnInit {
 
   urlName(): string {
     return 'events';
+  }
+
+  onLoaded() {
+    this.items.sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    });
   }
 }

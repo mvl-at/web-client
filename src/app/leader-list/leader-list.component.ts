@@ -26,4 +26,8 @@ export class LeaderListComponent extends List<LeaderRoleMember> implements OnIni
   urlName(): string {
     return 'leaderRolesMembers';
   }
+
+  onLoaded() {
+    this.items.sort((a, b) => (a.priority - b.priority));
+  }
 }

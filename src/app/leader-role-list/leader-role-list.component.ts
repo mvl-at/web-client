@@ -26,4 +26,8 @@ export class LeaderRoleListComponent extends List<LeaderRole> implements OnInit 
   urlName(): string {
     return 'leaderRoles';
   }
+
+  onLoaded() {
+    this.items.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  }
 }

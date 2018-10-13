@@ -26,4 +26,8 @@ export class InstrumentListComponent extends List<Instrument> implements OnInit 
   editor(): any {
     return InstrumentEditorComponent;
   }
+
+  onLoaded() {
+    this.items.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  }
 }

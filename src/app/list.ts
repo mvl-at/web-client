@@ -24,11 +24,17 @@ export abstract class List<T> {
   }
 
   loadData() {
-    this.service.get<T>(this.urlName()).subscribe(i => this.items = i);
+    this.service.get<T>(this.urlName()).subscribe(i => {
+      this.items = i;
+      this.onLoaded();
+    });
     this.loadAdditionalData();
   }
 
   loadAdditionalData() {
+  }
+
+  onLoaded() {
   }
 
   abstract urlName(): string;
