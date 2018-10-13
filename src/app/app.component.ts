@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {AppConfigManager} from './config.model';
+import {List} from './list';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export abstract class Editor<T> {
   backup: T;
 
   edit: T;
+  list: List<any>;
 
   protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
     if (this.edit === undefined || this.edit === null) {
@@ -53,6 +55,9 @@ export abstract class Editor<T> {
 
   close() {
     this.activeModal.dismiss('close-button');
+    if (this.list) {
+      this.list.loadData();
+    }
   }
 
   abstract url(): string;

@@ -10,11 +10,13 @@ export abstract class List<T> {
   }
 
   edit(item: T) {
-    this.modal.open(this.editor()).componentInstance.entity = item;
+    const modal = this.modal.open(this.editor());
+    modal.componentInstance.entity = item;
+    modal.componentInstance.list = this;
   }
 
   add() {
-    this.modal.open(this.editor());
+    this.modal.open(this.editor()).componentInstance.list = this;
   }
 
   deleteItem(item: T) {
