@@ -31,6 +31,7 @@ export interface LeaderRoleMember {
   leaderRoleId: number;
   memberId: number;
   priority: number;
+  deputy: boolean;
   leaderRole: LeaderRole;
   member: Member;
 }

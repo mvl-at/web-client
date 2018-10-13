@@ -23,8 +23,8 @@ export class MenuComponent implements OnInit {
   isCollapsed = true;
   private utils: Utils;
 
-  constructor(private modalService: NgbModal, private utils: Utils) {
-    this.utils = utils;
+  constructor(private modalService: NgbModal, private utilsInst: Utils) {
+    this.utils = utilsInst;
   }
 
   ngOnInit() {

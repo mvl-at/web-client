@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Editor} from '../app.component';
 import {Instrument, Member} from '../members/members.component';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbDateAdapter, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
+import {JSONDateAdapter, JSONTimeAdapter} from '../event-editor/event-editor.component';
 
 @Component({
   selector: 'app-member-editor',
   templateUrl: './member-editor.component.html',
-  styleUrls: ['./member-editor.component.css']
+  styleUrls: ['./member-editor.component.css'],
+  providers: [{provide: NgbDateAdapter, useClass: JSONDateAdapter}, {provide: NgbTimeAdapter, useClass: JSONTimeAdapter}]
 })
 export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
@@ -24,8 +26,17 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   defaults(): Member {
     return {
-      id: null, lastName: null, firstName: null, instrumentId: null,
-      active: true, deleted: false, loginAllowed: true, picture: null, joined: new Date(Date.now()).getFullYear(), username: undefined, instrument: undefined
+      id: null,
+      lastName: null,
+      firstName: null,
+      instrumentId: null,
+      active: true,
+      loginAllowed: true,
+      picture: null,
+      joined: new Date(Date.now()).getFullYear(),
+      username: undefined,
+      instrument: undefined,
+      birthday: undefined
     };
   }
 

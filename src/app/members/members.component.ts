@@ -37,11 +37,11 @@ export interface Member {
   joined: number;
   picture: string;
   active: boolean;
-  deleted: boolean;
   loginAllowed: boolean;
   username: string;
   instrumentId: number;
   instrument: Instrument;
+  birthday: string;
 }
 
 export interface Instrument {

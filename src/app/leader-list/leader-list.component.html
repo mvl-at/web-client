@@ -1,9 +1,12 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <td><button class="btn btn-success" (click)="add()"><b>+</b></button></td>
+    <td>
+      <button class="btn btn-success" (click)="add()"><b>+</b></button>
+    </td>
     <td>Mitglied</td>
     <td>Funktion</td>
+    <td>Stellvertreter</td>
     <td>Priorität</td>
     <td>ID</td>
   </tr>
@@ -13,6 +16,13 @@
     <td><a (click)="edit(leader)">Bearbeiten</a></td>
     <td>{{leader.member ? leader.member.firstName + ' ' + leader.member.lastName : '-'}}</td>
     <td>{{leader.leaderRole ? leader.leaderRole.name : '-'}}</td>
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input [checked]="leader.deputy" disabled="" class="custom-control-input" placeholder="" id="deputyView"
+               type="checkbox" style="margin: 0; line-height: normal">
+        <label class="custom-control-label" for="deputyView">&nbsp;</label>
+      </div>
+    </td>
     <td>{{leader.priority}}</td>
     <td>{{leader.id}}</td>
   </tr>

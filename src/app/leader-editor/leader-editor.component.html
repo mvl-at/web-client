@@ -16,6 +16,12 @@
     </select>
   </div>
   <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input [(ngModel)]="entity.deputy" class="custom-control-input" id="deputy" type="checkbox">
+      <label class="custom-control-label" for="deputy">Stellvertreter</label>
+    </div>
+  </div>
+  <div class="form-group">
     <input [(ngModel)]="entity.priority" class="form-control" placeholder="Priorität" id="priority" type="number">
   </div>
 </div>

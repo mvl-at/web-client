@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Editor} from '../app.component';
 import {LeaderRole, LeaderRoleMember} from '../leaders/leaders.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
@@ -28,7 +28,15 @@ export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements O
   }
 
   defaults(): LeaderRoleMember {
-    return {id: undefined, member: null, memberId: undefined, leaderRole: null, leaderRoleId: undefined, priority: undefined};
+    return {
+      id: undefined,
+      member: null,
+      memberId: undefined,
+      leaderRole: null,
+      leaderRoleId: undefined,
+      priority: undefined,
+      deputy: undefined
+    };
   }
 
   entityName(): string {
