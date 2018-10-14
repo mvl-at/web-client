@@ -13,10 +13,11 @@ export class EventsComponent implements OnInit {
 
   events: Event[];
 
-  constructor(private http: HttpClient, private service: DataService, private utils: Utils, private modal: NgbModal) { }
+  constructor(private http: HttpClient, private service: DataService, private utils: Utils, private modal: NgbModal) {
+  }
 
   ngOnInit() {
-    this.service.getEvents().subscribe(e => this.events = e);
+    this.service.getEvents().subscribe(e => this.events = e.sort((a, b) => (a.date > b.date) ? 1 : -1));
   }
 }
 
