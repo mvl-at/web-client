@@ -3,6 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {AppConfigManager} from './config.model';
 import {List} from './list';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
