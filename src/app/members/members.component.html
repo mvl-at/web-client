@@ -4,18 +4,18 @@
       <li class="list-group-item d-flex justify-content-between align-items-center"
           *ngFor="let instrument of instruments">
         <a [href]="'/members#' + instrument.id">
-          {{ membersByInstrument(instrument).length > 1 ? instrument.namePlural : instrument.name}}</a>
-        <span class="badge badge-primary badge-pill">{{membersByInstrument(instrument).length}}</span>
+          {{ membersFromInstrument(instrument).length > 1 ? instrument.namePlural : instrument.name}}</a>
+        <span class="badge badge-primary badge-pill">{{membersFromInstrument(instrument).length}}</span>
       </li>
     </ul>
   </div>
   <div class="col-8">
     <div *ngFor="let instrument of instruments">
-      <div class="container-fluid mt-3">
-        <h2 [id]="instrument.id">{{ membersByInstrument(instrument).length > 1 ? instrument.namePlural :
+      <div class="container-fluid mt-3" *ngIf="membersFromInstrument(instrument).length">
+        <h2 [id]="instrument.id">{{ membersFromInstrument(instrument).length > 1 ? instrument.namePlural :
           instrument.name}}</h2>
         <div class="row">
-          <div class="col-xs-4 ml-5 mt-3" *ngFor="let member of membersByInstrument(instrument)">
+          <div class="col-xs-4 ml-5 mt-3" *ngFor="let member of membersFromInstrument(instrument)">
             <app-member-view [member]="member"></app-member-view>
           </div>
         </div>
