@@ -31,6 +31,7 @@ import {AppConfigManager} from './config.model';
 import { RoleMemberEditorComponent } from './role-member-editor/role-member-editor.component';
 import { RoleMemberListComponent } from './role-member-list/role-member-list.component';
 import { RoleListComponent } from './role-list/role-list.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
@@ -62,7 +63,8 @@ export function initializeApp(appConfig: AppConfigManager) {
     CredentialsComponent,
     RoleMemberEditorComponent,
     RoleMemberListComponent,
-    RoleListComponent
+    RoleListComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,
