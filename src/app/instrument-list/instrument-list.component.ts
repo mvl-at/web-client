@@ -28,6 +28,6 @@ export class InstrumentListComponent extends List<Instrument> implements OnInit 
   }
 
   onLoaded() {
-    this.items.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    this.items.sort((a, b) => (a.priority - b.priority === 0) ? ((a.name > b.name) ? 1 : -1) : a.priority - b.priority);
   }
 }

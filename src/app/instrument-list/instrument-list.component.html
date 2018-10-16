@@ -1,9 +1,12 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <th><button class="btn btn-success" (click)="add()"><b>+</b></button></th>
+    <th>
+      <button class="btn btn-success" (click)="add()"><b>+</b></button>
+    </th>
     <th>Name</th>
     <th>Name Plural</th>
+    <th>Priorität</th>
     <th>ID</th>
   </tr>
   </thead>
@@ -12,6 +15,7 @@
     <td><a (click)="edit(instrument)">Bearbeiten</a> <a (click)="deleteItem(instrument)">Löschen</a></td>
     <td>{{instrument.name}}</td>
     <td>{{instrument.namePlural}}</td>
+    <td>{{instrument.priority}}</td>
     <td>{{instrument.id}}</td>
   </tr>
   </tbody>

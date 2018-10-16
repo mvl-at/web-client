@@ -24,7 +24,7 @@ export class MembersComponent implements OnInit {
       this.relations();
     });
     this.service.getInstruments().subscribe(i => {
-      this.instruments = i.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      this.instruments = i.sort((a, b) => (a.priority - b.priority === 0) ? ((a.name > b.name) ? 1 : -1) : a.priority - b.priority);
       this.relations();
     });
   }
@@ -83,4 +83,5 @@ export interface Instrument {
   id: number;
   name: string;
   namePlural: string;
+  priority: number;
 }
