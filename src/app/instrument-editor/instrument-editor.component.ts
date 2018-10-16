@@ -19,7 +19,7 @@ export class InstrumentEditorComponent extends Editor<Instrument> implements OnI
   }
 
   defaults(): Instrument {
-    return {name: '', namePlural: '', id: undefined};
+    return {name: '', namePlural: '', id: undefined, priority: 0};
   }
 
   processedEntity(): Instrument {

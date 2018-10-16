@@ -21,7 +21,7 @@ import {Utils} from '../utils';
 export class MenuComponent implements OnInit {
 
   isCollapsed = true;
-  private utils: Utils;
+  utils: Utils;
 
   constructor(private modalService: NgbModal, private utilsInst: Utils) {
     this.utils = utilsInst;
