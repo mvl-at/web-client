@@ -13,6 +13,7 @@ export abstract class List<T> {
     const modal = this.modal.open(this.editor());
     modal.componentInstance.entity = item;
     modal.componentInstance.list = this;
+    modal.componentInstance.setEdit();
   }
 
   add() {

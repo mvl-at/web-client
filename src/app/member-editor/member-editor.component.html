@@ -31,7 +31,7 @@
       </select>
   </div>
 
-  <div class="input-group mb-3">
+  <div *ngIf="edit" class="input-group mb-3">
     <div class="custom-file">
       <input class="custom-file-input" id="inputGroupFile02" type="file" (change)="memberPictureChange($event)">
       <label class="custom-file-label input-group-append" for="inputGroupFile02">{{currentFileName}}</label>
@@ -53,7 +53,7 @@
 
 <div class="modal-footer">
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success" (click)="add()">Hinzufügen</button>
+    <button type="button" class="btn btn-success" (click)="add()">{{ okText() }}</button>
     <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
     <button type="button" class="btn btn-danger" (click)="close()">Abbrechen</button>
   </div>

@@ -18,19 +18,24 @@ export abstract class Editor<T> {
   entity: T;
   backup: T;
 
-  edit: T;
+  edit = false;
   list: List<any>;
 
   protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
-    if (this.edit === undefined || this.edit === null) {
-      this.entity = this.defaults();
-    } else {
-      this.entity = this.edit;
-    }
+    // if (this.edit === undefined || this.edit === null) {
+    //   this.entity = this.defaults();
+    // } else {
+    //   this.entity = this.edit;
+    // }
+    this.entity = this.defaults();
   }
 
   reset() {
-    this.entity = Object.assign({}, this.backup);
+    if (this.edit) {
+      this.entity = Object.assign({}, this.backup);
+    } else {
+      this.entity = this.defaults();
+    }
   }
 
   abstract defaults(): T;
@@ -46,7 +51,7 @@ export abstract class Editor<T> {
 
   title(): string {
     let title = 'hinzufügen';
-    if (this.edit !== undefined && this.edit !== null) {
+    if (this.edit) {
       title = 'bearbeiten';
     }
     return this.entityName() + ' ' + title;
@@ -65,9 +70,13 @@ export abstract class Editor<T> {
 
   abstract processedEntity(): T;
 
-  setEdit(edit: T) {
-    this.edit = edit;
-    this.entity = edit;
+  setEdit() {
+    this.edit = true;
+    this.backup = Object.assign({}, this.entity);
+  }
+
+  okText(): string {
+    return this.edit ? 'Ändern' : 'Hinzufügen';
   }
 }
 

@@ -29,7 +29,7 @@ export class JSONDateAdapter extends NgbDateAdapter<Date> {
 
   fromModel(value: Date): NgbDateStruct {
     let date = null;
-    if (value !== null) {
+    if (value) {
       const parsedValue = new Date(Date.parse(value.toString()));
       date = {year: parsedValue.getFullYear(), month: parsedValue.getMonth() + 1, day: parsedValue.getDate()};
     }
@@ -38,7 +38,7 @@ export class JSONDateAdapter extends NgbDateAdapter<Date> {
 
   toModel(date: NgbDateStruct): Date {
     const cDate = new Date();
-    if (date !== null) {
+    if (date) {
       cDate.setFullYear(date.year, date.month - 1, date.day);
     }
     return cDate;
