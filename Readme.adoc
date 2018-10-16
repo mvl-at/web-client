@@ -43,16 +43,18 @@ Here some features and fixes which will be implemented.
 
 These one are neccessary for the very first release.
 
-* fetch member pictures
-* update member pictures
-* update title picture
 * update favicon
 * home page
 * add impressum
-** show license
 ** show instance information
 ** show roles
 * add eastereggs
+* assign root name
+* filfe upload button in preferences dialog
+* navbar branding
+* table headers
+* list button spacing
+* checkboxes in lists
 
 ==== Running
 
