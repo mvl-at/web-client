@@ -14,7 +14,7 @@
     <td>{{event.name}}</td>
     <td>{{utils.formatDate(event.date, null)}}</td>
     <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
-    <td>{{utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+    <td>{{(event.internal)? 'Vereinsintern' : utils.formatDate(null, event.time) + ', ' + event.place}}</td>
     <td>{{event.uniform}}</td>
     <td>{{event.note}}</td>
   </tr>
