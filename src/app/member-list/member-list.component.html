@@ -1,7 +1,11 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <th><button class="btn-sm btn-success" (click)="add()"><fa-icon [icon]="['fas', 'plus']"></fa-icon></button></th>
+    <th>
+      <button class="btn-sm btn-success" (click)="add()">
+        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      </button>
+    </th>
     <th>Name</th>
     <th>Beitritt</th>
     <th>Instrument</th>
@@ -28,7 +32,13 @@
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
     <td>{{member.instrument ? member.instrument.name : '-'}}</td>
-    <td>{{member.active}}</td>
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input [checked]="member.active" disabled="" class="custom-control-input" placeholder="" id="activeView"
+               type="checkbox" style="margin: 0; line-height: normal">
+        <label class="custom-control-label" for="activeView">&nbsp;</label>
+      </div>
+    </td>
     <td>{{member.username}}</td>
     <td>{{member.id}}</td>
   </tr>

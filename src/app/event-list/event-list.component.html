@@ -31,8 +31,16 @@
     <td>{{utils.formatDate(null, event.time) + ', ' + event.place}}</td>
     <td>{{event.uniform}}</td>
     <td>{{event.note}}</td>
-    <td>{{event.internal}}</td>
-    <td>{{event.important}}</td>
+    <td><div class="custom-control custom-checkbox">
+      <input [checked]="event.internal" disabled="" class="custom-control-input" placeholder="" id="internalView"
+             type="checkbox" style="margin: 0; line-height: normal">
+      <label class="custom-control-label" for="internalView">&nbsp;</label>
+    </div></td>
+    <td><div class="custom-control custom-checkbox">
+      <input [checked]="event.important" disabled="" class="custom-control-input" placeholder="" id="importantView"
+             type="checkbox" style="margin: 0; line-height: normal">
+      <label class="custom-control-label" for="importantView">&nbsp;</label>
+    </div></td>
     <td>{{event.id}}</td>
   </tr>
   </tbody>
