@@ -6,18 +6,16 @@
 </div>
 <div class="modal-body">
   <div class="form-group">
-    <!--<label class="col-form-label" for="inputUsername">Benutzername</label>-->
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">👤</span>
+        <span class="input-group-text"><fa-icon [icon]="['fas', 'user']"></fa-icon></span>
       </div>
       <input [(ngModel)]="credentials.username" class="form-control" placeholder="Benutzername" id="inputUsername"
              type="text" [class.is-invalid]="loginStatus === 403">
     </div>
-    <!--<label class="col-form-label" for="inputPassword">Passwort</label>-->
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">🔑</span>
+        <span class="input-group-text"><fa-icon [icon]="['fas', 'lock']"></fa-icon></span>
       </div>
       <input [(ngModel)]="credentials.password" class="form-control rounded-right" placeholder="Passwort"
              id="inputPassword"

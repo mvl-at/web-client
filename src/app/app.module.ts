@@ -28,14 +28,19 @@ import {EventListComponent} from './event-list/event-list.component';
 import {InstrumentListComponent} from './instrument-list/instrument-list.component';
 import {CredentialsComponent} from './credentials/credentials.component';
 import {AppConfigManager} from './config.model';
-import { RoleMemberEditorComponent } from './role-member-editor/role-member-editor.component';
-import { RoleMemberListComponent } from './role-member-list/role-member-list.component';
-import { RoleListComponent } from './role-list/role-list.component';
-import { ImpressumComponent } from './impressum/impressum.component';
+import {RoleMemberEditorComponent} from './role-member-editor/role-member-editor.component';
+import {RoleMemberListComponent} from './role-member-list/role-member-list.component';
+import {RoleListComponent} from './role-list/role-list.component';
+import {ImpressumComponent} from './impressum/impressum.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
 }
+
+library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
 
 @NgModule({
   declarations: [
@@ -71,7 +76,8 @@ export function initializeApp(appConfig: AppConfigManager) {
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [AppConfigManager,
     {

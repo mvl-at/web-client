@@ -1,7 +1,7 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <th><button class="btn btn-success" (click)="add()"><b>+</b></button></th>
+    <th><button class="btn-sm btn-success" (click)="add()"><fa-icon [icon]="['fas', 'plus']"></fa-icon></button></th>
     <th>Name</th>
     <th>Beitritt</th>
     <th>Instrument</th>
@@ -12,7 +12,19 @@
   </thead>
   <tbody>
   <tr *ngFor="let member of items">
-    <td><span><a (click)="edit(member)">Bearbeiten</a></span> <span><a (click)="changePassword(member)">Passwort ändern</a></span> <span><a (click)="delete(member)">Löschen</a></span></td>
+    <td>
+      <div class="btn-toolbar">
+        <button class="btn-sm btn-secondary mr-2" (click)="edit(member)">
+          <fa-icon [icon]="['fas', 'pencil-alt']"></fa-icon>
+        </button>
+        <button class="btn-sm btn-secondary mr-2" (click)="changePassword(member)">
+          <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+        </button>
+        <button class="btn-sm btn-danger mr-2" (click)="delete-item(member)">
+          <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+        </button>
+      </div>
+    </td>
     <td>{{member.firstName + ' ' + member.lastName}}</td>
     <td>{{member.joined}}</td>
     <td>{{member.instrument ? member.instrument.name : '-'}}</td>

@@ -1,19 +1,26 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <td>
-      <button class="btn btn-success" (click)="add()"><b>+</b></button>
-    </td>
-    <td>Mitglied</td>
-    <td>Funktion</td>
-    <td>Stellvertreter</td>
-    <td>Priorität</td>
-    <td>ID</td>
+    <th><button class="btn-sm btn-success" (click)="add()"><fa-icon [icon]="['fas', 'plus']"></fa-icon></button></th>
+    <th>Mitglied</th>
+    <th>Funktion</th>
+    <th>Stellvertreter</th>
+    <th>Priorität</th>
+    <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let leader of items">
-    <td><a (click)="edit(leader)">Bearbeiten</a></td>
+    <td>
+      <div class="btn-toolbar">
+        <button class="btn-sm btn-secondary mr-2" (click)="edit(leader)">
+          <fa-icon [icon]="['fas', 'pencil-alt']"></fa-icon>
+        </button>
+        <button class="btn-sm btn-danger mr-2" (click)="deleteItem(leader)">
+          <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+        </button>
+      </div>
+    </td>
     <td>{{leader.member ? leader.member.firstName + ' ' + leader.member.lastName : '-'}}</td>
     <td>{{leader.leaderRole ? leader.leaderRole.name : '-'}}</td>
     <td>
