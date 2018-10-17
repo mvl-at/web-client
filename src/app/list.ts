@@ -21,7 +21,7 @@ export abstract class List<T> {
   }
 
   deleteItem(item: T) {
-    this.service.delete(item, this.urlName()).subscribe(i => console.log(i));
+    this.service.delete(item, this.urlName()).subscribe(i => this.loadData());
   }
 
   loadData() {
