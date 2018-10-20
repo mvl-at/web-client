@@ -35,6 +35,7 @@ import {ImpressumComponent} from './impressum/impressum.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
@@ -69,7 +70,8 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
     RoleMemberEditorComponent,
     RoleMemberListComponent,
     RoleListComponent,
-    ImpressumComponent
+    ImpressumComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,7 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
-    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent]
+    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent]
 })
 export class AppModule {
 }

@@ -1,0 +1,68 @@
+<div class="modal-header">
+  <h4 class="modal-title">Abonnieren</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Von</h4>
+        <div class="form-group">
+          <div class="form-inline">
+            <div class="custom-control custom-checkbox">
+              <input [(ngModel)]="isLast" class="custom-control-input" id="islast" type="checkbox">
+              <label class="custom-control-label" for="islast">Letzte/n/s</label>
+            </div>
+            <select class="custom-select m-2" [(ngModel)]="last" [disabled]="!isLast">
+              <option *ngFor="let i of intervals" [value]="i.id">{{i.name}}</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="from" ngbDatepicker #d="ngbDatepicker" [disabled]="isLast">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button" [disabled]="isLast">
+                <fa-icon [icon]="['fas', 'calendar']"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body">
+        <h4 class="card-title">Bis</h4>
+        <div class="form-group">
+          <div class="custom-control custom-checkbox">
+            <input [(ngModel)]="unlimited" class="custom-control-input" id="unlimited" type="checkbox">
+            <label class="custom-control-label" for="unlimited">Immer</label>
+          </div>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp2" [(ngModel)]="to" ngbDatepicker #d2="ngbDatepicker" [disabled]="unlimited">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button" [disabled]="unlimited">
+                <fa-icon [icon]="['fas', 'calendar']"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2">
+      <input [(ngModel)]="note" class="form-control" placeholder="Notiz" id="note" type="text">
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-footer">
+  <div class="btn-group" role="group">
+    <a class="btn btn-primary" [href]="calendar(false)">Abonnieren</a>
+    <a class="btn btn-primary" [href]="calendar(true)" target="_blank">PDF</a>
+  </div>
+</div>

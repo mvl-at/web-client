@@ -13,6 +13,7 @@ export class DataService {
 
   public baseUrl: string;
   public assetUrl: string;
+  public calendarUrl: string;
 
   constructor(private http: HttpClient, private config: AppConfigManager) {
     this.loadConfig(config).then();
@@ -22,6 +23,7 @@ export class DataService {
     const c = await config.load().toPromise();
     this.baseUrl = c.restHost;
     this.assetUrl = c.assetsHost;
+    this.calendarUrl = c.calendarHost;
   }
 
   get<T>(name: string): Observable<T[]> {
@@ -82,6 +84,14 @@ export class DataService {
         progress.complete();
       }
     });
+  }
+
+  calendar(pdf: boolean, from: string, to: string, last: string, note: string): string {
+    return this.calendarUrl + (pdf ? 'pdf' : 'ical') + '?' +
+      (from ? 'from=' + from + '&' : '') +
+      (last ? 'last=' + last + '&' : '') +
+      'to=' + to +
+      (note ? '&note=' + note : '');
   }
 }
 

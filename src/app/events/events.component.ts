@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {DataService} from '../rest/data-service';
 import {Utils} from '../utils';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {SubscriptionComponent} from '../subscription/subscription.component';
 
 @Component({
   selector: 'app-events',
@@ -18,6 +19,10 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.service.getEvents().subscribe(e => this.events = e.sort((a, b) => (a.date > b.date) ? 1 : -1));
+  }
+
+  dia() {
+    this.modal.open(SubscriptionComponent);
   }
 }
 

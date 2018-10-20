@@ -1,4 +1,5 @@
 {
-  "restHost": "http://127.0.0.1:7301/",
-  "assetsHost": "http://127.0.0.1:7302/"
+  "restHost": "http://mvldev:7301/",
+  "assetsHost": "http://mvldev:7302/",
+  "calendarHost": "http://mvldev:7303/"
 }

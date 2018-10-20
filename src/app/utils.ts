@@ -16,17 +16,19 @@ export class Utils {
     const ddate = new Date(Date.parse(date));
 
     if (date === undefined || date === null) {
-      return dtime.toLocaleString(undefined, {hour: 'numeric', minute: 'numeric'});
+      return dtime.toLocaleString(undefined, {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
     }
 
     if (time === undefined || time === null) {
-      return ddate.toLocaleString(undefined, {day: 'numeric', month: 'numeric', year: 'numeric'});
+      return ddate.toLocaleString(undefined, {day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC'});
     }
 
     const combinedDate = new Date();
     combinedDate.setFullYear(ddate.getFullYear(), ddate.getMonth(), ddate.getDate());
     combinedDate.setHours(dtime.getHours(), dtime.getMinutes());
-    return combinedDate.toLocaleString(undefined, {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'});
+    return combinedDate.toLocaleString(undefined, {
+      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC'
+    });
   }
 
   hasRole(role: string): boolean {
