@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbDateAdapter, NgbDateStruct, NgbTimeAdapter, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
+import {Utils} from '../utils';
 
 export class CalDateAdapter extends NgbDateAdapter<string> {
 
@@ -32,13 +33,27 @@ export class SubscriptionComponent implements OnInit {
   from: string;
   to: string;
   note: string;
-  last = 'month';
-  isLast: boolean;
-  unlimited: boolean;
+  last = 'year';
+  isLast = true;
+  unlimited = true;
   // intervals = new Map<string, string>().set('year', 'Jahr').set('month', 'Monat').set('week', 'Woche').set('day', 'Tag');
   intervals = [{id: 'year', name: 'Jahr'}, {id: 'month', name: 'Monat'}, {id: 'week', name: 'Woche'}, {id: 'day', name: 'Tag'}];
+  utils: Utils;
 
-  constructor(private active: NgbActiveModal, private service: DataService) {
+  activeModal: NgbActiveModal;
+
+  constructor(private modal: NgbActiveModal, private service: DataService, private utilsInst: Utils) {
+    this.activeModal = modal;
+    if (utilsInst.hasRole('event')) {
+      this.isLast = false;
+      this.unlimited = false;
+      const now = new Date(Date.now());
+      this.from = new CalDateAdapter().toModel({year: now.getFullYear(), month: now.getMonth() + 2, day: 1});
+      now.setMonth(now.getMonth() + 2);
+      now.setDate(0);
+      this.to = new CalDateAdapter().toModel({year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()});
+    }
+    this.utils = utilsInst;
   }
 
   ngOnInit() {

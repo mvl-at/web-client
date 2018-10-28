@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="form-group mt-2">
+    <div *ngIf="utils.hasRole('event')" class="form-group mt-2">
       <input [(ngModel)]="note" class="form-control" placeholder="Notiz" id="note" type="text">
     </div>
   </div>
@@ -63,6 +63,6 @@
 <div class="modal-footer">
   <div class="btn-group" role="group">
     <a class="btn btn-primary" [href]="calendar(false)">Abonnieren</a>
-    <a class="btn btn-primary" [href]="calendar(true)" target="_blank">PDF</a>
+    <a *ngIf="utils.hasRole('event')" class="btn btn-primary" [href]="calendar(true)" target="_blank">PDF</a>
   </div>
 </div>
