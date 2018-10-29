@@ -20,8 +20,15 @@ export class LeaderEditorComponent extends Editor<LeaderRoleMember> implements O
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
-    this.service.get<Member>('members').subscribe(m => this.members = m);
-    this.service.get<LeaderRole>('leaderRoles').subscribe(l => this.leaderRoles = l);
+    this.service.get<Member>('members').subscribe(m => {
+      this.members = m.sort((a, b) =>
+        a.lastName > b.lastName ? 1 : -1);
+      this.entity.memberId = this.members[0].id;
+    });
+    this.service.get<LeaderRole>('leaderRoles').subscribe(l => {
+      this.leaderRoles = l.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.entity.leaderRoleId = this.leaderRoles[0].id;
+    });
   }
 
   ngOnInit() {
