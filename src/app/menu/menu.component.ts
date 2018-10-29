@@ -10,7 +10,7 @@ import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 import {PreferencesComponent} from '../preferences/preferences.component';
 import {MemberListComponent} from '../member-list/member-list.component';
 import {CredentialsComponent} from '../credentials/credentials.component';
-import {logout, UserInfoInst} from '../rest/data-service';
+import {DataService, logout, UserInfoInst} from '../rest/data-service';
 import {Utils} from '../utils';
 
 @Component({
@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   utils: Utils;
   active = '';
 
-  constructor(private modalService: NgbModal, private utilsInst: Utils) {
+  constructor(private modalService: NgbModal, private utilsInst: Utils, protected service: DataService) {
     this.utils = utilsInst;
   }
 

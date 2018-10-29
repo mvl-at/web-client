@@ -7,6 +7,7 @@ export interface AppConfig {
   restHost: string;
   assetsHost: string;
   calendarHost: string;
+  libraryHost: string;
 }
 
 @Injectable({

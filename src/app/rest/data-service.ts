@@ -14,6 +14,7 @@ export class DataService {
   public baseUrl: string;
   public assetUrl: string;
   public calendarUrl: string;
+  public libraryUrl: string;
 
   constructor(private http: HttpClient, private config: AppConfigManager) {
     this.loadConfig(config).then();
@@ -24,6 +25,7 @@ export class DataService {
     this.baseUrl = c.restHost;
     this.assetUrl = c.assetsHost;
     this.calendarUrl = c.calendarHost;
+    this.libraryUrl = c.libraryHost;
   }
 
   get<T>(name: string): Observable<T[]> {

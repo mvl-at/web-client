@@ -1,5 +1,6 @@
 {
   "restHost": "http://mvldev:7301/",
   "assetsHost": "http://mvldev:7302/",
-  "calendarHost": "http://mvldev:7303/"
+  "calendarHost": "http://mvldev:7303/",
+  "libraryHost": "http://mvldev:7303/"
 }
