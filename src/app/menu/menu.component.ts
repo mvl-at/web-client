@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
 
   isCollapsed = true;
   utils: Utils;
+  active = '';
 
   constructor(private modalService: NgbModal, private utilsInst: Utils) {
     this.utils = utilsInst;
@@ -76,5 +77,9 @@ export class MenuComponent implements OnInit {
 
   lo() {
     logout();
+  }
+
+  classes(name: string): string {
+    return (this.active === name) ? 'active' : '';
   }
 }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="home">
+  <a (click)="active = ''" class="navbar-brand" routerLink="home">
     <img src="assets/icons/mvl-raw.png" style="max-height: 19pt">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
@@ -10,17 +10,14 @@
 
   <div class="collapse navbar-collapse" id="navbarColor02" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
-      <!--<li class="nav-item active">-->
-        <!--<a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>-->
-      <!--</li>-->
-      <li class="nav-item">
-        <a class="nav-link" routerLink="members">Mitglieder</a>
+      <li class="nav-item" [class]="classes('members')">
+        <a class="nav-link" (click)="active = 'members'" routerLink="members">Mitglieder</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="events">Termine</a>
+      <li class="nav-item" [class]="classes('events')">
+        <a class="nav-link" (click)="active = 'events'" routerLink="events">Termine</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="leaders">Vorstand</a>
+      <li class="nav-item" [class]="classes('leaders')">
+        <a class="nav-link" (click)="active = 'leaders'" routerLink="leaders">Vorstand</a>
       </li>
       <li class="nav-item" *ngIf="userInfo() == null">
         <a class="nav-link" (click)="showLogin()">Login</a>
@@ -35,23 +32,32 @@
           </div>
         </div>
       </li>
-      <li class="nav-item" *ngIf="userInfo() && userInfo().roles.length > 0">
+      <li class="nav-item" *ngIf="userInfo() && userInfo().roles.length > 0" [class]="classes('management')">
         <div ngbDropdown class="d-inline-block">
           <a class="nav-link" id="dropdownManagement" ngbDropdownToggle>Verwaltung</a>
           <div ngbDropdownMenu aria-labelledby="dropdownManagement">
-            <button *ngIf="utils.hasRole('member')" class="dropdown-item" routerLink="member-management">Mitglieder
+            <button *ngIf="utils.hasRole('member')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="member-management">Mitglieder
             </button>
-            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" routerLink="leader-role-management">
+            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="leader-role-management">
               Vorstandsfunktionen
             </button>
-            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" routerLink="leader-management">Vorstand
+            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="leader-management">Vorstand
             </button>
-            <button *ngIf="utils.hasRole('event')" class="dropdown-item" routerLink="event-management">Termine</button>
-            <button *ngIf="utils.hasRole('instrument')" class="dropdown-item" routerLink="instrument-management">
+            <button *ngIf="utils.hasRole('event')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="event-management">Termine
+            </button>
+            <button *ngIf="utils.hasRole('instrument')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="instrument-management">
               Instrumente
             </button>
-            <button *ngIf="utils.hasRole('root')" class="dropdown-item" routerLink="role-management">Rollen</button>
-            <button *ngIf="utils.hasRole('root')" class="dropdown-item" routerLink="role-member-management">Rollen
+            <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="role-management">Rollen
+            </button>
+            <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="role-member-management">Rollen
               Mitglieder
             </button>
             <button *ngIf="utils.hasRole('preferences')" class="dropdown-item" (click)="preferences()">Einstellungen
@@ -59,8 +65,8 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="impressum">Impressum</a>
+      <li class="nav-item" [class]="classes('impressum')">
+        <a class="nav-link" (click)="active = 'impressum'" routerLink="impressum">Impressum</a>
       </li>
     </ul>
   </div>
