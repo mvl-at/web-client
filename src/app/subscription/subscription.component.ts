@@ -59,12 +59,6 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
   }
 
-  abo() {
-  }
-
-  pdf() {
-  }
-
   calendar(pdf: boolean): string {
     return this.service.calendar(pdf, this.isLast ? null : this.from,
       this.unlimited ? '99991212' : this.to,
