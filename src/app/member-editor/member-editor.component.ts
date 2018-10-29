@@ -21,7 +21,10 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getInstruments().subscribe(i => this.instruments = i);
+    this.service.getInstruments().subscribe(i => {
+      this.instruments = i.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.entity.instrumentId = this.instruments[0].id;
+    });
   }
 
   defaults(): Member {
