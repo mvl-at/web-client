@@ -4,7 +4,7 @@
       <li class="list-group-item d-flex justify-content-between align-items-center"
           *ngFor="let instrument of instruments">
         <a [href]="'/members#' + instrument.id">
-          {{ membersFromInstrument(instrument).length > 1 ? instrument.namePlural : instrument.name}}</a>
+          {{ membersFromInstrument(instrument).length > 1 ? instrument.namePlural : instrument.name}}</a>&nbsp;
         <span class="badge badge-primary badge-pill">{{membersFromInstrument(instrument).length}}</span>
       </li>
     </ul>
