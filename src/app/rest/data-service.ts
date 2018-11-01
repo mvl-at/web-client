@@ -9,6 +9,11 @@ import {Role} from '../roles/roles.component';
 @Injectable({
   providedIn: 'root',
 })
+
+// export class Pointer<T> {
+//   public value: T;
+// }
+
 export class DataService {
 
   public baseUrl: string;
@@ -81,6 +86,8 @@ export class DataService {
     this.http.request(req).subscribe(e => {
       if (e.type === HttpEventType.UploadProgress) {
         const percentDone = Math.round(100 * e.loaded / e.total);
+        // pgr.value = percentDone;
+        console.log(percentDone);
         progress.next(percentDone);
       } else if (e instanceof HttpResponse) {
         progress.complete();

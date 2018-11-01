@@ -10,6 +10,8 @@ import {DataService} from '../rest/data-service';
 })
 export class PreferencesComponent implements OnInit {
 
+  // progress: Pointer<number> = {value: 0};
+
   constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
   }
 

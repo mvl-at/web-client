@@ -4,6 +4,7 @@ import {Instrument, Member} from '../members/members.component';
 import {NgbActiveModal, NgbDateAdapter, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
 import {JSONDateAdapter, JSONTimeAdapter} from '../event-editor/event-editor.component';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-member-editor',
@@ -62,7 +63,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
     if (fileList.length > 0) {
       const file: File = fileList[0];
       this.currentFileName = file.name;
-      this.service.postPicture(file, 'member/' + this.entity.id);
+      // this.service.postPicture(file, 'member/' + this.entity.id);
     }
   }
 }

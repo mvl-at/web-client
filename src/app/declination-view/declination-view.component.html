@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{declinations.length}} Absage{{declinations.length === 1?'':'n'}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ul>
+    <li *ngFor="let declination of declinations">{{declination.member.firstName}} {{declination.member.lastName}}
+      ({{utils.formatDate(declination.time, declination.time)}})
+    </li>
+  </ul>
+  <div *ngIf="reAccepted.length > 0">
+    <h4>Wieder zugesagt</h4>
+    <ul>
+      <li *ngFor="let reAcception of reAccepted">{{reAcception.member.firstName}} {{reAcception.member.lastName}}
+        ({{utils.formatDate(reAcception.time, reAcception.time)}})
+      </li>
+    </ul>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
+    <th *ngIf="loggedIn()">Absagen</th>
     <th>Name</th>
     <th>Datum</th>
     <th>Treffpunkt</th>
@@ -12,6 +13,8 @@
   </thead>
   <tbody>
   <tr *ngFor="let event of events" [class.table-primary]="event.important">
+    <td *ngIf="loggedIn()"><span *ngIf="declinationByEvent(event)"><span>{{ declinationByEvent(event).declined? 'abgesagt' : 'wieder zugesagt'}}</span> {{ utils.formatDate(declinationByEvent(event).time, declinationByEvent(event).time)}}</span>
+    </td>
     <td>{{event.name}}</td>
     <td>{{utils.formatDate(event.date, null)}}</td>
     <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
