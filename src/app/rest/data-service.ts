@@ -28,9 +28,9 @@ export class DataService {
     this.libraryUrl = c.libraryHost;
   }
 
-  get<T>(name: string): Observable<T[]> {
+  get<T>(name: string): Observable<T> {
 
-    return this.http.get<T[]>(this.url(name));
+    return this.http.get<T>(this.url(name));
   }
 
   post<T>(entity: T, name: string): Observable<HttpResponse<object>> {
@@ -47,7 +47,7 @@ export class DataService {
   }
 
   getInstruments(): Observable<Instrument[]> {
-    return this.get<Instrument>('instruments');
+    return this.get<Instrument[]>('instruments');
   }
 
   postInstrument(instrument: Instrument) {
@@ -55,11 +55,11 @@ export class DataService {
   }
 
   getEvents(): Observable<Event[]> {
-    return this.get<Event>('events');
+    return this.get<Event[]>('events');
   }
 
   getMembers(): Observable<Member[]> {
-    return this.get<Member>('members');
+    return this.get<Member[]>('members');
   }
 
   getMemberPicture(picture: string): string {

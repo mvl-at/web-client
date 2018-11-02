@@ -16,7 +16,7 @@ export class LeadersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.get<LeaderRoleMember>('leaderRolesMembers').subscribe(l => {
+    this.service.get<LeaderRoleMember[]>('leaderRolesMembers').subscribe(l => {
       l.sort(function (a: LeaderRoleMember, b: LeaderRoleMember) {
         return a.priority - b.priority;
       });
