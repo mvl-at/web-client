@@ -13,11 +13,16 @@ export class MemberViewComponent implements OnInit {
   @Input() member: Member;
   @Input() leader: LeaderRoleMember;
 
-  constructor(public service: DataService) { }
+  constructor(public service: DataService) {
+  }
 
   ngOnInit() {
     if (this.leader !== null && this.leader !== undefined) {
       this.member = this.leader.member;
     }
+  }
+
+  dummyPicture(event, member: Member) {
+    event.target.src = '/assets/icons/avatar-' + ((member.gender === 'f') ? 'female' : 'male') + '.png';
   }
 }

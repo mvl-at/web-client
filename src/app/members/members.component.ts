@@ -77,6 +77,7 @@ export interface Member {
   instrumentId: number;
   instrument: Instrument;
   birthday: string;
+  gender: string;
 }
 
 export interface Instrument {

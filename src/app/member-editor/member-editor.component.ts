@@ -15,6 +15,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   instruments: Instrument[];
   currentFileName = 'Foto';
+  genders = [{id: 'm', name: 'Männlich'}, {id: 'f', name: 'Weiblich'}];
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
@@ -23,7 +24,9 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   ngOnInit() {
     this.service.getInstruments().subscribe(i => {
       this.instruments = i.sort((a, b) => a.name > b.name ? 1 : -1);
-      this.entity.instrumentId = this.instruments[0].id;
+      if (!this.entity.instrumentId) {
+        this.entity.instrumentId = this.instruments[0].id;
+      }
     });
   }
 
@@ -39,7 +42,8 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
       joined: new Date(Date.now()).getFullYear(),
       username: undefined,
       instrument: undefined,
-      birthday: undefined
+      birthday: undefined,
+      gender: 'm'
     };
   }
 
