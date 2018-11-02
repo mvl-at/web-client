@@ -20,8 +20,8 @@ export class RoleMemberEditorComponent extends Editor<RoleMember> implements OnI
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
-    this.service.get<Member>('members').subscribe(m => this.members = m);
-    this.service.get<Role>('roles').subscribe(l => this.roles = l);
+    this.service.get<Member[]>('members').subscribe(m => this.members = m);
+    this.service.get<Role[]>('roles').subscribe(l => this.roles = l);
   }
 
   ngOnInit() {
