@@ -1,0 +1,162 @@
+:author: Richard Stöckl
+:email: richard.stoeckl@aon.at
+:revdate: 2018-11-04
+:revversion: 0.1
+:experimental:
+:toc:
+:numbered:
+// :toc-title: Inhaltsverzeichnis
+:title: Musikverein Leopoldsdorf Webseite
+:doctitle: {title}
+:icons: font
+:lang: de
+:pdf-page-size: A5
+
+= {title}
+
+Das hier ist die Anleitung für die Webseite des Musikverein Leopoldsdorf.
+Es befinden sich sowohl Themen zum besseren Verständnis der Webseite, als auch zur Verwaltung.
+Zu beachten ist jedoch, dass der Schwerpunkt auf der Verwaltung liegt, da die Ansicht sowieso selbsterklärend sein sollte.
+
+== Mitglieder
+
+Auf dieser Seite werden alle Mitglieder aufgelistet, die aktiv im Verein sind.
+Sie sind nach den jeweiligen Instrumenten gruppiert und nach Beitritt und Name sortiert.
+Angzeigt werden die Überschriften der Instrumente, der Vorname, der Nachname, der Beitritt und ein Foto.
+Falls kein Foto existiert, wird ein Standardfoto abhängig vom Geschlecht angezeigt.
+
+=== Instrumentenliste
+
+Auf der linken Seite befindet sich die Instrumentenliste.
+Sie besitzen die selbe Sortierung wie die Überschriften.
+Neben den Instrumenten steht eine zahl, welche anzeigt, wie viele Mitglieder diesem Instrument zugehörig sind.
+Durch einen Klick auf ein Instrument, wird ein Schnellsprung zu den Mitgliedern ausgelöst.
+
+== Termine
+
+Hier werden alle Termine angezeigt, welche noch bevorstehen.
+Angezeigt werden:
+
+* Veranstaltungsname
+* Datum
+* Treffpunkt bestehend aus Uhrzeit und Ort
+* Beginn bestehend aus Uhrzeit und Ort (fällt bei internen Veranstaltungen weg)
+* Adjustierung
+* Notiz
+
+Wichtige Termine sind blau hinterlegt.
+
+=== Abonnieren
+
+Der "`Abonnieren`" Dialog taucht auf, wenn der kbd:[Abonnieren] gedrückt wird.
+Er ist dafür zuständig um einerseits die Termine zu abonnieren, damit sie automatisch in den eigenen Kalender synchronisiert werden, oder bei entsprechender Berechtigung kann man hier Terminpläne als PDF erstellen.
+Es gibt einige Optionen, um das Abonnement bzw. den Terminplan zu spezifizieren.
+
+[#from]
+==== Von
+
+In diesem Abschnitt wird der älteste Termin ausgwählt werden.
+Das kann entweder eine Zeitspanne sein, oder ein fixer Termin.
+Der fixe Termin ist hier der älteste, der miteinbezogen wird.
+Wenn man eine Zeitspanne von z.B. einem Jahr auswahlt, dann bleiben die Termine genau ein Jahr gespeichert und verschwinden dann vom eigenen Kalender.
+Dies verhält sich analog zu Monat, Woche und Tag.
+
+==== Bis
+
+Im Prinzip genau dasselbe wie bei <<from>>, nur, dass es den jüngsten Termin betrifft.
+Im gegensatz zur Zeitspanne, gibt es hier lediglich eine "`unlimiert`" Option, welche bewirkt, dass neue Termine für immer nachgeladen werden und nicht bei einem Datum aufhören.
+
+==== Notiz
+
+Dieses Textfeld taucht nur bei entsprechender Berechtigung auf.
+Es hat nur Relevanz beim Terminplan erstellen -- sie wird dann ganz unten eingeblendet.
+
+Mit dem kbd:[Abonnieren] wird der Terminplan in den eigenen Kalender abonniert und von da an automatisch immer wieder synchronisiert.
+Mit dem kbd:[PDF] wird ein Terminplan erstellt.
+
+== Vorstand
+
+Hier wird der komplette Vorstand aufgelistet.
+Wenn ein Mitglied mehrere Vorstandsfunktionen hat, dann werden diese zusammengefasst.
+Der Vorstand wird nach dem selben Schema wie die Instrumente sortiert, wobei auch darauf geachtet wird, dass bei einem Mitglied alle Funktionen korrekt sortiert sind.
+
+Abgebildet sind der Vorname, Nachname, Foto, die Funktionen und ob die Funktion eine Stellvertretende ist.
+
+== Login
+
+Hier können sich alle Mitglieder einloggen, die über einen Benutzernamen und ein Passwort verfügen und ihnen explizit erlaubt worden ist, dass sie sich einloggen dürfen.
+
+NOTE: Die Login Schnittstelle wird nur dann angezeigt, wenn man gerade nicht eingeloggt ist.
+
+== Vorname Nachname
+
+In diesem Menü befinden sich alle Aktionen, die den eigenen Benutzer betreffen.
+
+NOTE: Dieses Menü ist nur sichtbar, wenn man gerade eingeloggt ist.
+
+=== Logout
+
+Hier kann man sich wieder ausloggen.
+
+[#change-password]
+=== Passwort ändern
+
+Hier kann das eigene Passwort geändert werden.
+Um es ändern zu können, müssen beide Passwortfelder übereinstimmen.
+
+Bei entsprechender Berechtigung, kann auch der Benutzername gändert werden.
+Wenn man nur den Benutzernamen ändern will, darf das Feld `Passwort ändern` nicht angewählt werden.
+
+== Verwaltung
+
+In diesem Menü findet man alle Werkzeuge für die Datenverwaltung.
+Je nachdem, welche Berechtigungen man, sind die entsprechenden Menüpunkte sichtbar.
+
+=== Listen
+
+NOTE: Das trifft auf alle Menüpunkte außer `Einstellungen` zu.
+
+Alle Verwaltungsseiten sind Listen, welche eine Übersicht auf alle vorhandenen Daten gibt, welche sortiert sind.
+Neben jedem Eintrag befinden sich ein kbd:[✎] und ein kbd:[🗑].
+Der kbd:[✎] öffnet den Dearbeitunsdialog für den jeweiligen Eintrag und der kbd:[🗑] löscht den Eintrag.
+Eine Ausnahme stellt die "`Mitgliederverwaltung`" dar. Bei entsprechender Berechtigung ist hier noch ein kbd:[🔒] aufzufinden, welches den <<change-password>> Dialog für das jeweilige Mitglied hervorruft.
+Links oben befindet sich ein kbd:[+], welcher einen Dialog öffnet, mit welchem man neue Einträge hinzufügen kann.
+
+==== Verwaltungsdialog
+
+Ein Verwaltungsdialog erscheint, wenn man entweder einen neuen Datensatz hinzufügt, oder einen bestehenden bearbeitet.
+In ihnen befinden sich die Felder, die dem Datensatz zugehörig sind.
+Es gibt unterschiedliche Arten von Feldern:
+
+Textfeld:: Ein Feld, bei dem Text eintragen werden kann, wie z.B. einen Vornamen.
+Nummernfeld:: Ein Feld, bei dem ausschließlich Zahlen eingegeben werden, mit den Pfeilen, kann man den zusätzlich den Wert verändern. Beispiel: Beitrittsjahr
+Box:: Sie kann entweder mit einem Haken gesetzt sein oder nicht, wie z.B. ob ein Mitglied "`aktiv`" ist.
+Auswahlmenü:: Hier kann ein Wert aus einer vorhandenen Liste ausgewählt werden, wie z.B. ein Instrument.
+Uhrzeit:: Hier wird eine Uhrzeit angegeben im Format `HH MM`, wie z.B. ein Terminbeginn.
+Datum:: Ein Datum im Format `YYYY-MM-DD`.
+`2018-03-04` wäre der 4. März 2018.
+Optional kann mit einem Klick auf dem Kalender Symbol auf der rechten Seite ein Tag aus dem Kalender ausgewählt werden.
+
+Im Dialog befinden sich unterschiedliche Knöpfe.
+kbd:[X] und kbd:[Abbrechen] schließen den Dialog, ohne die eingetragenen Daten bzw. die Änderungen zu speichern.
+kbd:[Zurücksetzen] setzt die Daten zu ihrem Ursprungszustand zurück, die im Dialog waren als er geöffnet worden ist.
+kbd:[Ändern] bzw. kbd:[Hinzufügen] speichern die Änderungen und schließen den Dialog.
+
+=== Einstellungen
+
+Im Einstellungsdialog werden alle sonstigen optionen angezeigt.
+Das betrifft unter anderem das Titelbild, das Standardtitelbild und eine Option um das Standardtitelbild auszuwählen.
+Das Titelbild ist jenes Bild, welches auf der Startseite angzeigt wird, das ist im Normalfall der Flyer für die nächste Veranstaltung.
+Das Standardtitelbild ist genau das selbe, nur, dass es angzeigt wird, wenn der Haken dei "`Standbild verwenden`" gesetzt ist, welches im Normalfall ein Gruppenfoto ist.
+Die Trennung ist dafür gut, dass nicht immer das Gruppenbild erneut hochgeldane werden muss, wenn in absehbarer Zeit keine Veranstaltung stattfindet.
+
+NOTE: Wenn man keine entsprechende Berechtigung hat, ist das ganze Menü nicht sichtbar.
+
+== Impressum
+
+Hier findet man das Impressum der Webseite, konform der österreichischen Anforderungen.
+Zusätzlich befindet sich hier die Softwarelizenz der Webseite.
+
+== Bibliothek
+
+Hier findet man alle statischen Berichte, die nicht direkt etwas mit der Datenverwaltung zu tun haben, wie z.B. die Chronik der Musikverein, oder die Vorstandssitzungsprotokolle.
