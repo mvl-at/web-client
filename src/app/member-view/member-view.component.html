@@ -1,7 +1,8 @@
 <div>
   <div class="well" style="display:flex; align-items: center">
     <div>
-      <img class="img-circle img-thumbnail img-responsive" style="height: 9em"
+      <img (click)="cantina()" [class]="'img-circle img-thumbnail img-responsive ' + (isCantina()? 'wiggle': '')"
+           style="height: 9em"
            [src]="service.getMemberPicture(member.id.toString())"
            (error)="dummyPicture($event, member)"/>
     </div>

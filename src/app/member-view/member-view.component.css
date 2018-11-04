@@ -1,0 +1,10 @@
+@keyframes wiggle {
+  0% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+.wiggle {
+  /* display: inline-block; */
+  animation: wiggle 0.8108s infinite;
+}
