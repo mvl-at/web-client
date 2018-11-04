@@ -1,6 +1,7 @@
 {
   "restHost": "https://rest.example.org/",
   "assetsHost": "https://assets.example.org/",
-  "calendarHost": "http://calendar.example.org/",
+  "calendarPdfHost": "https://calendar.example.org/",
+  "calendarWebCalHost": "webcal://calendar.example.org/",
   "libraryHost": "https://library.example.org/"
 }

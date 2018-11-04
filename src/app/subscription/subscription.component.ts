@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbDateAdapter, NgbDateStruct, NgbTimeAdapter, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
 import {Utils} from '../utils';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 export class CalDateAdapter extends NgbDateAdapter<string> {
 
@@ -42,7 +43,7 @@ export class SubscriptionComponent implements OnInit {
 
   activeModal: NgbActiveModal;
 
-  constructor(private modal: NgbActiveModal, private service: DataService, private utilsInst: Utils) {
+  constructor(private modal: NgbActiveModal, private service: DataService, private utilsInst: Utils, private sanitizer: DomSanitizer) {
     this.activeModal = modal;
     if (utilsInst.hasRole('event')) {
       this.isLast = false;
@@ -59,10 +60,11 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
   }
 
-  calendar(pdf: boolean): string {
-    return this.service.calendar(pdf, this.isLast ? null : this.from,
+  calendar(pdf: boolean): SafeUrl {
+    const url = this.service.calendar(pdf, this.isLast ? null : this.from,
       this.unlimited ? '99991212' : this.to,
       this.isLast ? this.last : null,
       this.note);
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 }

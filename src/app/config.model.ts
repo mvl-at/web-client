@@ -6,7 +6,8 @@ import {Observable, Observer} from 'rxjs';
 export interface AppConfig {
   restHost: string;
   assetsHost: string;
-  calendarHost: string;
+  calendarPdfHost: string;
+  calendarWebCalHost: string;
   libraryHost: string;
 }
 

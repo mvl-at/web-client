@@ -13,7 +13,8 @@ export class DataService {
 
   public baseUrl: string;
   public assetUrl: string;
-  public calendarUrl: string;
+  public calendarPdfUrl: string;
+  public calendarWebCalUrl: string;
   public libraryUrl: string;
 
   constructor(private http: HttpClient, private config: AppConfigManager) {
@@ -24,7 +25,8 @@ export class DataService {
     const c = await config.load().toPromise();
     this.baseUrl = c.restHost;
     this.assetUrl = c.assetsHost;
-    this.calendarUrl = c.calendarHost;
+    this.calendarPdfUrl = c.calendarPdfHost;
+    this.calendarWebCalUrl = c.calendarWebCalHost;
     this.libraryUrl = c.libraryHost;
   }
 
@@ -89,7 +91,7 @@ export class DataService {
   }
 
   calendar(pdf: boolean, from: string, to: string, last: string, note: string): string {
-    return this.calendarUrl + (pdf ? 'pdf' : 'ical') + '?' +
+    return (pdf ? this.calendarPdfUrl : this.calendarWebCalUrl) + (pdf ? 'pdf' : 'ical') + '?' +
       (from ? 'from=' + from + '&' : '') +
       (last ? 'last=' + last + '&' : '') +
       'to=' + to +
