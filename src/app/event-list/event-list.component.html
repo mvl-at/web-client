@@ -1,11 +1,16 @@
 <table class="table table-hover table-striped">
   <thead>
   <tr>
-    <th><button class="btn-sm btn-success" (click)="add()"><fa-icon [icon]="['fas', 'plus']"></fa-icon></button></th>
+    <th>
+      <button class="btn-sm btn-success" (click)="add()">
+        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      </button>
+    </th>
     <th>Name</th>
     <th>Datum</th>
     <th>Treffpunkt</th>
     <th>Beginn</th>
+    <th>Ende</th>
     <th>Adjustierung</th>
     <th>Notiz</th>
     <th>Intern</th>
@@ -29,18 +34,23 @@
     <td>{{utils.formatDate(event.date, null)}}</td>
     <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
     <td>{{utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+    <td>{{event.openEnd === 1? 'Offen' : event.openEnd >= 2? 'Unbekannt' : utils.formatDate(null, event.end)}}</td>
     <td>{{event.uniform}}</td>
     <td>{{event.note}}</td>
-    <td><div class="custom-control custom-checkbox">
-      <input [checked]="event.internal" disabled="" class="custom-control-input" placeholder="" id="internalView"
-             type="checkbox" style="margin: 0; line-height: normal">
-      <label class="custom-control-label" for="internalView">&nbsp;</label>
-    </div></td>
-    <td><div class="custom-control custom-checkbox">
-      <input [checked]="event.important" disabled="" class="custom-control-input" placeholder="" id="importantView"
-             type="checkbox" style="margin: 0; line-height: normal">
-      <label class="custom-control-label" for="importantView">&nbsp;</label>
-    </div></td>
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input [checked]="event.internal" disabled="" class="custom-control-input" placeholder="" id="internalView"
+               type="checkbox" style="margin: 0; line-height: normal">
+        <label class="custom-control-label" for="internalView">&nbsp;</label>
+      </div>
+    </td>
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input [checked]="event.important" disabled="" class="custom-control-input" placeholder="" id="importantView"
+               type="checkbox" style="margin: 0; line-height: normal">
+        <label class="custom-control-label" for="importantView">&nbsp;</label>
+      </div>
+    </td>
     <td>{{event.id}}</td>
   </tr>
   </tbody>
