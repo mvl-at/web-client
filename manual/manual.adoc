@@ -18,12 +18,28 @@ Das hier ist die Anleitung für die Webseite des Musikverein Leopoldsdorf.
 Es befinden sich sowohl Themen zum besseren Verständnis der Webseite, als auch zur Verwaltung.
 Zu beachten ist jedoch, dass der Schwerpunkt auf der Verwaltung liegt, da die Ansicht sowieso selbsterklärend sein sollte.
 
+NOTE: Diese Anleitung enthält Screenshots, welche mit einer älteren Version der Webseite angefertigt worden sind und somit möglicherweise nicht ganz dem derzeitigen Stand entsprechen.
+
+== Menüzeile
+
+Die Menüzeile ist für die Navigation der Webseite zuständig.
+Je nachdem ob derzeit ein Benutzer einloggt ist oder nicht und welche Berechtigungen er besitzt, ändert sich geringfügig ihr aussehen.
+
+.Standard Menüzeile
+image::menubar.png[]
+
+.Menüzeile: Josef Strauch mit erweiterten Rechten ist eingeloggt
+image::menubar-loggedin.png[]
+
 == Mitglieder
 
 Auf dieser Seite werden alle Mitglieder aufgelistet, die aktiv im Verein sind.
 Sie sind nach den jeweiligen Instrumenten gruppiert und nach Beitritt und Name sortiert.
 Angzeigt werden die Überschriften der Instrumente, der Vorname, der Nachname, der Beitritt und ein Foto.
 Falls kein Foto existiert, wird ein Standardfoto abhängig vom Geschlecht angezeigt.
+
+.Mitgliederansicht
+image::members.png[]
 
 === Instrumentenliste
 
@@ -45,6 +61,9 @@ Angezeigt werden:
 * Notiz
 
 Wichtige Termine sind blau hinterlegt.
+
+.Terminansicht
+image::events.png[]
 
 === Abonnieren
 
@@ -80,11 +99,17 @@ Hier wird der komplette Vorstand aufgelistet.
 Wenn ein Mitglied mehrere Vorstandsfunktionen hat, dann werden diese zusammengefasst.
 Der Vorstand wird nach dem selben Schema wie die Instrumente sortiert, wobei auch darauf geachtet wird, dass bei einem Mitglied alle Funktionen korrekt sortiert sind.
 
+.Vorstandsansicht
+image::leaders.png[]
+
 Abgebildet sind der Vorname, Nachname, Foto, die Funktionen und ob die Funktion eine Stellvertretende ist.
 
 == Login
 
 Hier können sich alle Mitglieder einloggen, die über einen Benutzernamen und ein Passwort verfügen und ihnen explizit erlaubt worden ist, dass sie sich einloggen dürfen.
+
+.Login Dialog
+image::login.png[]
 
 NOTE: Die Login Schnittstelle wird nur dann angezeigt, wenn man gerade nicht eingeloggt ist.
 
