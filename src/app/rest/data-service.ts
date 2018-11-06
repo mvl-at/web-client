@@ -95,7 +95,8 @@ export class DataService {
       (from ? 'from=' + from + '&' : '') +
       (last ? 'last=' + last + '&' : '') +
       'to=' + to +
-      (note ? '&note=' + note : '');
+      (note ? '&note=' + note : '') +
+      (pdf ? '' : '&int=true');
   }
 }
 
