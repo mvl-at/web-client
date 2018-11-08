@@ -5,64 +5,94 @@
   </button>
 </div>
 <div class="modal-body">
-  <div class="form-group">
-    <input [(ngModel)]="entity.name" class="form-control" placeholder="Name" id="name" type="text">
-  </div>
 
-  <div class="form-group">
-    <div class="input-group">
-      <input class="form-control" placeholder="yyyy-mm-dd"
-             name="dp" [(ngModel)]="entity.date" ngbDatepicker #d="ngbDatepicker">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-          <fa-icon [icon]="['fas', 'calendar']"></fa-icon>
-        </button>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <input [(ngModel)]="entity.name" class="form-control" placeholder="Name" id="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="entity.date" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <fa-icon [icon]="['fas', 'calendar']"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Treffpunkt</h4>
+            <div class="form-group">
+              <ngb-timepicker [(ngModel)]="entity.musicianTime" [spinners]="false"></ngb-timepicker>
+              <input [(ngModel)]="entity.musicianPlace" class="form-control mt-2" placeholder="Ort"
+                     id="locationMusician"
+                     type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h4 class="card-title">Beginn</h4>
+            <div class="form-group">
+              <ngb-timepicker [(ngModel)]="entity.time" [spinners]="false"
+                              [readonlyInputs]="entity.internal"></ngb-timepicker>
+              <input [(ngModel)]="entity.place" [readonly]="entity.internal" class="form-control mt-2" placeholder="Ort"
+                     id="location"
+                     type="text">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <h4 class="card-title">Ende</h4>
+            <div class="form-group">
+              <select class="custom-select" [(ngModel)]="entity.openEnd">
+                <option value="0">Fix</option>
+                <option value="5">Unbekannt</option>
+                <option value="1">Offen</option>
+              </select>
+              <ngb-timepicker [(ngModel)]="entity.end" [readonlyInputs]="entity.openEnd !== 0" [spinners]="false"
+                              class="ml-2"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <input [(ngModel)]="entity.uniform" class="form-control" placeholder="Adjustierung" id="uniform" type="text">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="entity.note" class="form-control" placeholder="Notiz" id="note" type="text">
+        </div>
+
+        <div class="form-group">
+          <div class="custom-control custom-checkbox">
+            <input [(ngModel)]="entity.important" class="custom-control-input" id="important" type="checkbox">
+            <label class="custom-control-label" for="important">Wichtig</label>
+          </div>
+
+          <div class="custom-control custom-checkbox">
+            <input [(ngModel)]="entity.internal" class="custom-control-input" id="internal" type="checkbox">
+            <label class="custom-control-label" for="internal">Intern</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="form-group">
-    <ngb-timepicker [(ngModel)]="entity.time" [spinners]="false" [readonlyInputs]="entity.internal"></ngb-timepicker>
-  </div>
-
-  <div class="form-group">
-    <input [(ngModel)]="entity.uniform" class="form-control" placeholder="Adjustierung" id="uniform" type="text">
-  </div>
-
-  <div class="form-group">
-    <input [(ngModel)]="entity.place" [readonly]="entity.internal" class="form-control" placeholder="Ort" id="location"
-           type="text">
-  </div>
-
-  <div class="form-group">
-    <input [(ngModel)]="entity.note" class="form-control" placeholder="Notiz" id="note" type="text">
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Treffpunkt</h4>
-      <div class="form-group">
-        <input [(ngModel)]="entity.musicianPlace" class="form-control mb-3" placeholder="Ort" id="locationMusician"
-               type="text">
-        <ngb-timepicker [(ngModel)]="entity.musicianTime" [spinners]="false"></ngb-timepicker>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="custom-control custom-checkbox">
-      <input [(ngModel)]="entity.important" class="custom-control-input" id="important" type="checkbox">
-      <label class="custom-control-label" for="important">Wichtig</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input [(ngModel)]="entity.internal" class="custom-control-input" id="internal" type="checkbox">
-      <label class="custom-control-label" for="internal">Intern</label>
-    </div>
-  </div>
-
 </div>
-
 
 <div class="modal-footer">
   <div class="btn-group" role="group">

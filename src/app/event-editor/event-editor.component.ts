@@ -64,11 +64,12 @@ export class EventEditorComponent extends Editor<Event> implements OnInit {
   defaults(): Event {
     return {
       id: null, date: null, internal: false, important: false, name: null,
-      musicianTime: null, musicianPlace: null, note: null, place: null, time: null, uniform: null
+      musicianTime: null, musicianPlace: null, note: null, place: null, time: null, end: null, openEnd: 0, uniform: null
     };
   }
 
   processedEntity(): Event {
+    this.entity.openEnd = parseInt(this.entity.openEnd.toString(), 10);
     return this.entity;
   }
 
