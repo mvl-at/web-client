@@ -175,7 +175,70 @@ Es gibt zwei Besonderheiten: Zusätzlich zum Verwaltungsdialog kann mit entsprec
 
 NOTE: Das Bild eines Mitglieds kann erst gesetzt werden, nachdem es bereits hinzugefügt worden ist.
 
+.Mitgliederliste
 image::member-list.png[]
+
+.Mitglieder Verwaltungsdialog
+image::member-modal.png[]
+
+=== Vorstandsfunktionen
+
+Hier werden alle Vorstandsfunktionen verwaltet, die es überhaupt gibt, wie z.B. Obmann, Kapellmeister, Stabführer,...
+
+.Vorstandsfunktionenliste
+image::leader-role-list.png[]
+
+.Vorstandsfunktionen Verwaltungsdialog
+image::leader-role-modal.png[]
+
+=== Vorstand
+
+Hier werden den Vorstandsmitgliedern die Vorstandsfunktionen zugewiesen.
+Die Prioritätszahl gibt an, wie weit oben das Vorstandsmitglied aufgelistet wird -> je niedriger die Zahl, desto weiter oben steht es.
+Wenn ein Vorstandsmitglied mehrere Funktionen ausübt, dann gilt immer die kleinste.
+
+NOTE: Die Funktionen werden auch innerhalb vom Vorstandsmitglied sortiert.
+
+.Vorstandsliste
+image::leader-list.png[]
+
+.Vorstand Verwaltungsdialog
+image::leader-modal.png[]
+
+=== Termine
+
+Hier werden alle Termine verwaltet.
+
+.Terminliste
+image::event-list.png[]
+
+.Termine Verwaltungsdialog
+image::event-modal.png[]
+
+=== Instrumente
+
+Hier werden alle Instrumente verwaltet, die den Mitgliedern zugewiesen werden können.
+Je niedriger die Prioritätszahl ist, desto weiter oben in der Liste erscheinen sie.
+Ist bei mehreren Instrumenten die Prioritätszahlt gleich, werden diese nach Alphabet sortiert.
+Eine Empfehlung wäre es alle normalen Instrumente eine Priorität von 5 zu geben, den Marketenderinnen 10 und den Ehrenmitgliedern 15.
+
+NOTE: Die Instrumentenliste dient nicht nur für Instrumente, sondern auch gleichzeitig für die Marketenderinnen und Ehrenmitglieder.
+
+.Instrumentenliste
+image::instrument-list.png[]
+
+.Instrumenten Verwaltungsdialog
+image::instrument-modal.png[]
+
+=== Rollen
+
+Hier werden alle Rollen bzw. Berechtigungen verwaltet.
+
+.Rollenliste
+image::role-list.png[]
+
+.Rollen Verwaltungsdialog
+image::role-modal.png[]
 
 === Einstellungen
 
