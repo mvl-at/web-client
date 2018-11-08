@@ -12,6 +12,8 @@
 :lang: de
 :pdf-page-size: A5
 
+include::lang/attributes.adoc[]
+
 = {title}
 
 Das hier ist die Anleitung für die Webseite des Musikverein Leopoldsdorf.
