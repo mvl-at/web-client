@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   utils: Utils;
   active = '';
 
-  constructor(private modalService: NgbModal, private utilsInst: Utils, protected service: DataService) {
+  constructor(private modalService: NgbModal, private utilsInst: Utils, public service: DataService) {
     this.utils = utilsInst;
   }
 
