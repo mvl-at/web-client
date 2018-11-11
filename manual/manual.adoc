@@ -11,6 +11,9 @@
 :icons: font
 :lang: de
 :pdf-page-size: A5
+:pencil: btn:[icon:pencil[\]]
+:trash: btn:[icon:trash[\]]
+:lock: btn:[icon:lock[\]]
 
 include::lang/attributes.adoc[]
 
@@ -145,9 +148,9 @@ Je nachdem, welche Berechtigungen man, sind die entsprechenden Menüpunkte sicht
 NOTE: Das trifft auf alle Menüpunkte außer `Einstellungen` zu.
 
 Alle Verwaltungsseiten sind Listen, welche eine Übersicht auf alle vorhandenen Daten gibt, welche sortiert sind.
-Neben jedem Eintrag befinden sich ein btn:[✎] und ein btn:[🗑].
-Der btn:[✎] öffnet den Dearbeitunsdialog für den jeweiligen Eintrag und der btn:[🗑] löscht den Eintrag.
-Eine Ausnahme stellt die "`Mitgliederverwaltung`" dar. Bei entsprechender Berechtigung ist hier noch ein btn:[🔒] aufzufinden, welches den <<change-password>> Dialog für das jeweilige Mitglied hervorruft.
+Neben jedem Eintrag befinden sich ein {pencil} und ein {trash}.
+Der {pencil} öffnet den Dearbeitunsdialog für den jeweiligen Eintrag und der {trash} löscht den Eintrag.
+Eine Ausnahme stellt die "`Mitgliederverwaltung`" dar. Bei entsprechender Berechtigung ist hier noch ein {lock} aufzufinden, welches den <<change-password>> Dialog für das jeweilige Mitglied hervorruft.
 Links oben befindet sich ein btn:[+], welcher einen Dialog öffnet, mit welchem man neue Einträge hinzufügen kann.
 
 ==== Verwaltungsdialog
@@ -173,7 +176,7 @@ btn:[Ändern] bzw. btn:[Hinzufügen] speichern die Änderungen und schließen de
 === Mitglieder
 
 Hier werden alle Mitglieder verwaltet wie unter <<lists>> beschrieben.
-Es gibt zwei Besonderheiten: Zusätzlich zum Verwaltungsdialog kann mit entsprechender Berechtigung mit dem btn:[🔒] auch der <<change-password>> Dialog für andere Mitglieder aufgerufen werden.
+Es gibt zwei Besonderheiten: Zusätzlich zum Verwaltungsdialog kann mit entsprechender Berechtigung mit dem {lock} auch der <<change-password>> Dialog für andere Mitglieder aufgerufen werden.
 
 NOTE: Das Bild eines Mitglieds kann erst gesetzt werden, nachdem es bereits hinzugefügt worden ist.
 
