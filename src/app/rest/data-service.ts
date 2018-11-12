@@ -72,7 +72,7 @@ export class DataService {
     return this.assetUrl + '/title';
   }
 
-  postPicture(file: File, url: string) {
+  postPicture(file: File, url: string): Observable<number> {
     const head = new HttpHeaders({'access-token': AccessTokenInst});
     head.set('access-token', AccessTokenInst);
     const req = new HttpRequest('POST', this.assetUrl + url, file, {
@@ -88,6 +88,7 @@ export class DataService {
         progress.complete();
       }
     });
+    return progress.asObservable();
   }
 
   calendar(pdf: boolean, from: string, to: string, last: string, note: string): string {
