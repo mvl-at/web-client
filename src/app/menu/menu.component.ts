@@ -35,30 +35,6 @@ export class MenuComponent implements OnInit {
     this.modalService.open(LoginComponent);
   }
 
-  addEvent() {
-    this.modalService.open(EventEditorComponent);
-  }
-
-  addInstrument() {
-    this.modalService.open(InstrumentEditorComponent);
-  }
-
-  addRole() {
-    this.modalService.open(RoleEditorComponent);
-  }
-
-  addMember() {
-    this.modalService.open(MemberEditorComponent);
-  }
-
-  addLeaderRole() {
-    this.modalService.open(LeaderRoleEditorComponent);
-  }
-
-  addLeader() {
-    this.modalService.open(LeaderEditorComponent);
-  }
-
   members() {
     this.modalService.open(MemberListComponent);
   }

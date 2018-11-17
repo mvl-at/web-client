@@ -36,30 +36,34 @@
         <div ngbDropdown class="d-inline-block">
           <a class="nav-link" id="dropdownManagement" ngbDropdownToggle>Verwaltung</a>
           <div ngbDropdownMenu aria-labelledby="dropdownManagement">
+            <button *ngIf="utils.hasRole('event')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="event-management">Termine
+            </button>
             <button *ngIf="utils.hasRole('member')" class="dropdown-item" (click)="active = 'management'"
                     routerLink="member-management">Mitglieder
             </button>
             <button *ngIf="utils.hasRole('leader')" class="dropdown-item" (click)="active = 'management'"
-                    routerLink="leader-role-management">
-              Vorstandsfunktionen
-            </button>
-            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" (click)="active = 'management'"
                     routerLink="leader-management">Vorstand
             </button>
-            <button *ngIf="utils.hasRole('event')" class="dropdown-item" (click)="active = 'management'"
-                    routerLink="event-management">Termine
+
+
+            <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="role-member-management">Rollen
+              Mitglieder
             </button>
             <button *ngIf="utils.hasRole('instrument')" class="dropdown-item" (click)="active = 'management'"
                     routerLink="instrument-management">
               Instrumente
             </button>
+
+            <button *ngIf="utils.hasRole('leader')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="leader-role-management">
+              Vorstandsfunktionen
+            </button>
             <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
                     routerLink="role-management">Rollen
             </button>
-            <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
-                    routerLink="role-member-management">Rollen
-              Mitglieder
-            </button>
+            <div class="dropdown-divider"></div>
             <button *ngIf="utils.hasRole('preferences')" class="dropdown-item" (click)="preferences()">Einstellungen
             </button>
           </div>
