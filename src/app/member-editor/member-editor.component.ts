@@ -16,6 +16,7 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
   instruments: Instrument[];
   currentFileName = 'Foto';
   genders = [{id: 'm', name: 'Männlich'}, {id: 'f', name: 'Weiblich'}];
+  progress = undefined;
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
@@ -63,10 +64,11 @@ export class MemberEditorComponent extends Editor<Member> implements OnInit {
 
   memberPictureChange(event) {
     const fileList = event.target.files;
+    this.progress = 0;
     if (fileList.length > 0) {
       const file: File = fileList[0];
       this.currentFileName = file.name;
-      this.service.postPicture(file, 'member/' + this.entity.id);
+      this.service.postPicture(file, 'member/' + this.entity.id).subscribe(p => this.progress = p);
     }
   }
 }
