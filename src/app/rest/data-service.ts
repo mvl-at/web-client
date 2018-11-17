@@ -91,6 +91,10 @@ export class DataService {
     return progress.asObservable();
   }
 
+  postDefaultTitle(value: boolean): Observable<HttpResponse<object>> {
+    return this.http.post(this.assetUrl + 'defaultTitle', value, {headers: {'Access-Token': AccessTokenInst}, observe: 'response'});
+  }
+
   calendar(pdf: boolean, from: string, to: string, last: string, note: string): string {
     return (pdf ? this.calendarPdfUrl : this.calendarWebCalUrl) + (pdf ? 'pdf' : 'ical') + '?' +
       (from ? 'from=' + from + '&' : '') +

@@ -9,10 +9,7 @@
     <div class="input-group mb-3">
       <div class="custom-file">
         <input class="custom-file-input" id="titleFile" type="file" (change)="titleChange($event)">
-        <label class="custom-file-label" for="titleFile">Auswählen</label>
-      </div>
-      <div class="input-group-append">
-        <span class="input-group-text">OK</span>
+        <label class="custom-file-label" for="titleFile">Titelbild</label>
       </div>
     </div>
   </div>
@@ -24,10 +21,7 @@
     <div class="input-group mb-3">
       <div class="custom-file">
         <input class="custom-file-input" id="defaultTitleFile" type="file" (change)="titleChange($event)">
-        <label class="custom-file-label" for="defaultTitleFile">Auswählen</label>
-      </div>
-      <div class="input-group-append">
-        <span class="input-group-text">OK</span>
+        <label class="custom-file-label" for="defaultTitleFile">Standardtitelbild</label>
       </div>
     </div>
   </div>
@@ -35,10 +29,16 @@
     <ngb-progressbar *ngIf="defaultTitleProgress" [striped]="true" [animated]="defaultTitleProgress !== 100"
                      [showValue]="true" type="primary" [value]="defaultTitleProgress"></ngb-progressbar>
   </div>
+  <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input [(ngModel)]="isDefault" class="custom-control-input" id="isDefault" type="checkbox">
+      <label class="custom-control-label" for="isDefault">Standardtitelbild verwenden</label>
+    </div>
+  </div>
   <div class="modal-footer">
     <div class="btn-group" role="group">
-      <button class="btn btn-secondary">Abbrechen</button>
-      <button class="btn btn-primary">Speichern</button>
+      <button class="btn btn-secondary" (click)="activeModal.close()">Abbrechen</button>
+      <button class="btn btn-primary" (click)="save()">Speichern</button>
     </div>
   </div>
 </div>
