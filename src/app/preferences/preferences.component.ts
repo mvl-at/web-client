@@ -10,6 +10,9 @@ import {DataService} from '../rest/data-service';
 })
 export class PreferencesComponent implements OnInit {
 
+  titleProgress: number = undefined;
+  defaultTitleProgress: null = undefined;
+
   constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
   }
 

@@ -8,12 +8,37 @@
   <div class="form-group">
     <div class="input-group mb-3">
       <div class="custom-file">
-        <input class="custom-file-input" id="inputGroupFile02" type="file" (change)="titleChange($event)">
-        <label class="custom-file-label" for="inputGroupFile02">Auswählen</label>
+        <input class="custom-file-input" id="titleFile" type="file" (change)="titleChange($event)">
+        <label class="custom-file-label" for="titleFile">Auswählen</label>
       </div>
       <div class="input-group-append">
-        <span class="input-group-text" id="">OK</span>
+        <span class="input-group-text">OK</span>
       </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <ngb-progressbar *ngIf="titleProgress" [striped]="true" [animated]="titleProgress !== 100" [showValue]="true"
+                     type="primary" [value]="titleProgress"></ngb-progressbar>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input class="custom-file-input" id="defaultTitleFile" type="file" (change)="titleChange($event)">
+        <label class="custom-file-label" for="defaultTitleFile">Auswählen</label>
+      </div>
+      <div class="input-group-append">
+        <span class="input-group-text">OK</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <ngb-progressbar *ngIf="defaultTitleProgress" [striped]="true" [animated]="defaultTitleProgress !== 100"
+                     [showValue]="true" type="primary" [value]="defaultTitleProgress"></ngb-progressbar>
+  </div>
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button class="btn btn-secondary">Abbrechen</button>
+      <button class="btn btn-primary">Speichern</button>
     </div>
   </div>
 </div>
