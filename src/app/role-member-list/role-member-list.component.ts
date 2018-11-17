@@ -4,6 +4,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {List} from '../list';
 import {RoleMember} from '../roles/roles.component';
 import {RoleMemberEditorComponent} from '../role-member-editor/role-member-editor.component';
+import {LeaderRoleMember} from '../leaders/leaders.component';
 
 @Component({
   selector: 'app-leader-list',
@@ -29,5 +30,9 @@ export class RoleMemberListComponent extends List<RoleMember> implements OnInit 
 
   onLoaded() {
     this.items.sort((a, b) => (a.member.lastName > b.member.lastName) ? 1 : -1);
+  }
+
+  itemName(roleMember: RoleMember): string {
+    return roleMember.member.firstName + ' ' + roleMember.member.lastName + ' als ' + roleMember.role.name;
   }
 }

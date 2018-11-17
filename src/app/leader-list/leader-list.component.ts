@@ -30,4 +30,8 @@ export class LeaderListComponent extends List<LeaderRoleMember> implements OnIni
   onLoaded() {
     this.items.sort((a, b) => (a.priority - b.priority));
   }
+
+  itemName(lrm: LeaderRoleMember): string {
+    return lrm.member.firstName + ' ' + lrm.member.lastName + ' als ' + (lrm.leaderRole.name + lrm.deputy ? ' Stellvetreter' : '');
+  }
 }

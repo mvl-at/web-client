@@ -43,4 +43,8 @@ export class MemberListComponent extends List<Member> implements OnInit {
       return (a.firstName < b.firstName) ? -1 : 1;
     });
   }
+
+  itemName(member: Member): string {
+    return member.firstName + ' ' + member.lastName;
+  }
 }

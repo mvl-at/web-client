@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Löschen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('cancel')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>{{itemName}} wirklich löschen?</p>
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Abbrechen</button>
+      <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('delete')">Löschen</button>
+    </div>
+  </div>
+</div>

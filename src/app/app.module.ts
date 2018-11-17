@@ -36,6 +36,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus} from '@fortawesome/free-solid-svg-icons';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
@@ -71,7 +72,8 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
     RoleMemberListComponent,
     RoleListComponent,
     ImpressumComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,7 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
-    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent]
+    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent, DeleteDialogComponent]
 })
 export class AppModule {
 }
