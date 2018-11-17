@@ -11,9 +11,13 @@
 :icons: font
 :lang: de
 :pdf-page-size: A5
-:pencil: btn:[icon:pencil[\]]
-:trash: btn:[icon:trash[\]]
-:lock: btn:[icon:lock[\]]
+:pencil: kbd:[icon:pencil[\]]
+:trash: kbd:[icon:trash[\]]
+:lock: kbd:[icon:lock[\]]
+
+//:pencil: btn:[pen]
+//:trash: btn:[tr]
+//:lock: btn:[lo]
 
 include::lang/attributes.adoc[]
 
@@ -153,6 +157,8 @@ Der {pencil} öffnet den Dearbeitunsdialog für den jeweiligen Eintrag und der {
 Eine Ausnahme stellt die "`Mitgliederverwaltung`" dar. Bei entsprechender Berechtigung ist hier noch ein {lock} aufzufinden, welches den <<change-password>> Dialog für das jeweilige Mitglied hervorruft.
 Links oben befindet sich ein btn:[+], welcher einen Dialog öffnet, mit welchem man neue Einträge hinzufügen kann.
 
+TIP: Wenn beim Löschen kbd:[icon:arrow-up[\]] gedrückt gehalten, wird, erscheint kein Bestäigungsdialog und der Eintrag wird sofort gelöscht.
+
 ==== Verwaltungsdialog
 
 Ein Verwaltungsdialog erscheint, wenn man entweder einen neuen Datensatz hinzufügt, oder einen bestehenden bearbeitet.
@@ -173,6 +179,16 @@ btn:[X] und btn:[Abbrechen] schließen den Dialog, ohne die eingetragenen Daten 
 btn:[Zurücksetzen] setzt die Daten zu ihrem Ursprungszustand zurück, die im Dialog waren als er geöffnet worden ist.
 btn:[Ändern] bzw. btn:[Hinzufügen] speichern die Änderungen und schließen den Dialog.
 
+=== Termine
+
+Hier werden alle Termine verwaltet.
+
+.Terminliste
+image::event-list.png[]
+
+.Termine Verwaltungsdialog
+image::event-modal.png[]
+
 === Mitglieder
 
 Hier werden alle Mitglieder verwaltet wie unter <<lists>> beschrieben.
@@ -185,16 +201,6 @@ image::member-list.png[]
 
 .Mitglieder Verwaltungsdialog
 image::member-modal.png[]
-
-=== Vorstandsfunktionen
-
-Hier werden alle Vorstandsfunktionen verwaltet, die es überhaupt gibt, wie z.B. Obmann, Kapellmeister, Stabführer,...
-
-.Vorstandsfunktionenliste
-image::leader-role-list.png[]
-
-.Vorstandsfunktionen Verwaltungsdialog
-image::leader-role-modal.png[]
 
 === Vorstand
 
@@ -210,16 +216,6 @@ image::leader-list.png[]
 .Vorstand Verwaltungsdialog
 image::leader-modal.png[]
 
-=== Termine
-
-Hier werden alle Termine verwaltet.
-
-.Terminliste
-image::event-list.png[]
-
-.Termine Verwaltungsdialog
-image::event-modal.png[]
-
 === Instrumente
 
 Hier werden alle Instrumente verwaltet, die den Mitgliedern zugewiesen werden können.
@@ -234,6 +230,16 @@ image::instrument-list.png[]
 
 .Instrumenten Verwaltungsdialog
 image::instrument-modal.png[]
+
+=== Vorstandsfunktionen
+
+Hier werden alle Vorstandsfunktionen verwaltet, die es überhaupt gibt, wie z.B. Obmann, Kapellmeister, Stabführer,...
+
+.Vorstandsfunktionenliste
+image::leader-role-list.png[]
+
+.Vorstandsfunktionen Verwaltungsdialog
+image::leader-role-modal.png[]
 
 === Rollen
 
