@@ -6,14 +6,36 @@
 :toc:
 :numbered:
 // :toc-title: Inhaltsverzeichnis
-:title: Musikverein Leopoldsdorf Webseite
-:doctitle: {title}
+//:title: Musikverein Leopoldsdorf: Die Anleitung zur Webseite
+//:doctitle: {title}
 :icons: font
 :lang: de
 :pdf-page-size: A5
-:pencil: kbd:[icon:pencil[\]]
-:trash: kbd:[icon:trash[\]]
-:lock: kbd:[icon:lock[\]]
+:title-logo-image: image:logo.svg[]
+
+:pencil: btn:[icon:pencil[\]]
+:trash: btn:[icon:trash[\]]
+:lock: btn:[icon:lock[\]]
+:reset: btn:[Zurücksetzen]
+:cancel: btn:[X]
+:add: btn:[Hinzufügen]
+:change: btn:[Ändern]
+:close: btn:[X]
+:subscribe: btn:[Abonnieren]
+:pdfbtn: btn:[PDF]
+
+ifdef::backend-pdf[]
+:pencil: [ icon:pencil[] ]
+:trash: [ icon:trash[] ]
+:lock: [ icon:lock[] ]
+:reset: [ Zurücksetzen ]
+:cancel: [ Abbrechen ]
+:add: [ Hinzufügen ]
+:change: [ Ändern ]
+:close: [ X ]
+:subscribe: [ Abonnieren ]
+:pdfbtn: [ PDF ]
+endif::[]
 
 //:pencil: btn:[pen]
 //:trash: btn:[tr]
@@ -21,7 +43,7 @@
 
 include::lang/attributes.adoc[]
 
-= {title}
+= Musikverein Leopoldsdorf: Die Anleitung zur Webseite
 
 Das hier ist die Anleitung für die Webseite des Musikverein Leopoldsdorf.
 Es befinden sich sowohl Themen zum besseren Verständnis der Webseite, als auch zur Verwaltung.
@@ -76,7 +98,7 @@ image::events.png[]
 
 === Abonnieren
 
-Der "`Abonnieren`" Dialog taucht auf, wenn der btn:[Abonnieren] gedrückt wird.
+Der "`Abonnieren`" Dialog taucht auf, wenn der {subscribe} gedrückt wird.
 Er ist dafür zuständig um einerseits die Termine zu abonnieren, damit sie automatisch in den eigenen Kalender synchronisiert werden, oder bei entsprechender Berechtigung kann man hier Terminpläne als PDF erstellen.
 Es gibt einige Optionen, um das Abonnement bzw. den Terminplan zu spezifizieren.
 
@@ -99,8 +121,8 @@ Im gegensatz zur Zeitspanne, gibt es hier lediglich eine "`unlimiert`" Option, w
 Dieses Textfeld taucht nur bei entsprechender Berechtigung auf.
 Es hat nur Relevanz beim Terminplan erstellen -- sie wird dann ganz unten eingeblendet.
 
-Mit dem btn:[Abonnieren] wird der Terminplan in den eigenen Kalender abonniert und von da an automatisch immer wieder synchronisiert.
-Mit dem btn:[PDF] wird ein Terminplan erstellt.
+Mit dem {subscribe} wird der Terminplan in den eigenen Kalender abonniert und von da an automatisch immer wieder synchronisiert.
+Mit dem {pdfbtn} wird ein Terminplan erstellt.
 
 == Vorstand
 
@@ -118,7 +140,7 @@ Abgebildet sind der Vorname, Nachname, Foto, die Funktionen und ob die Funktion 
 Hier können sich alle Mitglieder einloggen, die über einen Benutzernamen und ein Passwort verfügen und ihnen explizit erlaubt worden ist, dass sie sich einloggen dürfen.
 
 .Login Dialog
-image::login.png[]
+image::login.png[float="left",width=100%,role="left",align="left"]
 
 NOTE: Die Login Schnittstelle wird nur dann angezeigt, wenn man gerade nicht eingeloggt ist.
 
@@ -175,9 +197,9 @@ Datum:: Ein Datum im Format `YYYY-MM-DD`.
 Optional kann mit einem Klick auf dem Kalender Symbol auf der rechten Seite ein Tag aus dem Kalender ausgewählt werden.
 
 Im Dialog befinden sich unterschiedliche Knöpfe.
-btn:[X] und btn:[Abbrechen] schließen den Dialog, ohne die eingetragenen Daten bzw. die Änderungen zu speichern.
-btn:[Zurücksetzen] setzt die Daten zu ihrem Ursprungszustand zurück, die im Dialog waren als er geöffnet worden ist.
-btn:[Ändern] bzw. btn:[Hinzufügen] speichern die Änderungen und schließen den Dialog.
+{close} und {cancel} schließen den Dialog, ohne die eingetragenen Daten bzw. die Änderungen zu speichern.
+{reset} setzt die Daten zu ihrem Ursprungszustand zurück, die im Dialog waren als er geöffnet worden ist.
+{change} bzw. {add} speichern die Änderungen und schließen den Dialog.
 
 === Termine
 
@@ -256,7 +278,7 @@ image::role-modal.png[]
 Im Einstellungsdialog werden alle sonstigen optionen angezeigt.
 Das betrifft unter anderem das Titelbild, das Standardtitelbild und eine Option um das Standardtitelbild auszuwählen.
 Das Titelbild ist jenes Bild, welches auf der Startseite angzeigt wird, das ist im Normalfall der Flyer für die nächste Veranstaltung.
-Das Standardtitelbild ist genau das selbe, nur, dass es angzeigt wird, wenn der Haken dei "`Standbild verwenden`" gesetzt ist, welches im Normalfall ein Gruppenfoto ist.
+Das Standardtitelbild ist genau das selbe, nur, dass es angzeigt wird, wenn der Haken bei "`Standardtitelbild verwenden`" gesetzt ist, welches im Normalfall ein Gruppenfoto ist.
 Die Trennung ist dafür gut, dass nicht immer das Gruppenbild erneut hochgeldane werden muss, wenn in absehbarer Zeit keine Veranstaltung stattfindet.
 
 NOTE: Wenn man keine entsprechende Berechtigung hat, ist das ganze Menü nicht sichtbar.
