@@ -40,4 +40,8 @@ export class EventListComponent extends List<Event> implements OnInit {
       return 0;
     });
   }
+
+  modalOptions() {
+    return {size: 'lg'};
+  }
 }

@@ -22,14 +22,14 @@ export abstract class List<T> {
   }
 
   edit(item: T) {
-    const modal = this.modal.open(this.editor());
+    const modal = this.modal.open(this.editor(), this.modalOptions());
     modal.componentInstance.entity = item;
     modal.componentInstance.list = this;
     modal.componentInstance.setEdit();
   }
 
   add() {
-    this.modal.open(this.editor()).componentInstance.list = this;
+    this.modal.open(this.editor(), this.modalOptions()).componentInstance.list = this;
   }
 
   deleteItem(item: T) {
@@ -72,6 +72,10 @@ export abstract class List<T> {
     }
 
     return item.toLocaleString();
+  }
+
+  modalOptions() {
+    return {};
   }
 
   abstract urlName(): string;
