@@ -12,6 +12,7 @@ import {InstrumentListComponent} from './instrument-list/instrument-list.compone
 import {RoleListComponent} from './role-list/role-list.component';
 import {RoleMemberListComponent} from './role-member-list/role-member-list.component';
 import {ImpressumComponent} from './impressum/impressum.component';
+import {ArchiveComponent} from './archive/archive.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path: 'impressum',
     component: ImpressumComponent
+  },
+  {
+    path: 'archive',
+    component: ArchiveComponent
   }
 ];
 

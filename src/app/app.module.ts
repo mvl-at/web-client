@@ -34,15 +34,17 @@ import {RoleListComponent} from './role-list/role-list.component';
 import {ImpressumComponent} from './impressum/impressum.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus} from '@fortawesome/free-solid-svg-icons';
-import { SubscriptionComponent } from './subscription/subscription.component';
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort} from '@fortawesome/free-solid-svg-icons';
+import {SubscriptionComponent} from './subscription/subscription.component';
+import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
+import {ArchiveComponent} from './archive/archive.component';
+import {ArchiveEditorComponent} from './archive-editor/archive-editor.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
 }
 
-library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
+library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort);
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
     RoleListComponent,
     ImpressumComponent,
     SubscriptionComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ArchiveComponent,
+    ArchiveEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,8 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus);
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
-    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent, DeleteDialogComponent]
+    PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent,
+    DeleteDialogComponent, ArchiveEditorComponent]
 })
 export class AppModule {
 }

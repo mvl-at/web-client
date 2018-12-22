@@ -46,6 +46,9 @@
                     routerLink="leader-management">Vorstand
             </button>
 
+            <button *ngIf="utils.hasRole('archive')" class="dropdown-item" (click)="active = 'management'"
+                    routerLink="archive">Archiv
+            </button>
 
             <button *ngIf="utils.hasRole('root')" class="dropdown-item" (click)="active = 'management'"
                     routerLink="role-member-management">Rollen
