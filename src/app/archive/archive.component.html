@@ -45,6 +45,11 @@
       <fa-icon *ngIf="sortField === 'publisher' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'publisher' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
+    <th (click)="sort('subtitles')">Untertitel&nbsp;<fa-icon *ngIf="sortField !== 'subtitles'"
+                                                         [icon]="['fas', 'sort']"></fa-icon>
+      <fa-icon *ngIf="sortField === 'subtitles' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
+      <fa-icon *ngIf="sortField === 'subtitles' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
+    </th>
     <th (click)="sort('location')">Aufbewahrung&nbsp;<fa-icon *ngIf="sortField !== 'location'"
                                                               [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'location' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
@@ -78,6 +83,7 @@
     <td>{{score.composer}}</td>
     <td>{{score.arranger}}</td>
     <td>{{score.publisher}}</td>
+    <td>{{score.subtitles}}</td>
     <td>{{score.location}}</td>
     <td>{{score.note}}</td>
     <td>{{score.id}}</td>

@@ -62,6 +62,7 @@ export class ArchiveComponent extends List<Archive> implements OnInit {
   contains(a: Archive): boolean {
     const cstring = this.utils.accentFold(this.search);
     return this.utils.accentFold(a.title).includes(cstring) ||
+      this.utils.accentFold(a.subtitles).includes(cstring) ||
       this.utils.accentFold(a.composer).includes(cstring) ||
       this.utils.accentFold(a.arranger).includes(cstring) ||
       this.utils.accentFold(a.style).includes(cstring) ||
@@ -90,6 +91,7 @@ export interface Archive {
   composer: string;
   arranger: string;
   publisher: string;
+  subtitles: string;
   location: string;
   note: string;
 }

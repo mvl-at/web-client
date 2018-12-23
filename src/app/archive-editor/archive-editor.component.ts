@@ -19,7 +19,18 @@ export class ArchiveEditorComponent extends Editor<Archive> implements OnInit {
   }
 
   defaults(): Archive {
-    return {id: undefined, arranger: '', composer: '', level: '', location: '', note: '', publisher: '', style: '', title: ''};
+    return {
+      id: undefined,
+      arranger: '',
+      composer: '',
+      level: '',
+      location: '',
+      note: '',
+      publisher: '',
+      style: '',
+      title: '',
+      subtitles: ''
+    };
   }
 
   entityName(): string {
