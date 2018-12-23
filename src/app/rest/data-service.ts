@@ -68,8 +68,8 @@ export class DataService {
     return this.assetUrl + 'member/' + picture;
   }
 
-  getTitleImage(): string {
-    return this.assetUrl + '/title';
+  getTitleImage(thumbnail: boolean): string {
+    return this.assetUrl + '/title?thumbnail=' + thumbnail;
   }
 
   postPicture(file: File, url: string): Observable<number> {
