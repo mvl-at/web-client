@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title()}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+    <input [(ngModel)]="entity.title" class="form-control" placeholder="Titel" id="title" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.style" class="form-control" placeholder="Stilrichtung" id="style" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.level" class="form-control" placeholder="Stufe" id="level" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.composer" class="form-control" placeholder="Komponist" id="composer" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.arranger" class="form-control" placeholder="Arrangeur" id="arranger" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.publisher" class="form-control" placeholder="Verlag" id="publisher" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="publisher" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.location" class="form-control" placeholder="Aufbewahrung" id="location" type="text">
+  </div>
+  <div class="form-group">
+    <input [(ngModel)]="entity.note" class="form-control" placeholder="Notiz" id="note" type="text">
+  </div>
+  <div class="modal-footer">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-success" (click)="add()">{{ okText() }}</button>
+      <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
+      <button type="button" class="btn btn-danger" (click)="close()">Abbrechen</button>
+    </div>
+  </div>
+</div>
