@@ -92,6 +92,7 @@ export interface Archive {
   arranger: string;
   publisher: string;
   subtitles: string;
+  score: boolean;
   location: string;
   note: string;
 }

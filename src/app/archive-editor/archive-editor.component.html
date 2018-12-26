@@ -24,7 +24,13 @@
     <input [(ngModel)]="entity.publisher" class="form-control" placeholder="Verlag" id="publisher" type="text">
   </div>
   <div class="form-group">
-    <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="publisher" type="text">
+    <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="subtitles" type="text">
+  </div>
+  <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input [(ngModel)]="entity.score" class="custom-control-input" id="score" type="checkbox">
+      <label class="custom-control-label" for="score">Partitur</label>
+    </div>
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.location" class="form-control" placeholder="Aufbewahrung" id="location" type="text">
