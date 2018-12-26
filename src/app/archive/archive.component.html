@@ -8,6 +8,7 @@
   <ngb-pagination class="ml-3" [pageSize]="itemAmount" [collectionSize]="displayItems.length" [(page)]="page"
                   [maxSize]="5"
                   (pageChange)="slice()" size="sm"></ngb-pagination>
+  <small class="ml-2 text-muted">Treffer: {{displayItems.length}}</small>
 </div>
 <table class="table table-hover table-striped">
   <thead>
