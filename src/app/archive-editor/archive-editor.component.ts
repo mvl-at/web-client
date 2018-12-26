@@ -29,7 +29,8 @@ export class ArchiveEditorComponent extends Editor<Archive> implements OnInit {
       publisher: '',
       style: '',
       title: '',
-      subtitles: ''
+      subtitles: '',
+      score: true
     };
   }
 
