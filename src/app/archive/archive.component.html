@@ -13,7 +13,7 @@
   <thead>
   <tr>
     <th>
-      <button class="btn-sm btn-success" (click)="add()">
+      <button class="btn-sm btn-success" (click)="add().componentInstance.styles = styles">
         <fa-icon [icon]="['fas', 'plus']"></fa-icon>
       </button>
     </th>
@@ -69,7 +69,7 @@
   <tr *ngFor="let score of pagedItems">
     <td>
       <div class="btn-toolbar">
-        <button class="btn-sm btn-secondary mr-2" (click)="edit(score)">
+        <button class="btn-sm btn-secondary mr-2" (click)="edit(score).componentInstance.styles = styles">
           <fa-icon [icon]="['fas', 'pencil-alt']"></fa-icon>
         </button>
         <button class="btn-sm btn-danger mr-2" (click)="deleteItem(score)">

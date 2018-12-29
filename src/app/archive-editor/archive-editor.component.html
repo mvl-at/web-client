@@ -9,7 +9,7 @@
     <input [(ngModel)]="entity.title" class="form-control" placeholder="Titel" id="title" type="text">
   </div>
   <div class="form-group">
-    <input [(ngModel)]="entity.style" class="form-control" placeholder="Stilrichtung" id="style" type="text">
+    <input [(ngModel)]="entity.style" class="form-control" placeholder="Stilrichtung" id="style" type="text" [ngbTypeahead]="searchStyle">
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.level" class="form-control" placeholder="Stufe" id="level" type="text">
@@ -24,7 +24,7 @@
     <input [(ngModel)]="entity.publisher" class="form-control" placeholder="Verlag" id="publisher" type="text">
   </div>
   <div class="form-group">
-    <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="publisher" type="text">
+    <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="subtitles" type="text">
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.location" class="form-control" placeholder="Aufbewahrung" id="location" type="text">

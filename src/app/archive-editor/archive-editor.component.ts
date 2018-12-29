@@ -3,6 +3,8 @@ import {Editor} from '../app.component';
 import {Archive} from '../archive/archive.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from '../rest/data-service';
+import {Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-archive-editor',
@@ -10,6 +12,14 @@ import {DataService} from '../rest/data-service';
   styleUrls: ['./archive-editor.component.css']
 })
 export class ArchiveEditorComponent extends Editor<Archive> implements OnInit {
+
+  styles = [];
+  searchStyle = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      map(term => term.length < 2 ? []
+        : this.styles.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+    )
 
   constructor(public activeModal: NgbActiveModal, public service: DataService) {
     super(activeModal, service);
@@ -44,4 +54,6 @@ export class ArchiveEditorComponent extends Editor<Archive> implements OnInit {
   url(): string {
     return 'archive';
   }
+
+
 }

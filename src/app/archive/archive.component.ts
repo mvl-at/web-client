@@ -18,6 +18,7 @@ export class ArchiveComponent extends List<Archive> implements OnInit {
   ascending = true;
   search = '';
   page = 1;
+  styles = [];
 
   displayItems = [];
   pagedItems = [];
@@ -43,6 +44,7 @@ export class ArchiveComponent extends List<Archive> implements OnInit {
   }
 
   onLoaded() {
+    this.styles = this.items.map(a => a.style).filter((archive, i, a) => a.indexOf(archive) === i);
     this.displayItems = this.items.sort((a, b) => this.compareArchive(a, b));
     this.slice();
   }
