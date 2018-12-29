@@ -238,6 +238,26 @@ image::leader-list.png[]
 .Vorstand Verwaltungsdialog
 image::leader-modal.png[]
 
+=== Archiv
+Hier befinden sich Einträge, welche Noten der Musikverein besitzt.
+Mit dem "`Suche`" Feld werden die Einträge gefiltert wobei dies nur folgende Felder betrifft:
+
+* "`Titel`"
+* "`Stilrichtung`"
+* "`Kopmonist`"
+* "`Arrangeur`"
+* "`Verlag`"
+* "`Untertitel`"
+* "`Aufbewahrung`"
+
+Sie reagiert sofort bei einer Eingabe.
+
+Neben der Suche befindet sich die Seitennavigation, welche dazu dient zwischen den Seiten zu blättern.
+
+Neben der Seitennavigation befindet sich ein Auswahlmenü, welches festlegt, wie viele Einträge pro Seite angezeigt werden sollen.
+
+TIP: Beim Feld "`Stilrichtung`" öffnet sich nach Eingabe von mindestens zwei Buchstaben ein Menü mit schon existierenden Stilrichtungen.
+
 === Instrumente
 
 Hier werden alle Instrumente verwaltet, die den Mitgliedern zugewiesen werden können.
