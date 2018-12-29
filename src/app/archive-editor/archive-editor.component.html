@@ -9,7 +9,8 @@
     <input [(ngModel)]="entity.title" class="form-control" placeholder="Titel" id="title" type="text">
   </div>
   <div class="form-group">
-    <input [(ngModel)]="entity.style" class="form-control" placeholder="Stilrichtung" id="style" type="text" [ngbTypeahead]="searchStyle">
+    <input [(ngModel)]="entity.style" class="form-control" placeholder="Stilrichtung" id="style" type="text"
+           [ngbTypeahead]="searchStyle">
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.level" class="form-control" placeholder="Stufe" id="level" type="text">
@@ -25,6 +26,12 @@
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.subtitles" class="form-control" placeholder="Untertitel" id="subtitles" type="text">
+  </div>
+  <div class="form-group">
+    <div class="custom-control custom-checkbox">
+      <input [(ngModel)]="entity.score" class="custom-control-input" id="score" type="checkbox">
+      <label class="custom-control-label" for="score">Partitur</label>
+    </div>
   </div>
   <div class="form-group">
     <input [(ngModel)]="entity.location" class="form-control" placeholder="Aufbewahrung" id="location" type="text">

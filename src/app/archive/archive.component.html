@@ -1,4 +1,4 @@
-<div class="form-group row mt-3 ml-3">
+<div class="form-group row mt-3 ml-3" style="margin-right:0">
   <input [(ngModel)]="search" class="form-control" style="width:30em" placeholder="Suche" id="search" type="text"
          (input)="filter()">
   <select type="number" [(ngModel)]="itemAmount" class="custom-select ml-3" (change)="changedPages()"
@@ -8,6 +8,7 @@
   <ngb-pagination class="ml-3" [pageSize]="itemAmount" [collectionSize]="displayItems.length" [(page)]="page"
                   [maxSize]="5"
                   (pageChange)="slice()" size="sm"></ngb-pagination>
+  <small class="ml-2 text-muted">Treffer: {{displayItems.length}}</small>
 </div>
 <table class="table table-hover table-striped">
   <thead>
@@ -17,49 +18,54 @@
         <fa-icon [icon]="['fas', 'plus']"></fa-icon>
       </button>
     </th>
-    <th (click)="sort('title')">Titel&nbsp;<fa-icon *ngIf="sortField !== 'title'" [icon]="['fas', 'sort']"></fa-icon>
+    <th class="no-break" (click)="sort('title')">Titel&nbsp;<fa-icon *ngIf="sortField !== 'title'" [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'title' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'title' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('style')">Stilrichtung&nbsp;<fa-icon *ngIf="sortField !== 'style'"
+    <th class="no-break" (click)="sort('style')">Stilrichtung&nbsp;<fa-icon *ngIf="sortField !== 'style'"
                                                            [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'style' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'style' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('level')">Stufe&nbsp;<fa-icon *ngIf="sortField !== 'level'" [icon]="['fas', 'sort']"></fa-icon>
+    <th class="no-break" (click)="sort('level')">Stufe&nbsp;<fa-icon *ngIf="sortField !== 'level'" [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'level' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'level' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('composer')">Komponist&nbsp;<fa-icon *ngIf="sortField !== 'composer'"
+    <th class="no-break" (click)="sort('composer')">Komponist&nbsp;<fa-icon *ngIf="sortField !== 'composer'"
                                                            [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'composer' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'composer' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('arranger')">Arrangeur&nbsp;<fa-icon *ngIf="sortField !== 'arranger'"
+    <th class="no-break" (click)="sort('arranger')">Arrangeur&nbsp;<fa-icon *ngIf="sortField !== 'arranger'"
                                                            [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'arranger' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'arranger' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('publisher')">Verlag&nbsp;<fa-icon *ngIf="sortField !== 'publisher'"
+    <th class="no-break" (click)="sort('publisher')">Verlag&nbsp;<fa-icon *ngIf="sortField !== 'publisher'"
                                                          [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'publisher' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'publisher' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('subtitles')">Untertitel&nbsp;<fa-icon *ngIf="sortField !== 'subtitles'"
-                                                         [icon]="['fas', 'sort']"></fa-icon>
+    <th class="no-break" (click)="sort('subtitles')">Untertitel&nbsp;<fa-icon *ngIf="sortField !== 'subtitles'"
+                                                             [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'subtitles' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'subtitles' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('location')">Aufbewahrung&nbsp;<fa-icon *ngIf="sortField !== 'location'"
+    <th class="no-break" (click)="sort('score')">Partitur&nbsp;<fa-icon *ngIf="sortField !== 'score'"
+                                                             [icon]="['fas', 'sort']"></fa-icon>
+      <fa-icon *ngIf="sortField === 'score' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
+      <fa-icon *ngIf="sortField === 'score' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
+    </th>
+    <th class="no-break" (click)="sort('location')">Aufbewahrung&nbsp;<fa-icon *ngIf="sortField !== 'location'"
                                                               [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'location' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'location' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('note')">Notiz&nbsp;<fa-icon *ngIf="sortField !== 'note'" [icon]="['fas', 'sort']"></fa-icon>
+    <th class="no-break" (click)="sort('note')">Notiz&nbsp;<fa-icon *ngIf="sortField !== 'note'" [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'note' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'note' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
-    <th (click)="sort('id')">ID&nbsp;<fa-icon *ngIf="sortField !== 'id'" [icon]="['fas', 'sort']"></fa-icon>
+    <th class="no-break" (click)="sort('id')">ID&nbsp;<fa-icon *ngIf="sortField !== 'id'" [icon]="['fas', 'sort']"></fa-icon>
       <fa-icon *ngIf="sortField === 'id' && ascending" [icon]="['fas', 'sort-up']"></fa-icon>
       <fa-icon *ngIf="sortField === 'id' && !ascending" [icon]="['fas', 'sort-down']"></fa-icon>
     </th>
@@ -84,6 +90,13 @@
     <td>{{score.arranger}}</td>
     <td>{{score.publisher}}</td>
     <td>{{score.subtitles}}</td>
+    <td>
+      <div class="custom-control custom-checkbox">
+        <input [checked]="score.score" disabled="" class="custom-control-input" placeholder="" id="scoreView"
+               type="checkbox" style="margin: 0; line-height: normal">
+        <label class="custom-control-label" for="scoreView">&nbsp;</label>
+      </div>
+    </td>
     <td>{{score.location}}</td>
     <td>{{score.note}}</td>
     <td>{{score.id}}</td>
