@@ -1,5 +1,5 @@
 import {DataService} from './rest/data-service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 
 export abstract class List<T> {
@@ -21,15 +21,18 @@ export abstract class List<T> {
     });
   }
 
-  edit(item: T) {
+  edit(item: T): NgbModalRef {
     const modal = this.modal.open(this.editor(), this.modalOptions());
     modal.componentInstance.entity = item;
     modal.componentInstance.list = this;
     modal.componentInstance.setEdit();
+    return modal;
   }
 
-  add() {
-    this.modal.open(this.editor(), this.modalOptions()).componentInstance.list = this;
+  add(): NgbModalRef {
+    const modal = this.modal.open(this.editor(), this.modalOptions());
+    modal.componentInstance.list = this;
+    return modal;
   }
 
   deleteItem(item: T) {

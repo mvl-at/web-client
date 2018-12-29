@@ -40,7 +40,7 @@ export class ArchiveComponent extends List<Archive> implements OnInit {
   }
 
   compareArchive(a: Archive, b: Archive): number {
-    return (a[this.sortField] > b[this.sortField] ? 1 : -1) * (this.ascending ? 1 : -1);
+    return (this.utils.accentFold(a[this.sortField]) > this.utils.accentFold(b[this.sortField]) ? 1 : -1) * (this.ascending ? 1 : -1);
   }
 
   onLoaded() {

@@ -782,6 +782,6 @@ export class Utils {
         ret += this.accent_map[s.charAt(i)] || s.charAt(i);
       }
     }
-    return ret;
+    return ret.replace('the', '');
   }
 }
