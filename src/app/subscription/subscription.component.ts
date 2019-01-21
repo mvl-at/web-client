@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbDateAdapter, NgbDateStruct, NgbTimeAdapter, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
-import {DataService} from '../rest/data-service';
+import {AccessTokenInst, DataService} from '../rest/data-service';
 import {Utils} from '../utils';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {HttpClient} from '@angular/common/http';
+import {saveAs} from 'file-saver';
 
 export class CalDateAdapter extends NgbDateAdapter<string> {
 
@@ -43,7 +45,7 @@ export class SubscriptionComponent implements OnInit {
 
   activeModal: NgbActiveModal;
 
-  constructor(private modal: NgbActiveModal, private service: DataService, private utilsInst: Utils, private sanitizer: DomSanitizer) {
+  constructor(private modal: NgbActiveModal, private service: DataService, private utilsInst: Utils, private sanitizer: DomSanitizer, private http: HttpClient) {
     this.activeModal = modal;
     if (utilsInst.hasRole('event')) {
       this.isLast = false;
@@ -60,11 +62,23 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
   }
 
-  calendar(pdf: boolean): SafeUrl {
-    const url = this.service.calendar(pdf, this.isLast ? null : this.from,
+  eventsUrl(pdf: boolean): string {
+    return this.service.calendar(pdf, this.isLast ? null : this.from,
       this.unlimited ? '99991212' : this.to,
       this.isLast ? this.last : null,
       this.note);
-    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+
+  calendar(pdf: boolean): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(this.eventsUrl(pdf));
+  }
+
+  pdf(event) {
+    event.preventDefault();
+    const url = this.eventsUrl(true);
+    this.http.get(url, {headers: {'access-token': AccessTokenInst}, responseType: 'blob', observe: 'response'}).subscribe(res => {
+      const filename = res.headers.get('Content-Disposition');
+      saveAs(res.body, filename.split('filename="')[1].split('"')[0]);
+    });
   }
 }

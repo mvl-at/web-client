@@ -30,9 +30,8 @@ export class DataService {
     this.libraryUrl = c.libraryHost;
   }
 
-  get<T>(name: string): Observable<T> {
-
-    return this.http.get<T>(this.url(name));
+  get<T>(name: string, header?: HttpHeaders): Observable<T> {
+    return this.http.get<T>(this.url(name), {headers: header});
   }
 
   post<T>(entity: T, name: string): Observable<HttpResponse<object>> {

@@ -24,7 +24,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@ng-bootstrap/ng-bootstrap": "^2.2.2",
+    "@types/file-saver": "^2.0.0",
     "core-js": "^2.5.4",
+    "file-saver": "^2.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
