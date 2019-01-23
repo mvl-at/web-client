@@ -1,2 +1,34 @@
+<div class="main-container">
 <app-menu></app-menu>
 <router-outlet></router-outlet>
+<footer class="footer">
+  <div class="container text-muted">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <span><strong>Links</strong></span>
+        <ul class="list-unstyled">
+          <li><fa-icon [icon]="['fab', 'github']"></fa-icon>&nbsp;<a href="https://github.com/mvl-at">GitHub</a></li>
+          <li><fa-icon [icon]="['fab', 'facebook']"></fa-icon>&nbsp;<a href="https://github.com/mvl-at">Facebook</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <span><strong>Impressum</strong></span>
+        <ul class="list-unstyled">
+          <li>
+            <fa-icon [icon]="['fas', 'phone']"></fa-icon>
+            +43 2216 3160
+          </li>
+          <li>
+            <fa-icon [icon]="['fas', 'home']"></fa-icon>
+            Kempfendorf 2, A-2285 Leopoldsdorf i.M.
+          </li>
+          <li>
+            <fa-icon [icon]="['fas', 'at']"></fa-icon>&nbsp;<a href="mailto:obmann@mvl.at">obmann@mvl.at</a></li>
+        </ul>
+      </div>
+    </div>
+  <hr/>
+    <h5 class="text-dark">2019 Musikverein Leopoldsdorf</h5>
+  </div>
+</footer>
+</div>

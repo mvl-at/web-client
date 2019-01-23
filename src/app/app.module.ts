@@ -35,7 +35,8 @@ import {ImpressumComponent} from './impressum/impressum.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {TitleDialogComponent} from './title-dialog/title-dialog.component';
-import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort} from '@fortawesome/free-solid-svg-icons';
+import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort, faHome, faPhone, faAt} from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {SubscriptionComponent} from './subscription/subscription.component';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {ArchiveComponent} from './archive/archive.component';
@@ -45,7 +46,7 @@ export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
 }
 
-library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort);
+library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort, faGithub, faFacebook, faHome, faPhone, faAt);
 
 @NgModule({
   declarations: [
