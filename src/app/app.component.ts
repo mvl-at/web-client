@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {List} from './list';
@@ -26,6 +26,15 @@ export abstract class Editor<T> {
     //   this.entity = this.edit;
     // }
     this.entity = this.defaults();
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyUp(event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.add();
+    }
   }
 
   reset() {
