@@ -7,9 +7,7 @@
 <div class="modal-body">
   <p>{{itemName}} wirklich löschen?</p>
   <div class="modal-footer">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Abbrechen</button>
-      <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('delete')">Löschen</button>
-    </div>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Abbrechen</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('delete')">Löschen</button>
   </div>
 </div>

@@ -61,8 +61,6 @@
 
 
 <div class="modal-footer">
-  <div class="btn-group" role="group">
-    <a class="btn btn-primary" [href]="calendar(false)">Abonnieren</a>
-    <a *ngIf="utils.hasRole('event')" class="btn btn-primary" (click)="pdf($event)" target="_blank" href="#">PDF</a>
-  </div>
+  <a class="btn btn-primary" [href]="calendar(false)">Abonnieren</a>
+  <a *ngIf="utils.hasRole('event')" class="btn btn-primary" (click)="pdf($event)" target="_blank" href="#">PDF</a>
 </div>

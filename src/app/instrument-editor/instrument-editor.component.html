@@ -20,9 +20,8 @@
 </div>
 
 <div class="modal-footer">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success" (click)="add()">{{ okText() }}</button>
-    <button type="button" class="btn btn-warning" (click)="reset()">Zurücksetzen</button>
-    <button type="button" class="btn btn-danger" (click)="close()">Abbrechen</button>
-  </div>
+  <button type="button" class="btn btn-warning" (click)="reset()" tabindex="3">Zurücksetzen</button>
+  <button type="button" class="btn btn-danger" (click)="close()" tabindex="2">Abbrechen</button>
+  <button type="button" class="btn btn-success" (click)="add()" tabindex="1">{{ okText() }}</button>
 </div>
+

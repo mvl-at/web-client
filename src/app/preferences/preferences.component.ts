@@ -21,11 +21,12 @@ export class PreferencesComponent implements OnInit {
   ngOnInit() {
   }
 
-  titleChange(event) {
+  titleChange(event, isDefault: boolean) {
     const fileList = event.target.files;
     if (fileList.length > 0) {
       const file: File = fileList[0];
-      this.service.postPicture(file, 'title');
+      const param = 'title' + (isDefault ? '?default=true' : '');
+      this.service.postPicture(file, param);
     }
   }
 
