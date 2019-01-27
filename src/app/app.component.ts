@@ -1,8 +1,9 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {List} from './list';
 import {LicenseComponent} from './license/license.component';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -12,8 +13,15 @@ import {LicenseComponent} from './license/license.component';
 })
 export class AppComponent {
   title = 'app';
+  year: number;
+  @ViewChild('footerLogo') footerLogo: ElementRef;
 
-  constructor(public modalService: NgbModal) {
+  constructor(public modalService: NgbModal, private http: HttpClient) {
+    this.year = new Date(Date.now()).getFullYear();
+    http.get('/assets/icons/mvl-raw.svg', {responseType: 'text'}).subscribe(i => {
+      this.footerLogo.nativeElement.innerHTML = i.toString();
+      this.footerLogo.nativeElement.firstChild.style = 'display: flex;';
+    });
   }
 
   isClosed(): boolean {

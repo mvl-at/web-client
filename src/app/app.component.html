@@ -1,6 +1,8 @@
 <div class="main-container">
   <app-menu></app-menu>
-  <ngb-alert class="mt-2 ml-2 d-inline-block" type="info" (close)="close()" *ngIf="!isClosed()">Der Login ist abgelaufen.</ngb-alert>
+  <ngb-alert class="mt-2 ml-2 d-inline-block" type="info" (close)="close()" *ngIf="!isClosed()">Der Login ist
+    abgelaufen.
+  </ngb-alert>
   <router-outlet></router-outlet>
   <footer class="footer">
     <div class="container text-muted">
@@ -35,7 +37,8 @@
         </div>
       </div>
       <hr/>
-      <h5 class="text-dark">2019 Musikverein Leopoldsdorf</h5>
+      <h5 class="d-inline">© 2018—{{year}} Musikverein Leopoldsdorf</h5>
+      <img src="/assets/icons/mvl-footer.svg" class="m-3">
     </div>
   </footer>
 </div>
