@@ -4,6 +4,7 @@ import {DataService} from './rest/data-service';
 import {List} from './list';
 import {LicenseComponent} from './license/license.component';
 import {HttpClient} from '@angular/common/http';
+import {ResourcesComponent} from './resources/resources.component';
 
 
 @Component({
@@ -34,6 +35,10 @@ export class AppComponent {
 
   showLicense() {
     this.modalService.open(LicenseComponent, {size: 'lg'});
+  }
+
+  showResources() {
+    this.modalService.open(ResourcesComponent);
   }
 }
 

@@ -47,7 +47,8 @@ import {
   faHome,
   faPhone,
   faAt,
-  faBalanceScale
+  faBalanceScale,
+  faToolbox
 } from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {SubscriptionComponent} from './subscription/subscription.component';
@@ -55,13 +56,14 @@ import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {ArchiveComponent} from './archive/archive.component';
 import {ArchiveEditorComponent} from './archive-editor/archive-editor.component';
 import {LicenseComponent} from './license/license.component';
+import {ResourcesComponent} from './resources/resources.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
 }
 
 library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort,
-  faGithub, faFacebook, faHome, faPhone, faAt, faBalanceScale);
+  faGithub, faFacebook, faHome, faPhone, faAt, faBalanceScale, faToolbox);
 
 @NgModule({
   declarations: [
@@ -95,7 +97,8 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortD
     TitleDialogComponent,
     ArchiveComponent,
     ArchiveEditorComponent,
-    LicenseComponent
+    LicenseComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,7 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortD
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
     PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent,
-    DeleteDialogComponent, ArchiveEditorComponent, TitleDialogComponent, LicenseComponent]
+    DeleteDialogComponent, ArchiveEditorComponent, TitleDialogComponent, LicenseComponent, ResourcesComponent]
 })
 export class AppModule {
 }

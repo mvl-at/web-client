@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title">Resourcen</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let image of images | keyvalue" class="col-sm-6 col-md-3 m-2">
+        <img width="50px" [src]="'assets/icons/' + image.key" [class]="(image.value)?'black':''">
+      </div>
+    </div>
+    <div>Farbe: <span [style.background-color]="color" class="color-cycle" ></span> {{color}}</div>
+  </div>
+</div>
