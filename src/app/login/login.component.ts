@@ -1,8 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {AccessTokenAssign, AccessTokenInst, DataService, UserInfo, UserInfoAssign, UserInfoInst} from '../rest/data-service';
+import {
+  AccessTokenAssign,
+  AccessTokenInst,
+  DataService,
+  ExpirationTimer,
+  Logout, SetExpirationTimer,
+  UserInfo,
+  UserInfoAssign,
+  UserInfoInst
+} from '../rest/data-service';
 import {Credentials} from '../credentials/credentials.component';
+import {OpenLoginInfo} from '../app.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +23,11 @@ import {Credentials} from '../credentials/credentials.component';
 
 export class LoginComponent implements OnInit {
 
+  constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService, private router: Router) {
+  }
+
   credentials: Credentials = {username: '', password: '', memberId: undefined};
   loginStatus = 0;
-
-  constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
-  }
 
   ngOnInit() {
   }
@@ -29,15 +40,31 @@ export class LoginComponent implements OnInit {
         if (this.loginStatus === 200) {
           this.activeModal.close();
           this.refreshUserInfo();
+          const loginComponent = this;
+          SetExpirationTimer(setInterval(function () {
+            loginComponent.refreshUserInfo();
+          }, 1000));
         }
       }, (error: HttpErrorResponse) => this.loginStatus = error.status);
   }
 
-  refreshUserInfo() {
+  refreshUserInfo(): boolean {
+    let expired = false;
     this.http.get<UserInfo>(`${this.service.baseUrl}userinfo`, {
       headers: new HttpHeaders()
-        .set('Access-token', AccessTokenInst)
-    }).subscribe(u => UserInfoAssign(u));
+        .set('Access-token', AccessTokenInst), observe: 'response'
+    }).subscribe(r => {
+      if (r.status === 200) {
+        UserInfoAssign(r.body);
+      }
+    }, () => {
+      if (UserInfoInst) {
+        expired = true;
+        console.log('session expired');
+        OpenLoginInfo();
+      }
+      Logout(this.router);
+    });
+    return expired;
   }
 }
-

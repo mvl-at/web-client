@@ -5,6 +5,7 @@ import {Event} from '../events/events.component';
 import {Observable, Subject} from 'rxjs';
 import {AppConfigManager} from '../config.model';
 import {Role} from '../roles/roles.component';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -110,16 +111,23 @@ interface Credentials {
 }
 
 export interface UserInfo {
+  exp: string;
   member: Member;
   roles: Role[];
 }
 
 export let AccessTokenInst = '';
 export let UserInfoInst = null;
+export let ExpirationTimer = 0;
 
-export function logout() {
+export function Logout(router: Router) {
   AccessTokenInst = null;
   UserInfoInst = null;
+  if (ExpirationTimer) {
+    clearInterval(ExpirationTimer);
+  }
+  router.navigateByUrl('/home').catch();
+  // window.location.href = '/home';
 }
 
 export function AccessTokenAssign(at: string) {
@@ -127,5 +135,14 @@ export function AccessTokenAssign(at: string) {
 }
 
 export function UserInfoAssign(ui: UserInfo) {
-  UserInfoInst = ui;
+  if (ui) {
+    UserInfoInst = ui;
+  } else {
+    UserInfoInst = null;
+    AccessTokenInst = null;
+  }
+}
+
+export function SetExpirationTimer(timer: number) {
+  ExpirationTimer = timer;
 }
