@@ -3,7 +3,6 @@ import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {List} from './list';
 import {LicenseComponent} from './license/license.component';
-import {HttpClient} from '@angular/common/http';
 import {ResourcesComponent} from './resources/resources.component';
 
 
@@ -17,12 +16,8 @@ export class AppComponent {
   year: number;
   @ViewChild('footerLogo') footerLogo: ElementRef;
 
-  constructor(public modalService: NgbModal, private http: HttpClient) {
+  constructor(public modalService: NgbModal) {
     this.year = new Date(Date.now()).getFullYear();
-    http.get('/assets/icons/mvl-raw.svg', {responseType: 'text'}).subscribe(i => {
-      this.footerLogo.nativeElement.innerHTML = i.toString();
-      this.footerLogo.nativeElement.firstChild.style = 'display: flex;';
-    });
   }
 
   isClosed(): boolean {
@@ -56,11 +51,6 @@ export abstract class Editor<T> {
   list: List<any>;
 
   protected constructor(public activeModal: NgbActiveModal, public service: DataService) {
-    // if (this.edit === undefined || this.edit === null) {
-    //   this.entity = this.defaults();
-    // } else {
-    //   this.entity = this.edit;
-    // }
     this.entity = this.defaults();
   }
 

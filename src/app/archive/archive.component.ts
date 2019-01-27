@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {List} from '../list';
-import {DataService} from '../rest/data-service';
+import {AccessTokenInst, DataService} from '../rest/data-service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ArchiveEditorComponent} from '../archive-editor/archive-editor.component';
 import {Utils} from '../utils';
+import {HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-archive',
@@ -82,6 +83,10 @@ export class ArchiveComponent extends List<Archive> implements OnInit {
     this.itemAmount = parseInt(this.itemAmount.toString(), 10);
     console.log('selected');
     this.onLoaded();
+  }
+
+  getHeader(): HttpHeaders {
+    return new HttpHeaders({'Access-Token': AccessTokenInst});
   }
 }
 
