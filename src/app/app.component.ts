@@ -1,7 +1,9 @@
 import {Component, HostListener} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DataService} from './rest/data-service';
 import {List} from './list';
+import {LicenseComponent} from './license/license.component';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,27 @@ import {List} from './list';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(public modalService: NgbModal) {
+  }
+
+  isClosed(): boolean {
+    return LoginInfoClosed;
+  }
+
+  close() {
+    LoginInfoClosed = true;
+  }
+
+  showLicense() {
+    this.modalService.open(LicenseComponent, {size: 'lg'});
+  }
+}
+
+export let LoginInfoClosed = true;
+
+export function OpenLoginInfo() {
+  LoginInfoClosed = false;
 }
 
 export abstract class Editor<T> {

@@ -31,22 +31,37 @@ import {AppConfigManager} from './config.model';
 import {RoleMemberEditorComponent} from './role-member-editor/role-member-editor.component';
 import {RoleMemberListComponent} from './role-member-list/role-member-list.component';
 import {RoleListComponent} from './role-list/role-list.component';
-import {ImpressumComponent} from './impressum/impressum.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {TitleDialogComponent} from './title-dialog/title-dialog.component';
-import {faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort, faHome, faPhone, faAt} from '@fortawesome/free-solid-svg-icons';
+import {
+  faCalendar,
+  faPencilAlt,
+  faTrashAlt,
+  faUser,
+  faLock,
+  faPlus,
+  faSortDown,
+  faSortUp,
+  faSort,
+  faHome,
+  faPhone,
+  faAt,
+  faBalanceScale
+} from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {SubscriptionComponent} from './subscription/subscription.component';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {ArchiveComponent} from './archive/archive.component';
 import {ArchiveEditorComponent} from './archive-editor/archive-editor.component';
+import {LicenseComponent} from './license/license.component';
 
 export function initializeApp(appConfig: AppConfigManager) {
   return () => appConfig.load();
 }
 
-library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort, faGithub, faFacebook, faHome, faPhone, faAt);
+library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort,
+  faGithub, faFacebook, faHome, faPhone, faAt, faBalanceScale);
 
 @NgModule({
   declarations: [
@@ -75,12 +90,12 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortD
     RoleMemberEditorComponent,
     RoleMemberListComponent,
     RoleListComponent,
-    ImpressumComponent,
     SubscriptionComponent,
     DeleteDialogComponent,
     TitleDialogComponent,
     ArchiveComponent,
-    ArchiveEditorComponent
+    ArchiveEditorComponent,
+    LicenseComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +116,7 @@ library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortD
   entryComponents: [LoginComponent, EventEditorComponent, InstrumentEditorComponent,
     RoleEditorComponent, MemberEditorComponent, LeaderRoleEditorComponent, LeaderEditorComponent,
     PreferencesComponent, CredentialsComponent, RoleMemberEditorComponent, SubscriptionComponent,
-    DeleteDialogComponent, ArchiveEditorComponent, TitleDialogComponent]
+    DeleteDialogComponent, ArchiveEditorComponent, TitleDialogComponent, LicenseComponent]
 })
 export class AppModule {
 }

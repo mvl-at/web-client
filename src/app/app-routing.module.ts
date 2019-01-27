@@ -11,7 +11,6 @@ import {EventListComponent} from './event-list/event-list.component';
 import {InstrumentListComponent} from './instrument-list/instrument-list.component';
 import {RoleListComponent} from './role-list/role-list.component';
 import {RoleMemberListComponent} from './role-member-list/role-member-list.component';
-import {ImpressumComponent} from './impressum/impressum.component';
 import {ArchiveComponent} from './archive/archive.component';
 
 const routes: Routes = [
@@ -62,10 +61,6 @@ const routes: Routes = [
   {
     path: 'role-member-management',
     component: RoleMemberListComponent
-  },
-  {
-    path: 'impressum',
-    component: ImpressumComponent
   },
   {
     path: 'archive',
