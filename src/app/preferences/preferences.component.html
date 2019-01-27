@@ -8,7 +8,7 @@
   <div class="form-group">
     <div class="input-group mb-3">
       <div class="custom-file">
-        <input class="custom-file-input" id="titleFile" type="file" (change)="titleChange($event)">
+        <input class="custom-file-input" id="titleFile" type="file" (change)="titleChange($event, false)">
         <label class="custom-file-label" for="titleFile">Titelbild</label>
       </div>
     </div>
@@ -20,7 +20,7 @@
   <div class="form-group">
     <div class="input-group mb-3">
       <div class="custom-file">
-        <input class="custom-file-input" id="defaultTitleFile" type="file" (change)="titleChange($event)">
+        <input class="custom-file-input" id="defaultTitleFile" type="file" (change)="titleChange($event, true)">
         <label class="custom-file-label" for="defaultTitleFile">Standardtitelbild</label>
       </div>
     </div>

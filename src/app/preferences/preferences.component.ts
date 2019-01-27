@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient} from '@angular/common/http';
 import {AccessTokenInst, DataService} from '../rest/data-service';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-preferences',
@@ -11,7 +12,7 @@ import {AccessTokenInst, DataService} from '../rest/data-service';
 export class PreferencesComponent implements OnInit {
 
   titleProgress: number = undefined;
-  defaultTitleProgress: null = undefined;
+  defaultTitleProgress: number = undefined;
   isDefault = false;
 
   constructor(public activeModal: NgbActiveModal, private http: HttpClient, private service: DataService) {
@@ -26,7 +27,13 @@ export class PreferencesComponent implements OnInit {
     if (fileList.length > 0) {
       const file: File = fileList[0];
       const param = 'title' + (isDefault ? '?default=true' : '');
-      this.service.postPicture(file, param);
+      this.service.postPicture(file, param).subscribe(p => {
+        if (isDefault) {
+          this.defaultTitleProgress = p;
+        } else {
+          this.titleProgress = p;
+        }
+      });
     }
   }
 
