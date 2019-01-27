@@ -1,17 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoginComponent} from '../login/login.component';
-import {EventEditorComponent} from '../event-editor/event-editor.component';
-import {InstrumentEditorComponent} from '../instrument-editor/instrument-editor.component';
-import {RoleEditorComponent} from '../role-editor/role-editor.component';
-import {MemberEditorComponent} from '../member-editor/member-editor.component';
-import {LeaderRoleEditorComponent} from '../leader-role-editor/leader-role-editor.component';
-import {LeaderEditorComponent} from '../leader-editor/leader-editor.component';
 import {PreferencesComponent} from '../preferences/preferences.component';
 import {MemberListComponent} from '../member-list/member-list.component';
 import {CredentialsComponent} from '../credentials/credentials.component';
-import {DataService, logout, UserInfoInst} from '../rest/data-service';
+import {DataService, Logout, UserInfoInst} from '../rest/data-service';
 import {Utils} from '../utils';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -24,7 +19,7 @@ export class MenuComponent implements OnInit {
   utils: Utils;
   active = '';
 
-  constructor(private modalService: NgbModal, private utilsInst: Utils, public service: DataService) {
+  constructor(private modalService: NgbModal, private utilsInst: Utils, public service: DataService, private router: Router) {
     this.utils = utilsInst;
   }
 
@@ -32,7 +27,7 @@ export class MenuComponent implements OnInit {
   }
 
   showLogin() {
-    this.modalService.open(LoginComponent);
+    this.modalService.open(LoginComponent, {size: 'sm'});
   }
 
   members() {
@@ -52,7 +47,8 @@ export class MenuComponent implements OnInit {
   }
 
   lo() {
-    logout();
+    Logout(this.router);
+    this.active = '';
   }
 
   classes(name: string): string {
