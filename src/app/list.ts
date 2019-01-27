@@ -1,6 +1,7 @@
 import {DataService} from './rest/data-service';
 import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
+import {HttpHeaders} from '@angular/common/http';
 
 export abstract class List<T> {
 
@@ -9,12 +10,12 @@ export abstract class List<T> {
 
   protected constructor(protected service: DataService, protected modal: NgbModal) {
     this.loadData();
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function (event: KeyboardEvent) {
       if (event.key.toLowerCase() === 'shift') {
         List.deleteButtonUp = false;
       }
     });
-    document.addEventListener('keyup', function (event) {
+    document.addEventListener('keyup', function (event: KeyboardEvent) {
       if (event.key.toLowerCase() === 'shift') {
         List.deleteButtonUp = true;
       }
@@ -55,7 +56,7 @@ export abstract class List<T> {
   }
 
   loadData() {
-    this.service.get<T[]>(this.urlName()).subscribe(i => {
+    this.service.get<T[]>(this.urlName(), this.getHeader()).subscribe(i => {
       this.items = i;
       this.onLoaded();
     });
@@ -79,6 +80,10 @@ export abstract class List<T> {
 
   modalOptions() {
     return {};
+  }
+
+  getHeader(): HttpHeaders {
+    return new HttpHeaders();
   }
 
   abstract urlName(): string;
