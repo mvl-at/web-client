@@ -9,7 +9,7 @@
       </li>
     </ul>
   </div>
-  <div class="col-12">
+  <div class="col-12 col-sm-9">
     <div *ngFor="let instrument of instruments">
       <div class="container-fluid mt-3" *ngIf="membersFromInstrument(instrument).length">
         <h2 [id]="instrument.id">{{ membersFromInstrument(instrument).length > 1 ? instrument.namePlural :
