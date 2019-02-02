@@ -1,7 +1,8 @@
 FROM node:alpine as node
 WORKDIR /usr/src/app
+RUN npm install -g yarn
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . .
 RUN $(npm bin)/ng build --prod --build-optimizer
 
