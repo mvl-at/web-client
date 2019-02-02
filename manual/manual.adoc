@@ -1,7 +1,8 @@
 :author: Richard Stöckl
 :email: richard.stoeckl@aon.at
-:revdate: 2018-11-04
-:revversion: 0.1
+:docdate: 2018-11-04
+:revdate: 2019-01-30
+:revversion: 0.2
 :experimental:
 :toc:
 :numbered:
@@ -56,21 +57,12 @@ NOTE: Diese Anleitung enthält Screenshots, welche mit einer älteren Version de
 Die Menüzeile ist für die Navigation der Webseite zuständig.
 Je nachdem ob derzeit ein Benutzer einloggt ist oder nicht und welche Berechtigungen er besitzt, ändert sich geringfügig ihr aussehen.
 
-.Standard Menüzeile
-image::menubar.png[]
-
-.Menüzeile: Josef Strauch mit erweiterten Rechten ist eingeloggt
-image::menubar-loggedin.png[]
-
 == Mitglieder
 
 Auf dieser Seite werden alle Mitglieder aufgelistet, die aktiv im Verein sind.
 Sie sind nach den jeweiligen Instrumenten gruppiert und nach Beitritt und Name sortiert.
 Angzeigt werden die Überschriften der Instrumente, der Vorname, der Nachname, der Beitritt und ein Foto.
 Falls kein Foto existiert, wird ein Standardfoto abhängig vom Geschlecht angezeigt.
-
-.Mitgliederansicht
-image::members.png[]
 
 === Instrumentenliste
 
@@ -92,9 +84,6 @@ Angezeigt werden:
 * Notiz
 
 Wichtige Termine sind blau hinterlegt.
-
-.Terminansicht
-image::events.png[]
 
 === Abonnieren
 
@@ -130,17 +119,11 @@ Hier wird der komplette Vorstand aufgelistet.
 Wenn ein Mitglied mehrere Vorstandsfunktionen hat, dann werden diese zusammengefasst.
 Der Vorstand wird nach dem selben Schema wie die Instrumente sortiert, wobei auch darauf geachtet wird, dass bei einem Mitglied alle Funktionen korrekt sortiert sind.
 
-.Vorstandsansicht
-image::leaders.png[]
-
 Abgebildet sind der Vorname, Nachname, Foto, die Funktionen und ob die Funktion eine Stellvertretende ist.
 
 == Login
 
 Hier können sich alle Mitglieder einloggen, die über einen Benutzernamen und ein Passwort verfügen und ihnen explizit erlaubt worden ist, dass sie sich einloggen dürfen.
-
-.Login Dialog
-image::login.png[float="left",width=100%,role="left",align="left"]
 
 NOTE: Die Login Schnittstelle wird nur dann angezeigt, wenn man gerade nicht eingeloggt ist.
 
@@ -205,24 +188,12 @@ Im Dialog befinden sich unterschiedliche Knöpfe.
 
 Hier werden alle Termine verwaltet.
 
-.Terminliste
-image::event-list.png[]
-
-.Termine Verwaltungsdialog
-image::event-modal.png[]
-
 === Mitglieder
 
 Hier werden alle Mitglieder verwaltet wie unter <<lists>> beschrieben.
 Es gibt zwei Besonderheiten: Zusätzlich zum Verwaltungsdialog kann mit entsprechender Berechtigung mit dem {lock} auch der <<change-password>> Dialog für andere Mitglieder aufgerufen werden.
 
 NOTE: Das Bild eines Mitglieds kann erst gesetzt werden, nachdem es bereits hinzugefügt worden ist.
-
-.Mitgliederliste
-image::member-list.png[]
-
-.Mitglieder Verwaltungsdialog
-image::member-modal.png[]
 
 === Vorstand
 
@@ -231,12 +202,6 @@ Die Prioritätszahl gibt an, wie weit oben das Vorstandsmitglied aufgelistet wir
 Wenn ein Vorstandsmitglied mehrere Funktionen ausübt, dann gilt immer die kleinste.
 
 NOTE: Die Funktionen werden auch innerhalb vom Vorstandsmitglied sortiert.
-
-.Vorstandsliste
-image::leader-list.png[]
-
-.Vorstand Verwaltungsdialog
-image::leader-modal.png[]
 
 === Archiv
 Hier befinden sich Einträge, welche Noten der Musikverein besitzt.
@@ -267,31 +232,13 @@ Eine Empfehlung wäre es alle normalen Instrumente eine Priorität von 5 zu gebe
 
 NOTE: Die Instrumentenliste dient nicht nur für Instrumente, sondern auch gleichzeitig für die Marketenderinnen und Ehrenmitglieder.
 
-.Instrumentenliste
-image::instrument-list.png[]
-
-.Instrumenten Verwaltungsdialog
-image::instrument-modal.png[]
-
 === Vorstandsfunktionen
 
 Hier werden alle Vorstandsfunktionen verwaltet, die es überhaupt gibt, wie z.B. Obmann, Kapellmeister, Stabführer,...
 
-.Vorstandsfunktionenliste
-image::leader-role-list.png[]
-
-.Vorstandsfunktionen Verwaltungsdialog
-image::leader-role-modal.png[]
-
 === Rollen
 
 Hier werden alle Rollen bzw. Berechtigungen verwaltet.
-
-.Rollenliste
-image::role-list.png[]
-
-.Rollen Verwaltungsdialog
-image::role-modal.png[]
 
 === Einstellungen
 
@@ -303,10 +250,31 @@ Die Trennung ist dafür gut, dass nicht immer das Gruppenbild erneut hochgeldane
 
 NOTE: Wenn man keine entsprechende Berechtigung hat, ist das ganze Menü nicht sichtbar.
 
-== Impressum
+== Fußzeile
+
+Dieser Abschnitt befindet sich genau wie die Menüzeile auf jeder Seite.
+Sie ist gedacht für rechtliche Informationen und sonstiges.
+
+=== GitHub
+
+Das ist der Link zum GitHub Account vom Musikverein.
+Hier befindet sich der Gesamte Quelltext der Webseite.
+
+=== Facebook
+
+Das ist eine Weiterleitung zum Facebook Account.
+
+=== Lizenz
+
+Mit diesem Link kann die Lizenz aufgerufen werden.
+
+=== Resourcen
+
+Hier befinden sich die Vektorgrafiken der Musikverein Leopoldsdorf Logos und die verwendete Hauptfarbe.
+
+=== Impressum
 
 Hier findet man das Impressum der Webseite, konform der österreichischen Anforderungen.
-Zusätzlich befindet sich hier die Softwarelizenz der Webseite.
 
 == Bibliothek
 
