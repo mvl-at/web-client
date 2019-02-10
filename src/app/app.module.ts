@@ -48,7 +48,8 @@ import {
   faPhone,
   faAt,
   faBalanceScale,
-  faToolbox
+  faToolbox,
+  faBook
 } from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {SubscriptionComponent} from './subscription/subscription.component';
@@ -63,7 +64,7 @@ export function initializeApp(appConfig: AppConfigManager) {
 }
 
 library.add(faCalendar, faPencilAlt, faTrashAlt, faUser, faLock, faPlus, faSortDown, faSortUp, faSort,
-  faGithub, faFacebook, faHome, faPhone, faAt, faBalanceScale, faToolbox);
+  faGithub, faFacebook, faHome, faPhone, faAt, faBalanceScale, faToolbox, faBook);
 
 @NgModule({
   declarations: [
