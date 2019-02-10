@@ -37,6 +37,12 @@ body {
 }
 
 hr {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.list-unstyled > li > fa-icon {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
 }
