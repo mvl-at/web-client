@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Member} from '../members/members.component';
 import {DataService} from '../rest/data-service';
+import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-leaders',
@@ -17,7 +18,9 @@ export class LeadersComponent implements OnInit {
 
   ngOnInit() {
     this.service.get<LeaderRoleMember[]>('leaderRolesMembers').subscribe(l => {
-      l.sort(function (a: LeaderRoleMember, b: LeaderRoleMember) {
+      l.sort((a, b) => a.member.lastName < b.member.lastName ? -1 : 1)
+        .sort(a => a.deputy ? 1 : -1)
+        .sort(function (a: LeaderRoleMember, b: LeaderRoleMember) {
         return a.priority - b.priority;
       });
       const members = membersOfLeaders(l);
@@ -72,7 +75,7 @@ export function includeMember(members: Member[], member: Member): boolean {
 
 export function functionsOfMember(list: LeaderRoleMember[], member: Member): LeaderRole[] {
   const roles: LeaderRole[] = [];
-  list.forEach(function (lrm: LeaderRoleMember) {
+  list.sort((a, b) => a.deputy ? 1 : -1).forEach(function (lrm: LeaderRoleMember) {
     if (lrm.memberId === member.id) {
       if (lrm.deputy) {
         lrm.leaderRole.name += ' Stellvertreter';

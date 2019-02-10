@@ -8,3 +8,7 @@
   /* display: inline-block; */
   animation: wiggle 0.8108s infinite;
 }
+
+.member-view {
+  min-width: 400px;
+}
