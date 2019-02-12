@@ -1,46 +1,48 @@
-<table class="table table-hover table-striped">
-  <thead>
-  <tr>
-    <th>
-      <button class="btn-sm btn-success" (click)="add()">
-        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-      </button>
-    </th>
-    <th>Name</th>
-    <th>Beitritt</th>
-    <th>Instrument</th>
-    <th>Aktiv</th>
-    <th>Benutzername</th>
-    <th>ID</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let member of items">
-    <td>
-      <div class="btn-toolbar">
-        <button class="btn-sm btn-secondary mr-2" (click)="edit(member)">
-          <fa-icon [icon]="['fas', 'pencil-alt']"></fa-icon>
+<div class="table-responsive">
+  <table class="table-sm table table-hover table-striped">
+    <thead>
+    <tr>
+      <th>
+        <button class="btn-sm btn-success" (click)="add()">
+          <fa-icon [icon]="['fas', 'plus']"></fa-icon>
         </button>
-        <button class="btn-sm btn-secondary mr-2" (click)="changePassword(member)">
-          <fa-icon [icon]="['fas', 'lock']"></fa-icon>
-        </button>
-        <button class="btn-sm btn-danger mr-2" (click)="deleteItem(member)">
-          <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
-        </button>
-      </div>
-    </td>
-    <td>{{member.firstName + ' ' + member.lastName}}</td>
-    <td>{{member.joined}}</td>
-    <td>{{member.instrument ? member.instrument.name : '-'}}</td>
-    <td>
-      <div class="custom-control custom-checkbox">
-        <input [checked]="member.active" disabled="" class="custom-control-input" placeholder="" id="activeView"
-               type="checkbox" style="margin: 0; line-height: normal">
-        <label class="custom-control-label" for="activeView">&nbsp;</label>
-      </div>
-    </td>
-    <td>{{member.username}}</td>
-    <td>{{member.id}}</td>
-  </tr>
-  </tbody>
-</table>
+      </th>
+      <th>Name</th>
+      <th>Beitritt</th>
+      <th>Instrument</th>
+      <th>Aktiv</th>
+      <th>Benutzername</th>
+      <th>ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let member of items">
+      <td>
+        <div class="btn-toolbar">
+          <button class="btn-sm btn-secondary mr-2" (click)="edit(member)">
+            <fa-icon [icon]="['fas', 'pencil-alt']"></fa-icon>
+          </button>
+          <button class="btn-sm btn-secondary mr-2" (click)="changePassword(member)">
+            <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+          </button>
+          <button class="btn-sm btn-danger mr-2" (click)="deleteItem(member)">
+            <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+          </button>
+        </div>
+      </td>
+      <td>{{member.firstName + ' ' + member.lastName}}</td>
+      <td>{{member.joined}}</td>
+      <td>{{member.instrument ? member.instrument.name : '-'}}</td>
+      <td>
+        <div class="custom-control custom-checkbox">
+          <input [checked]="member.active" disabled="" class="custom-control-input" placeholder="" id="activeView"
+                 type="checkbox" style="margin: 0; line-height: normal">
+          <label class="custom-control-label" for="activeView">&nbsp;</label>
+        </div>
+      </td>
+      <td>{{member.username}}</td>
+      <td>{{member.id}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,25 +1,27 @@
 <button class="btn btn-primary m-2" (click)="dia()">Abonnieren</button>
-<table class="table table-hover table-striped">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Datum</th>
-    <th>Treffpunkt</th>
-    <th>Beginn</th>
-    <th>Ende</th>
-    <th>Adjustierung</th>
-    <th>Notiz</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let event of events" [class.table-primary]="event.important">
-    <td>{{event.name}}</td>
-    <td>{{utils.formatDate(event.date, null)}}</td>
-    <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
-    <td>{{(event.internal)? 'Vereinsintern' : utils.formatDate(null, event.time) + ', ' + event.place}}</td>
-    <td>{{event.openEnd === 1? 'Offen' : event.openEnd >= 2? 'Unbekannt' : utils.formatDate(null, event.end)}}</td>
-    <td>{{event.uniform}}</td>
-    <td>{{event.note}}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table-sm table table-hover table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Datum</th>
+      <th>Treffpunkt</th>
+      <th>Beginn</th>
+      <th>Ende</th>
+      <th>Adjustierung</th>
+      <th>Notiz</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let event of events" [class.table-primary]="event.important">
+      <td>{{event.name}}</td>
+      <td>{{utils.formatDate(event.date, null)}}</td>
+      <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
+      <td>{{(event.internal) ? 'Vereinsintern' : utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+      <td>{{event.openEnd === 1 ? 'Offen' : event.openEnd >= 2 ? 'Unbekannt' : utils.formatDate(null, event.end)}}</td>
+      <td>{{event.uniform}}</td>
+      <td>{{event.note}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
