@@ -1,14 +1,14 @@
-<div class="form-group row mt-3 ml-3" style="margin-right:0">
-  <input [(ngModel)]="search" class="form-control" style="width:30em" placeholder="Suche" id="search" type="text"
+<div class="form-group row ml-3" style="margin-right:0">
+  <input [(ngModel)]="search" class="form-control mt-3" style="width:30em" placeholder="Suche" id="search" type="text"
          (input)="filter()">
-  <select type="number" [(ngModel)]="itemAmount" class="custom-select ml-3" (change)="changedPages()"
+  <select type="number" [(ngModel)]="itemAmount" class="custom-select ml-3 mt-3" (change)="changedPages()"
           style="width: inherit">
     <option *ngFor="let amount of itemAmounts" [value]="amount">{{amount}}</option>
   </select>
-  <ngb-pagination class="ml-3 mt-md-2 mt-lg-0" [pageSize]="itemAmount" [collectionSize]="displayItems.length" [(page)]="page"
+  <ngb-pagination class="ml-3 mt-3" [pageSize]="itemAmount" [collectionSize]="displayItems.length" [(page)]="page"
                   [maxSize]="5"
                   (pageChange)="slice()" size="sm"></ngb-pagination>
-  <small class="ml-2 text-muted">Treffer: {{displayItems.length}}</small>
+  <small class="ml-2 text-muted align-self-center">Treffer: {{displayItems.length}}</small>
 </div>
 <div class="table-responsive">
   <table class="table-sm table table-hover table-striped">
