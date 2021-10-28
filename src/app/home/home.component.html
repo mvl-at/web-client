@@ -1,6 +1,5 @@
-<div class="container m-3">
+<div class="m-3">
   <h1>Musikverein Leopoldsdorf</h1>
-  <div class="well rounded img-thumbnail" (click)="titleFullscreen()" style="max-height: 20em; cursor: zoom-in">
-    <img [src]="service.getTitleImage(true)"/>
-  </div>
+  <img (click)="titleFullscreen()" [src]="service.getTitleImage(true)" class="well rounded img-thumbnail mr-2"
+       style="cursor: zoom-in"/>
 </div>
