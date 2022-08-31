@@ -18,7 +18,11 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getEvents().subscribe(e => this.events = e.sort((a, b) => (a.date > b.date) ? 1 : -1));
+    const now = new Date(Date.now());
+    now.setDate(now.getDate() - 1);
+    const nowUnix = now.valueOf();
+    this.service.getEvents().subscribe(e => this.events = e.filter(ev => Date.parse(ev.date) >= nowUnix)
+      .sort((a, b) => (a.date > b.date) ? 1 : -1));
   }
 
   dia() {
