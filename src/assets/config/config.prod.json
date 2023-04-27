@@ -1,7 +1,7 @@
 {
-  "restHost": "https://rest.example.org/",
-  "assetsHost": "https://assets.example.org/",
-  "calendarPdfHost": "https://calendar.example.org/",
-  "calendarWebCalHost": "webcal://calendar.example.org/",
-  "libraryHost": "https://library.example.org/"
+  "restHost": "https://rest.mvl.at/",
+  "assetsHost": "https://assets.mvl.at/",
+  "calendarPdfHost": "https://calendar.mvl.at/",
+  "calendarWebCalHost": "webcal://calendar.mvl.at/",
+  "libraryHost": null
 }

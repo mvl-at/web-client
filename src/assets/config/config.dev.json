@@ -1,7 +1,7 @@
 {
-  "restHost": "http://mvldev:7301/",
-  "assetsHost": "http://mvldev:7302/",
-  "calendarPdfHost": "http://mvldev:7303/",
-  "calendarWebCalHost": "webcal://mvldev:7303/",
-  "libraryHost": "http://mvldev:7303/"
+  "restHost": "https://rest.mvl.at/",
+  "assetsHost": "https://assets.mvl.at/",
+  "calendarPdfHost": "https://calendar.mvl.at/",
+  "calendarWebCalHost": "webcal://calendar.mvl.at/",
+  "libraryHost": null
 }

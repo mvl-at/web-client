@@ -5,22 +5,23 @@
     <tr>
       <th>Name</th>
       <th>Datum</th>
-      <th>Treffpunkt</th>
-      <th>Beginn</th>
-      <th>Ende</th>
-      <th>Adjustierung</th>
-      <th>Notiz</th>
+      <th *ngIf="userInfo">Treffpunkt</th>
+      <th *ngIf="userInfo">Beginn</th>
+      <th *ngIf="userInfo">Ende</th>
+      <th *ngIf="userInfo">Adjustierung</th>
+      <th *ngIf="userInfo">Notiz</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let event of events" [class.table-primary]="event.important">
       <td>{{event.name}}</td>
-      <td>{{utils.formatDate(event.date, null)}}</td>
-      <td>{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
-      <td>{{(event.internal) ? 'Vereinsintern' : utils.formatDate(null, event.time) + ', ' + event.place}}</td>
-      <td>{{event.openEnd === 1 ? 'Offen' : event.openEnd >= 2 ? 'Unbekannt' : utils.formatDate(null, event.end)}}</td>
-      <td>{{event.uniform}}</td>
-      <td>{{event.note}}</td>
+      <td *ngIf="userInfo">{{utils.formatDate(event.date, null)}}</td>
+      <td *ngIf="userInfo">{{utils.formatDate(null, event.musicianTime) + ', ' + event.musicianPlace}}</td>
+      <td *ngIf="!userInfo">{{utils.formatDate(event.date, null)}} {{utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+      <td *ngIf="userInfo">{{(event.internal) ? 'Vereinsintern' : utils.formatDate(null, event.time) + ', ' + event.place}}</td>
+      <td *ngIf="userInfo">{{event.openEnd === 1 ? 'Offen' : event.openEnd >= 2 ? 'Unbekannt' : utils.formatDate(null, event.end)}}</td>
+      <td *ngIf="userInfo">{{event.uniform}}</td>
+      <td *ngIf="userInfo">{{event.note}}</td>
     </tr>
     </tbody>
   </table>

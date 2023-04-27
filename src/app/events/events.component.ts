@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DataService} from '../rest/data-service';
+import {DataService, UserInfoInst} from '../rest/data-service';
 import {Utils} from '../utils';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SubscriptionComponent} from '../subscription/subscription.component';
@@ -17,16 +17,22 @@ export class EventsComponent implements OnInit {
   constructor(private http: HttpClient, private service: DataService, private utils: Utils, private modal: NgbModal) {
   }
 
-  ngOnInit() {
-    const now = new Date(Date.now());
-    now.setDate(now.getDate() - 1);
-    const nowUnix = now.valueOf();
-    this.service.getEvents().subscribe(e => this.events = e.filter(ev => Date.parse(ev.date) >= nowUnix)
-      .sort((a, b) => (a.date > b.date) ? 1 : -1));
+  get userInfo() {
+    return UserInfoInst;
   }
 
   dia() {
     this.modal.open(SubscriptionComponent);
+  }
+
+  ngOnInit() {
+    const now = new Date(Date.now());
+    now.setDate(now.getDate() - 1);
+    const nowUnix = now.valueOf();
+    this.service.getEvents().subscribe(e => this.events =
+      e.filter(ev => Date.parse(ev.date) >= nowUnix)
+        .filter(ev => !ev.internal || this.userInfo)
+        .sort((a, b) => (a.date > b.date) ? 1 : -1));
   }
 }
 
